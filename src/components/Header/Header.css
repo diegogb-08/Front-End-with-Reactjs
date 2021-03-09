@@ -1,0 +1,19 @@
+.headerComponent{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    height: 4em;
+    /* box-shadow: 3px 7px #c6f4ff;  */
+    padding: 0.2em;
+}
+
+.designDiv{
+    width: 12em;
+}
+
+
+.headerLogoImg{
+    height: 4em;
+    width: 8em;
+}
