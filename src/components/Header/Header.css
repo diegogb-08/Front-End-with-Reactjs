@@ -1,16 +1,17 @@
 .headerComponent{
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
-    align-items: center;
+    justify-content:space-around; 
+    align-items: center; 
     height: 4em;
-    width: 100%;
+    width: 100%; 
     box-shadow: 0px 0px 27px -5px rgba(0,0,0,0.75);
+    cursor: pointer; 
 }
 
 .designDiv{
-    width: 12em;
-}
+    width: 35em; 
+} 
 
 
 .headerLogoImg{

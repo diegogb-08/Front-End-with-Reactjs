@@ -17,7 +17,7 @@ const Header = (props) => {
             <div className="headerLogo">
             <img className="headerLogoImg" alt="logo" src={Logo}/> 
             </div>
-            <div className="designDiv"></div>
+             <div className="designDiv"></div>
             <div className="freeCall">
             </div>
             <div>
