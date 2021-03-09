@@ -12,17 +12,20 @@ import checkError from '../../components/Tools/Tools';
 const Register = () => {
 
     //HOOKS
-
+    
     const [user, setUser] = useState({
         fullName: '',
         userName: '',
         email: '',
         password: '',
+        password2: '',
         birthDate: '',
         phoneNumber: '',
         address: ''
     })
+    
 
+    
     const [message, setMessage] = useState('')
 
     // HANDLERS
@@ -41,7 +44,6 @@ const Register = () => {
         setMessage('');
 
         let error = checkError(user)
-        
         setMessage(error);
 
         if(error){
@@ -81,15 +83,16 @@ const Register = () => {
                     <Input type='text' name='fullName' title='Full Name' lenght='30' onChange={handleState} />
                     <Input type='text' name='userName' title='User Name' lenght='30' onChange={handleState}/>
                     <Input type='email' name='email' title='Email' lenght='30' onChange={handleState}/>
-                    <Input type='number' name='phoneNumber' title='Phone Number' lenght='12' />
+                    <Input type='number' name='phoneNumber' title='Phone Number' lenght='12' onChange={handleState}/>
                     <Input type='password' name='password' title='Password' lenght='16' onChange={handleState}/>
                     <Input type='password' name='password2' title='Repeat Password' lenght='16' onChange={handleState} />
                     <Input type='date' name='birthDate' title='Date of Birth' lenght='30' onChange={handleState}/>
                     <Input type='text' name='address' title='Full Address' lenght='250' onChange={handleState}/>
-                    </div>
-                    <div className="spacer message">{message}</div>
+                </div>
+                <div className="messageSubmit">
+                    <div className="message">{message}</div>
                     <Submit type='submit' name='submit' onClick={()=>submit()} title='Click to register' />
-                    <div className="spacer"></div>
+                </div>
             </div>
             <div className="spacer"></div>
         </div>
