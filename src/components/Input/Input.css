@@ -1,0 +1,14 @@
+.inputComponent{
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-left: 1rem;
+}
+
+.input {
+    height: 2rem;
+    width: 20rem;
+    background-color: white;
+    border-radius: 0.4rem;
+    box-shadow: inset 0px 0px 20px -5px rgba(187, 187, 187, 0.75);
+}

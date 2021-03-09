@@ -1,0 +1,46 @@
+.registerContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 27px -5px rgba(0,0,0,0.75);
+}
+.cardRegister {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    /* background-color: #b5ecfa; */
+    height: 28rem;
+    width: 45rem;
+}
+
+.spacer {
+    height: 1rem;
+}
+
+.submitBtn {
+    height: 2.5rem;
+    width: 20.5rem;
+    border-radius: 0.5rem;
+    margin-left: 1rem;
+    background-color: #e94139;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: none;
+}
+
+.message {
+    color: red;
+    height: 3rem;
+}
