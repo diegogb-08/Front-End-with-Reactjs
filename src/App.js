@@ -2,7 +2,7 @@ import './App.css';
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Register from './containers/Register/Register';
-import Footer from './components/Footer/Footer';
+// import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
 
         </Switch>
 
-        <Footer/>
+        {/* <Footer/> */}
 
       </BrowserRouter>
 

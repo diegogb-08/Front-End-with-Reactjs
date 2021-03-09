@@ -1,6 +1,10 @@
-import React, {useState} from 'react'
-import Input from '../../components/Input/Input'
-import './Register.css'
+import React, {useState} from 'react';
+// import axios from 'axios';
+import './Register.css';
+import Input from '../../components/Input/Input';
+
+
+
 
 const Register = () => {
 
