@@ -17,11 +17,11 @@ const Header = (props) => {
             <div className="headerLogo">
             <img className="headerLogoImg" alt="logo" src={Logo}/> 
             </div>
-            <div className="designDiv"></div>
+             <div className="designDiv"></div>
             <div className="freeCall">
             </div>
             <div>
-            <Btn nombre='Home' destino='/'/>
+            <Btn nombre='Home' destino=''/>
             </div>
             <div>
             <Btn nombre='¡Regístrate!' destino='register'/>

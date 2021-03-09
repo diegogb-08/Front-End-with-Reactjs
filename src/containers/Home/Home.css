@@ -1,4 +1,15 @@
 .homeContainer{
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+
+.mainPhoto{
+    width: 100%;
+    height: 25em;
+}
+
+.homePhoto{
+    width: 100%;
+    height: 100%;
 }
