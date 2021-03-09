@@ -5,7 +5,8 @@
     border-radius: 0.4em;
     display: flex;
     align-items: center;
-    justify-content: center;   
+    justify-content: center;
+    cursor: pointer;
 }
 
 .buttonRedirect:hover {

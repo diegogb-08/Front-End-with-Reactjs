@@ -21,7 +21,7 @@ const Header = (props) => {
             <div className="freeCall">
             </div>
             <div>
-            <Btn nombre='Home' destino='/'/>
+            <Btn nombre='Home' destino=''/>
             </div>
             <div>
             <Btn nombre='¡Regístrate!' destino='register'/>

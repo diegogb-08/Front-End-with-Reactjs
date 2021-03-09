@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .cardContainer {
@@ -28,7 +29,7 @@
     height: 1rem;
 }
 
-.submitBtn {
+/* .submitBtn {
     height: 2.5rem;
     width: 20.5rem;
     border-radius: 0.5rem;
@@ -38,7 +39,7 @@
     font-weight: bold;
     font-size: 1.5rem;
     border: none;
-}
+} */
 
 .message {
     color: red;
