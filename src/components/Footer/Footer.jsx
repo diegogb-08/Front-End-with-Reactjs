@@ -1,15 +1,15 @@
-import React from 'react'
-import './Footer.css'
+// import React from 'react'
+// import './Footer.css'
 
-const Footer = (props) => {
+// const Footer = (props) => {
 
-    return (
-        <div className="footerComponent">
-            <div className="logo"></div>
-            <div></div>
-            <div></div>
-        </div>
-    )
-}
+//     return (
+//         <div className="footerComponent">
+//             <div className="logo"></div>
+//             <div></div>
+//             <div></div>
+//         </div>
+//     )
+// }
 
-export default Footer
+// export default Footer

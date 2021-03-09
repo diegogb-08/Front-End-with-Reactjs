@@ -5,7 +5,6 @@ const Input = (props) => {
 
     return (
         <div className="inputComponent">
-            
             <p>{props.title}</p>
             <input
                 className="input"
@@ -14,7 +13,6 @@ const Input = (props) => {
                 maxLength={props.lenght}
                 onChange={props.onChange}
             ></input>
-
         </div>
     )
 }
