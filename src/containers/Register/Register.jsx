@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 // import axios from 'axios';
 import './Register.css';
 import Input from '../../components/Input/Input';
+import Header from '../../components/Header/Header';
+import Submit from '../../components/Submit/Submit';
+import checkError from '../../components/Tools/Tools';
 
 
 
@@ -25,7 +28,6 @@ const Register = () => {
     // HANDLERS
 
     const handleState = (event) => {
-        console.log(event)
         setUser({...user, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
     };
 
@@ -34,18 +36,17 @@ const Register = () => {
 
     const submit = async () => {
 
-        //Error checking
-        console.log(user.email)
-        if(! /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/.test(user.email)){
-            return setMessage('*The email does not have the expected format.');
+        //Error handling
 
-        }
+        setMessage('');
 
-        if(user.name === ''){
-            return setMessage('You must fill up the name field')
-        }
-
+        let error = checkError(user)
         
+        setMessage(error);
+
+        if(error){
+            return;
+        }
 
         let body = {
 
@@ -70,6 +71,7 @@ const Register = () => {
 
     return (
         <div className="registerContainer">
+            <Header/>
             <h1>Register</h1>
             <p>Create your account. It's free and only takes a minute.</p>
             <div className="spacer"></div>
@@ -86,7 +88,7 @@ const Register = () => {
                     <Input type='text' name='address' title='Full Address' lenght='250' onChange={handleState}/>
                     </div>
                     <div className="spacer message">{message}</div>
-                    <button className='submitBtn' type="submit" name='submit' onClick={()=>submit()}>Click to register</button>
+                    <Submit type='submit' name='submit' onClick={()=>submit()} title='Click to register' />
                     <div className="spacer"></div>
             </div>
             <div className="spacer"></div>
