@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Input from '../../components/Input/Input'
 import Submit from '../../components/Submit/Submit';
 import axios from 'axios';
+import {port, login} from '../../api/api';
 
 
 
@@ -10,7 +11,6 @@ const Login = () => {
 
     const [dataLogin, setLogin] = useState({
         
-       
         email: '',
         password: ''
        
@@ -25,7 +25,7 @@ const Login = () => {
     },[]);
 
     const logeame = async () => {
-        let result = await axios.post('http://localhost:3001/users/login', dataLogin)
+        let result = await axios.post(port+login, dataLogin)
         console.log(result);
     }
 

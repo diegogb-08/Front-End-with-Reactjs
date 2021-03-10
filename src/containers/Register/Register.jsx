@@ -56,14 +56,15 @@ const Register = () => {
             address: user.address
         }
 
+
         //REST API 
         try{
             let data = await axios.post(port+client,body)
             if(data) return await history.push(`/login`)
-
         }catch(error){
             setMessage('The user name, email or phone number already exist!')
         }
+
     }
 
     return (
