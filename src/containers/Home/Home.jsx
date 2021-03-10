@@ -16,7 +16,7 @@ const Home = (props) => {
         <div className="homeContainer">
             <Header/>
             <div className="mainPhoto">
-                <div className="textPhoto"><p>Clinica JessDieg,</p><p>Cuidamos de tu :)</p></div>
+                {/* <div className="textPhoto"><p>Clinica JessDieg,</p><p>Cuidamos de tu :)</p></div> */}
                 <img className="homePhoto" alt="working" src={Photo}/> 
             </div>
 
