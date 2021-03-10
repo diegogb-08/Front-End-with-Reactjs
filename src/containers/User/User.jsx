@@ -1,13 +1,14 @@
 import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import './User.css'
-// import 'antd/dist/antd.css';
-// import { Avatar } from 'antd';
+import 'antd/dist/antd.css';
+import {Avatar} from 'antd';
+
 
 const User = () => {
 
-    const user = localStorage.getItem('user')
-    const name = 'Diego'
+    // const user = localStorage.getItem('user')
+    // const name = 'Diego'
 
     return (
         <div className="userContainer">
@@ -16,6 +17,7 @@ const User = () => {
                 <div className="profileLeft"></div>
                 <div className="profileCenter">
                     
+                <Avatar size={100} style={avatar}>D</Avatar>
                 </div>
             </div>
 
