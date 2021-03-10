@@ -7,6 +7,7 @@ import Home from './containers/Home/Home';
 import Login from './containers/Login/Login';
 
 
+
 const App = () => {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ const App = () => {
           <Route path='/' exact component={Home}/>
           <Route path='/register' exact component={Register}/>
           <Route path='/login' exact component={Login}/>
+          
 
         </Switch>
 
