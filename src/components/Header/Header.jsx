@@ -24,10 +24,10 @@ const Header = (props) => {
             <Btn nombre='Home' destino=''/>
             </div>
             <div>
-            <Btn nombre='¡Regístrate!' destino='register'/>
+            <Btn nombre='¡Sign Up!' destino='register'/>
             </div>
             <div>
-            <Btn nombre='Mi Perfil' destino='profile'/>
+            <Btn nombre='My Profile' destino='profile'/>
             </div>
             
             
