@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import './Register.css';
 import Input from '../../components/Input/Input';
 import Header from '../../components/Header/Header';
 import Submit from '../../components/Submit/Submit';
 import checkError from '../../components/Tools/Tools';
+import {port, client} from '../../api/api';
 
 
 
@@ -66,8 +67,8 @@ const Register = () => {
 
         //REST API 
 
-        // let data = await axios.post('http://localhost:3000/users',body)
-
+        let data = await axios.post(port+client,body)
+        console.log(data)
     }
 
 

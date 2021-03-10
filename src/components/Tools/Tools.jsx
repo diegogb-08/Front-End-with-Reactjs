@@ -1,4 +1,4 @@
-
+import moment from 'moment';
 
 //Tool Functions and Miscelanious
 
@@ -6,16 +6,12 @@ const checkError = (data) => {
 
     let password = data.password;
     let password2 = data.password2;
+    const now = moment().format('YYYY-MM-DD')
+    let age = moment(now).diff(data.birthDate, 'years')
+    // let birthDate = data.birthDate
+    // console.log(birthDate)
     
-//     const getAge = (data) => {
-//         let birthDate = data.birthDate
-//         let today = new Date();
-//         var diff = today.getTime() - birthDate.getTime();
-//         const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-//         return console.log('¿HOW OLD IS THAT PERSON?',age)
-//     }
-//    getAge()
-    
+
     for(let field in data){
 
         switch(field) {
@@ -74,14 +70,24 @@ const checkError = (data) => {
 
             case 'password2' : 
                 if(password2 !== password){
-                    console.log('PASSWORD', password)
-                    console.log('PASSWORD22222222', password2)
                     return '*The password must be the same in both fields'
                 }
                
             break;
 
+            case 'birthDate' :
 
+                if(age < 16){
+                    return '*The minimum age to register is 16 years old'
+                }
+            break;
+
+            case 'address' :
+                // eslint-disable-next-line
+                if(! /^[#.0-9a-zA-Z\s,-\ñÑ]+$/.test(data[field])){
+                    return '*Special characters not allowed. Only "-", "." and "," are allowed'
+                }
+            break;
 
             default: 
 
