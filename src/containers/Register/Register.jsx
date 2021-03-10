@@ -6,14 +6,13 @@ import Header from '../../components/Header/Header';
 import Submit from '../../components/Submit/Submit';
 import checkError from '../../components/Tools/Tools';
 import {port, client} from '../../api/api';
-
-
-
+import {useHistory} from 'react-router-dom';
 
 const Register = () => {
 
+    let history = useHistory();
+
     //HOOKS
-    
     const [user, setUser] = useState({
         fullName: '',
         userName: '',
@@ -25,23 +24,18 @@ const Register = () => {
         address: ''
     })
     
-
-    
     const [message, setMessage] = useState('')
 
     // HANDLERS
-
     const handleState = (event) => {
         setUser({...user, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
     };
 
     
     // FUNCTIONS
-
     const submit = async () => {
 
         //Error handling
-
         setMessage('');
 
         let error = checkError(user)
@@ -60,17 +54,17 @@ const Register = () => {
             birthDate: user.birthDate,
             phoneNumber: user.phoneNumber,
             address: user.address
-
         }
 
-        console.log('el body es.....', body)
-
         //REST API 
+        try{
+            let data = await axios.post(port+client,body)
+            if(data) return await history.push(`/login`)
 
-        let data = await axios.post(port+client,body)
-        console.log(data)
+        }catch(error){
+            setMessage('The user name, email or phone number already exist!')
+        }
     }
-
 
     return (
         <div className="registerContainer">
