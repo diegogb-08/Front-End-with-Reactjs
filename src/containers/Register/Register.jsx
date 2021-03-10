@@ -63,12 +63,12 @@ const Register = () => {
 
         }
 
-        console.log('el body es.....', body)
+    
 
         //REST API 
 
         let data = await axios.post(port+client,body)
-        console.log(data)
+        console.log(data);
     }
 
 
