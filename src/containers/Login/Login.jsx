@@ -4,6 +4,7 @@ import Submit from '../../components/Submit/Submit';
 import axios from 'axios';
 import {port, client, login} from '../../api/api'; 
 import Header from '../../components/Header/Header';
+import './Login.css';
 /* import {useHistory} from 'react-router-dom';  */
 
 
@@ -37,7 +38,7 @@ const Login = () => {
 
     return(
         <div className='loginContainer'>
-            {/* <Header/> */}
+             <Header/> 
             <div className='designDiv'></div>
             <Input type='email' name='email' title='Email' lenght='30' onChange={handleState}/>
             <Input type='password' name='password' title='Password' lenght='16' onChange={handleState}/>
