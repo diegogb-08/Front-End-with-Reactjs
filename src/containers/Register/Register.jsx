@@ -62,7 +62,7 @@ const Register = () => {
             let data = await axios.post(port+client,body)
             if(data) return await history.push(`/login`)
         }catch(error){
-            setMessage('The user name, email or phone number already exist!')
+            setMessage('The user name, email or phone number already exist!') 
         }
 
     }
