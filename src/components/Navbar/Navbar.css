@@ -1,0 +1,7 @@
+.navbarComponent {
+    background-color: #b5ecfa;
+    display:flex;
+    flex-direction: row;
+    height: 3rem;
+    width: 100%;
+}

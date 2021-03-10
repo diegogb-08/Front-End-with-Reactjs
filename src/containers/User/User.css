@@ -1,0 +1,30 @@
+.userContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+}
+
+.dataContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.profileLeft {
+    display: flex;
+    background-color: rgb(211, 211, 211);
+    height: 100%;
+    width: 20%;
+    border: solid 1px red;
+}
+
+.profileCenter {
+    display: flex;
+    height: 100%;
+    width: 80%;
+}

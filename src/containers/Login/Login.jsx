@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Input from '../../components/Input/Input'
 import Submit from '../../components/Submit/Submit';
 import axios from 'axios';
-import {port, login} from '../../api/api';
+import {port, client, login} from '../../api/api';
 
 
 
@@ -25,7 +25,7 @@ const Login = () => {
     },[]);
 
     const logeame = async () => {
-        let result = await axios.post(port+login, dataLogin)
+        let result = await axios.post(port+client+login, dataLogin)
         console.log(result);
     }
 

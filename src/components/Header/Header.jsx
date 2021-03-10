@@ -15,22 +15,19 @@ const Header = (props) => {
     return (
         <div className="headerComponent">
             <div className="headerLogo">
-            <img className="headerLogoImg" alt="logo" src={Logo}/> 
+                <img className="headerLogoImg" alt="logo" src={Logo}/> 
             </div>
-             <div className="designDiv"></div>
-            <div className="freeCall">
+            <div className="designDiv"></div>
+            <div className="freeCall"></div>
+            <div>
+                <Btn nombre='Home' destino=''/>
             </div>
             <div>
-            <Btn nombre='Home' destino=''/>
+                <Btn nombre='Sign Up!' destino='register'/>
             </div>
             <div>
-            <Btn nombre='Sign Up!' destino='register'/>
+                <Btn nombre='Login' destino='login'/>
             </div>
-            <div>
-            <Btn nombre='Login' destino='login'/>
-            </div>
-            
-            
         </div>
     )
 }
