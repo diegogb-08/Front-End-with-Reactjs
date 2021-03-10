@@ -75,6 +75,10 @@ const Register = () => {
     return (
         <div className="registerContainer">
             <Header/>
+            <div className="spacer"></div>
+            <div className="spacer"></div>
+            <div className="spacer"></div>
+            <div className="spacer"></div>
             <h1>Register</h1>
             <p>Create your account. It's free and only takes a minute.</p>
             <div className="spacer"></div>
@@ -95,6 +99,8 @@ const Register = () => {
                     <Submit type='submit' name='submit' onClick={()=>submit()} title='Click to register' />
                 </div>
             </div>
+            <div className="spacer"></div>
+            <div className="spacer"></div>
             <div className="spacer"></div>
         </div>
     )

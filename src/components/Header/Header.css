@@ -6,7 +6,9 @@
     height: 4em;
     width: 100%; 
     box-shadow: 0px 0px 27px -5px rgba(0,0,0,0.75);
-    cursor: pointer; 
+    position: fixed;
+    top: 0;
+    background-color: white;
 }
 
 .designDiv{
