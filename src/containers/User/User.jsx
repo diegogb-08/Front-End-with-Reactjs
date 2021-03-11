@@ -44,12 +44,17 @@ const User = () => {
                     <div className="profileCard">
                         <div className="spacer"></div>
                         <div className="cardTab">
-                            <TabNav tabs={['Profile', 'Appointments']} selected={tab} setSelected={setSelected}>
-                                <Tab isSelected={tab === 'Profile'}>
-                                    <p>Some Text on it</p>
+                            <TabNav tabs={['Profile', 'Appointments']} selected={tab.selected} setSelected={setSelected}>
+                                <Tab isSelected={tab.selected === 'Profile'}>
+                                    <div className="cardInfo card">
+
+                                    
+                                    </div>
                                 </Tab>
-                                <Tab isSelected={tab === 'Appointments'}>
-                                <p>PPPPPPPPPPPPPPPPPPPPPPPPPP</p>
+                                <Tab isSelected={tab.selected === 'Appointments'}>
+                                    <div className="cardInfo card">
+                                        <p>PPPPPPPPPPPPPPPPPPPPPPPPPP</p>
+                                    </div>
                                 </Tab>
                             </TabNav>
                         </div>
