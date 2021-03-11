@@ -1,3 +1,9 @@
+.tabNav {
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 -19px 17px -5px rgba(0, 0, 0, 0.05);
+}
+
 .tab {
     height: 100%;
     width: 15%;

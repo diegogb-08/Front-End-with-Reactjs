@@ -1,15 +1,16 @@
 import React from 'react'
 import './Tab.css'
 
-function Tab(props) {
+const Tab = (props) => {
 
-    
-
-    return (
-        <div className="tab" style={props.style} onClick={props.onClick} >
-            {props.tabs}
-        </div>
-    )
+    if(props.isSelected){
+         return (
+            <div>
+                {props.children}
+            </div>
+        )   
+    }
+    return null;
 }
 
 export default Tab

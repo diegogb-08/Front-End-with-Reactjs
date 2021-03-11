@@ -1,27 +1,21 @@
 import React, {useState,useEffect} from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import Tab from '../../components/Tab/Tab'
+import TabNav from '../../components/Tab/TabNav'
+
 import './User.css'
 
 
 
 const User = () => {
 
-    const [index, setIndex] = useState([
-        {zIndex: '0'},
-        {zIndex: ''}
-    ])
+    
+    const [tab, setTab] = useState({
+        selected: 'Profile'
+    })
 
-
-    const changeZIndex = (index) => {
-        console.log(index)
-        if(index === ""){
-            setIndex({...index, zIndex: '0'})
-        }else{
-            setIndex({...index, zIndex: '0'})
-        }
-        // setIndex(...index, index.move(0,1))
-        
+    const setSelected = (tab) => {
+        setTab({selected: tab});
     }
 
     // useEffect(()=> {
@@ -48,16 +42,17 @@ const User = () => {
                 <div className="profileCenter">
                     <div className="spacer"></div>
                     <div className="profileCard">
-                    <div className="spacer"></div>
-                    <div className="card">
-                        <div className="tabCollection">
-                            <Tab tabs="Profile" style={index[0]} onClick={()=>changeZIndex(index[0])} />
-                            <Tab tabs="Appointments" style={index[1]} onClick={()=>changeZIndex(index[1])}/>
+                        <div className="spacer"></div>
+                        <div className="cardTab">
+                            <TabNav tabs={['Profile', 'Appointments']} selected={tab} setSelected={setSelected}>
+                                <Tab isSelected={tab === 'Profile'}>
+                                    <p>Some Text on it</p>
+                                </Tab>
+                                <Tab isSelected={tab === 'Appointments'}>
+                                <p>PPPPPPPPPPPPPPPPPPPPPPPPPP</p>
+                                </Tab>
+                            </TabNav>
                         </div>
-                        <div className="infoCard">
-
-                        </div>
-                    </div>
                     </div>
 
                 </div>
