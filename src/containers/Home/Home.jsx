@@ -1,9 +1,10 @@
 import React from 'react';
 
 import Header from '../../components/Header/Header';
+import Slideshow from '../../components/Slideshow/Slideshow'
 import './Home.css';
 
-import Photo from '../../img/mainPhotoGirls.png'
+import Photo from '../../img/smileClinic.png'
 import Geo from '../../img/geo.png'
 
 
@@ -15,6 +16,7 @@ const Home = (props) => {
     return (
         <div className="homeContainer">
             <Header/>
+            <Slideshow/>
             <div className="spaceHeader"></div>
             <div className="mainPhoto">
                 {/* <div className="textPhoto"><p>Clinica JessDieg,</p><p>Cuidamos de tu :)</p></div> */}
