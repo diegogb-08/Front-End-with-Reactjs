@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import Navbar from '../../components/Navbar/Navbar'
+import Profile from '../../components/Profile/Profile'
 import Tab from '../../components/Tab/Tab'
 import TabNav from '../../components/Tab/TabNav'
 
@@ -39,7 +40,7 @@ const User = () => {
                             <TabNav tabs={['Profile', 'Appointments']} selected={tab.selected} setSelected={setSelected}>
                                 <Tab isSelected={tab.selected === 'Profile'}>
                                     <div className="cardInfo card">
-
+                                    <Profile initialName="D"></Profile>
                                     
                                     </div>
                                 </Tab>

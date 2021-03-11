@@ -1,0 +1,41 @@
+.profileComponent {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.spacer {
+    height: 1rem;
+}
+
+.profileDivisionLeft {
+    height: 100%;
+    width: 33%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.profileDivisionRight {
+    height: 100%;
+    width: 67%;
+    flex-direction: column;
+    display: flex;
+}
+
+.avatar {
+    width: 10rem;
+    height: 10rem;
+    background-color: rgb(164, 187, 209);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    color: white;
+}
+
+.detailsUser{
+    height: 33%;
+}
