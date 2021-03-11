@@ -10,9 +10,9 @@ const TabNav = (props) => {
                         const active = (tab === props.selected ? 'active' : '');
 
                         return (
-                            <li className='nav-item' key={tab}>
-                                <a className={'nav-link '+ active} onClick={()=>props.setSelected(tab)}>
-                                    {tab}
+                            <li className='nav-item' key={ tab }>
+                                <a className={'nav-link '+ active} onClick={ () =>props.setSelected( tab )}>
+                                    { tab }
                                 </a>
                             </li>
                         );

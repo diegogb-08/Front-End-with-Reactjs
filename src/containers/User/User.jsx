@@ -18,22 +18,14 @@ const User = () => {
         setTab({selected: tab});
     }
 
-    // useEffect(()=> {
-    //     console.log(index)
-    //     //Se ejecuta tras la primera actualización (montado), equivale a componentDidMount()
-    //     console.log("HOLA, COMPONENTE MONTADO POR PRIMERA VEZ");
-    //     // const user = localStorage.getItem('user')
+    useEffect(()=> {
         
-    // },[]);
+        //Se ejecuta tras la primera actualización (montado), equivale a componentDidMount()
+        console.log("HOLA, COMPONENTE MONTADO POR PRIMERA VEZ");
+        const user = localStorage.getItem('user')
+        
+    },[]);
     
-    // const name = 'Diego'
-
-    // const changeZIndex = () => {
-    //     setIndex('1')
-    // }
-
-
-
     return (
         <div className="userContainer">
             <Navbar/>
