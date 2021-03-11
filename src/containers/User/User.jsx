@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import Navbar from '../../components/Navbar/Navbar'
+import Profile from '../../components/Profile/Profile'
 import Tab from '../../components/Tab/Tab'
 import TabNav from '../../components/Tab/TabNav'
 
@@ -18,22 +19,14 @@ const User = () => {
         setTab({selected: tab});
     }
 
-    // useEffect(()=> {
-    //     console.log(index)
-    //     //Se ejecuta tras la primera actualización (montado), equivale a componentDidMount()
-    //     console.log("HOLA, COMPONENTE MONTADO POR PRIMERA VEZ");
-    //     // const user = localStorage.getItem('user')
+    useEffect(()=> {
         
-    // },[]);
+        // componentDidMount() User info and Token will be mounted here 
+        
+        const result = JSON.parse(localStorage.getItem('result'))
+        console.log(result)
+    },[]);
     
-    // const name = 'Diego'
-
-    // const changeZIndex = () => {
-    //     setIndex('1')
-    // }
-
-
-
     return (
         <div className="userContainer">
             <Navbar/>
@@ -47,7 +40,7 @@ const User = () => {
                             <TabNav tabs={['Profile', 'Appointments']} selected={tab.selected} setSelected={setSelected}>
                                 <Tab isSelected={tab.selected === 'Profile'}>
                                     <div className="cardInfo card">
-
+                                    <Profile initialName="D"></Profile>
                                     
                                     </div>
                                 </Tab>

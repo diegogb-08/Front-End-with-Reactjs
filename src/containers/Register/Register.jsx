@@ -72,6 +72,9 @@ const Register = () => {
             <Header/>
             <div className="spacer"></div>
             <div className="spacer"></div>
+            <div className="spacer"></div>
+            <div className="spacer"></div>
+            <div className="spacer"></div>
             <h1>Register</h1>
             <p>Create your account. It's free and only takes a minute.</p>
             <div className="spacer"></div>
