@@ -1,0 +1,13 @@
+.tab {
+    height: 100%;
+    width: 15%;
+    background-color: rgb(253,248,192);
+    border-radius: 0.5rem 0.5rem 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* z-index: 0; */
+    box-shadow: 0 -19px 17px -5px rgba(0, 0, 0, 0.05);
+    margin-right: 0.5rem;
+}
