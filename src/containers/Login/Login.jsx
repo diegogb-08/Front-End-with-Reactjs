@@ -35,7 +35,11 @@ const Login = () => {
     },[]); */
 
     const logeame = async () => {
+<<<<<<< HEAD
         try {
+=======
+        
+>>>>>>> c6c2c2a6ce25af5295d634c3bdd97fb08c9ea329
         let result = await axios.post(port+client+login, dataLogin)
             if(result) {
                 localStorage.setItem("loginUser", JSON.stringify(result.data));
