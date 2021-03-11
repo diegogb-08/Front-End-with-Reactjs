@@ -60,7 +60,7 @@ const Register = () => {
         //REST API 
         try{
             let data = await axios.post(port+client,body)
-            if(data) return await history.push(`/login`)
+            if(data) return history.push(`/login`)
         }catch(error){
             setMessage('The user name, email or phone number already exist!') 
         }
@@ -70,8 +70,6 @@ const Register = () => {
     return (
         <div className="registerContainer">
             <Header/>
-            <div className="spacer"></div>
-            <div className="spacer"></div>
             <div className="spacer"></div>
             <div className="spacer"></div>
             <h1>Register</h1>
