@@ -20,10 +20,10 @@ const User = () => {
 
     useEffect(()=> {
         
-        //Se ejecuta tras la primera actualización (montado), equivale a componentDidMount()
-        console.log("HOLA, COMPONENTE MONTADO POR PRIMERA VEZ");
-        const user = localStorage.getItem('user')
+        // componentDidMount() User info and Token will be mounted here 
         
+        const result = JSON.parse(localStorage.getItem('result'))
+        console.log(result)
     },[]);
     
     return (
