@@ -1,4 +1,11 @@
-.slideshowContainer{
-    width: 1000px;
+.slider{
+    margin-top: 1em;
+    height: 20em;
+    width: 100%;
     overflow: hidden;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
 }

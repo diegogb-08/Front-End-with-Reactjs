@@ -7,6 +7,9 @@ import "slick-carousel/slick/slick-theme.css";
 import './Slideshow.css'
 
 import Slide1 from '../../img/smileClinic.png'
+import Slide2 from '../../img/dentalClinic.png'
+import Slide3 from '../../img/dentistGirl.png'
+import Slide4 from '../../img/clinicGirl.png'
 
 export default class AutoPlay extends Component {
 
@@ -18,29 +21,29 @@ export default class AutoPlay extends Component {
         slidesToScroll: 1,
         autoplay: true,
         speed: 5000,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 1000,
         cssEase: "linear"
       };
-      
+
       return (
         <div>
-          <h2>Auto Play</h2>
+           <h2>Auto Play</h2> 
           <Slider {...settings}>
             <div className='slider'>
-            <img className="slide1" alt="slide1" src={Slide1}/> 
-              <h3>1</h3>
+                <img className="slide1" alt="slide1" src={Slide1}/> 
+                <h3>1</h3>
             </div>
             <div className='slider'>
-              <h3>2</h3>
+                <img className="slide2" alt="slide2" src={Slide2}/> 
+                <h3>2</h3>
             </div>
             <div className='slider'>
-              <h3>3</h3>
+                <img className="slide3" alt="slide3" src={Slide3}/> 
+                <h3>3</h3>
             </div>
             <div className='slider'>
-              <h3>4</h3>
-            </div>
-            <div className='slider'>
-              <h3>5</h3>
+                <img className="slide4" alt="slide4" src={Slide4}/> 
+                <h3>4</h3>
             </div>
           </Slider>
         </div>

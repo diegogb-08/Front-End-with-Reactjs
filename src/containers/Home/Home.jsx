@@ -18,10 +18,10 @@ const Home = (props) => {
             <Header/>
             <Slideshow/>
             <div className="spaceHeader"></div>
-            <div className="mainPhoto">
-                {/* <div className="textPhoto"><p>Clinica JessDieg,</p><p>Cuidamos de tu :)</p></div> */}
+            {/* <div className="mainPhoto">
+                 <div className="textPhoto"><p>Clinica JessDieg,</p><p>Cuidamos de tu :)</p></div> 
                 <img className="homePhoto" alt="working" src={Photo}/> 
-            </div>
+            </div> */}
 
             <div className="mainDescription">
                 <h2>Bienvenidos a la clínica dental JessDieg</h2>
