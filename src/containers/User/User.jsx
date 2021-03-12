@@ -1,4 +1,6 @@
 import React, {useState,useEffect} from 'react'
+import Btn from '../../components/Btn/Bton'
+import Config from '../../components/Config/Config'
 import Navbar from '../../components/Navbar/Navbar'
 import Profile from '../../components/Profile/Profile'
 import Tab from '../../components/Tab/Tab'
@@ -32,7 +34,7 @@ const User = () => {
 
     useEffect(()=> {
         
-        if(user.profile?.fullName)
+        
         console.log(user.profile)
     });
    
@@ -41,17 +43,28 @@ const User = () => {
         setTab({selected: tab});
     }
 
+    const updateUser = () => {
 
+    }
+
+    const logOut = () => {
+
+    }
+    if(user.profile?.fullName){
+
+    }else {
+        
+    }
     return (
         <div className="userContainer">
             <Navbar/>
             <div className="dataContainer">
                 <div className="profileLeft">
                     <Tab isSelected={tab.selected === 'Profile'}>
-                        <div >
-                        Aqui van los controladores del usuario. Update. Log out, Home
-                        
-                        </div>
+                        <div className='configSpacer'></div>
+                        <Btn name='Home' path=''/>
+                        <Config name="Update User" onClick={updateUser}/>
+                        <Config name="Log Out!" onClick={logOut}/>
                     </Tab>
                     <Tab isSelected={tab.selected === 'Appointments'}>
                         <div>
