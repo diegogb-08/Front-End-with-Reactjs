@@ -11,43 +11,41 @@ import Slide2 from '../../img/dentalClinic.png'
 import Slide3 from '../../img/dentistGirl.png'
 import Slide4 from '../../img/clinicGirl.png'
 
-export default class AutoPlay extends Component {
+const Slideshow = () => {
 
-    render() {
-      const settings = {
-        dots: true,
+
+    const settings = {
+        dots: true, 
         infinite: true,
         slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
+        arrows: false,
         speed: 5000,
         autoplaySpeed: 1000,
         cssEase: "linear"
       };
 
       return (
-        <div className='slideshow-container'>
-           <h2>Auto Play</h2> 
+            <div className='sliderContainer'>
+              <h2>Auto Play</h2>  
           <Slider {...settings}>
             <div className='slider'>
                 <img className="slide1" alt="slide1" src={Slide1}/> 
-                <h3>1</h3>
             </div>
             <div className='slider'>
                 <img className="slide2" alt="slide2" src={Slide2}/> 
-                <h3>2</h3>
             </div>
             <div className='slider'>
                 <img className="slide3" alt="slide3" src={Slide3}/> 
-                <h3>3</h3>
             </div>
             <div className='slider'>
                 <img className="slide4" alt="slide4" src={Slide4}/> 
-                <h3>4</h3>
             </div>
           </Slider>
         </div>
       );
-    }
-  }
+}
 
+
+  export default Slideshow;
