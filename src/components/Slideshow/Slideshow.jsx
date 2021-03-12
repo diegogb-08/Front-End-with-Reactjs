@@ -17,7 +17,7 @@ export default class AutoPlay extends Component {
       const settings = {
         dots: true,
         infinite: true,
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
         speed: 5000,
@@ -26,7 +26,7 @@ export default class AutoPlay extends Component {
       };
 
       return (
-        <div>
+        <div className='slideshow-container'>
            <h2>Auto Play</h2> 
           <Slider {...settings}>
             <div className='slider'>

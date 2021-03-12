@@ -34,6 +34,8 @@ const Login = () => {
 
     },[]); */
 
+    //-----------------INGLESAR-------------------------------
+
     const logeame = async () => {
 
         try {
@@ -41,7 +43,7 @@ const Login = () => {
         let result = await axios.post(port+client+login, dataLogin)
             if(result) {
                 localStorage.setItem("loginUser", JSON.stringify(result.data));
-                return history.push(`/user`) 
+                return history.push(`/user`) //--------AÑADIR SET TIME OUT
             }
         } catch(error) {
             setMessage('Email or password not found');

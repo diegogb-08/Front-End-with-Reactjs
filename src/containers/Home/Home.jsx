@@ -17,7 +17,7 @@ const Home = (props) => {
         <div className="homeContainer">
             <Header/>
             <Slideshow/>
-            <div className="spaceHeader"></div>
+             <div className="spaceHeader"></div> 
             {/* <div className="mainPhoto">
                  <div className="textPhoto"><p>Clinica JessDieg,</p><p>Cuidamos de tu :)</p></div> 
                 <img className="homePhoto" alt="working" src={Photo}/> 
