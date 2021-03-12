@@ -20,13 +20,13 @@ const Header = (props) => {
             <div className="designDiv"></div>
             <div className="freeCall"></div>
             <div>
-                <Btn nombre='Home' destino=''/>
+                <Btn name='Home' path=''/>
             </div>
             <div>
-                <Btn nombre='Sign Up!' destino='register'/>
+                <Btn name='Sign Up!' path='register'/>
             </div>
             <div>
-                <Btn nombre='Login' destino='login'/>
+                <Btn name='Login' path='login'/>
             </div>
         </div>
     )
