@@ -10,28 +10,55 @@ import './User.css'
 
 const User = () => {
 
+    // HOOKS
     
     const [tab, setTab] = useState({
         selected: 'Profile'
     })
 
-    const setSelected = (tab) => {
-        setTab({selected: tab});
-    }
+    const [user, setUser] = useState({
+        profile: []
+    })
 
+
+   
     useEffect(()=> {
         
         // componentDidMount() User info and Token will be mounted here 
         
         const result = JSON.parse(localStorage.getItem('result'))
-        console.log(result)
+        setUser({...user, profile: result.user})
     },[]);
-    
+
+    useEffect(()=> {
+        
+        if(user.profile?.fullName)
+        console.log(user.profile)
+    });
+   
+     // FUNCTIONS
+     const setSelected = (tab) => {
+        setTab({selected: tab});
+    }
+
+
     return (
         <div className="userContainer">
             <Navbar/>
             <div className="dataContainer">
-                <div className="profileLeft"></div>
+                <div className="profileLeft">
+                    <Tab isSelected={tab.selected === 'Profile'}>
+                        <div >
+                        Aqui van los controladores del usuario. Update. Log out, Home
+                        
+                        </div>
+                    </Tab>
+                    <Tab isSelected={tab.selected === 'Appointments'}>
+                        <div>
+                            PPPPPPPPPPPPPPPPPPPPPPPPPP
+                        </div>
+                    </Tab>
+                </div>
                 <div className="profileCenter">
                     <div className="spacer"></div>
                     <div className="profileCard">
@@ -55,7 +82,6 @@ const User = () => {
 
                 </div>
             </div>
-
         </div>
     )
 }

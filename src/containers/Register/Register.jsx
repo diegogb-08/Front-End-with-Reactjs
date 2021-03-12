@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './Register.css';
 import Input from '../../components/Input/Input';
@@ -31,7 +31,7 @@ const Register = () => {
         setUser({...user, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
     };
 
-    
+   
     // FUNCTIONS
     const submit = async () => {
 
