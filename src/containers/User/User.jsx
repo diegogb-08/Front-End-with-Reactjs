@@ -44,59 +44,62 @@ const User = () => {
     }
 
     const updateUser = () => {
-
+        
     }
 
     const logOut = () => {
-
-    }
-    if(user.profile?.fullName){
-
-    }else {
         
     }
-    return (
-        <div className="userContainer">
-            <Navbar/>
-            <div className="dataContainer">
-                <div className="profileLeft">
-                    <Tab isSelected={tab.selected === 'Profile'}>
-                        <div className='configSpacer'></div>
-                        <Btn name='Home' path=''/>
-                        <Config name="Update User" onClick={updateUser}/>
-                        <Config name="Log Out!" onClick={logOut}/>
-                    </Tab>
-                    <Tab isSelected={tab.selected === 'Appointments'}>
-                        <div>
-                            PPPPPPPPPPPPPPPPPPPPPPPPPP
-                        </div>
-                    </Tab>
-                </div>
-                <div className="profileCenter">
-                    <div className="spacer"></div>
-                    <div className="profileCard">
-                        <div className="spacer"></div>
-                        <div className="cardTab">
-                            <TabNav tabs={['Profile', 'Appointments']} selected={tab.selected} setSelected={setSelected}>
-                                <Tab isSelected={tab.selected === 'Profile'}>
-                                    <div className="cardInfo card">
-                                    <Profile initialName="D"></Profile>
-                                    
-                                    </div>
-                                </Tab>
-                                <Tab isSelected={tab.selected === 'Appointments'}>
-                                    <div className="cardInfo card">
-                                        <p>PPPPPPPPPPPPPPPPPPPPPPPPPP</p>
-                                    </div>
-                                </Tab>
-                            </TabNav>
-                        </div>
+    if(!user.profile?.fullName){
+        return(
+            <div>CARGANDO</div>
+            )
+    }else {
+            
+            console.log(user.profile)
+        return (
+            <div className="userContainer">
+                <Navbar/>
+                <div className="dataContainer">
+                    <div className="profileLeft">
+                        <Tab isSelected={tab.selected === 'Profile'}>
+                            <div className='configSpacer'></div>
+                            <Btn name='Home' path=''/>
+                            <Config name="Update User" onClick={updateUser}/>
+                            <Config name="Log Out!" onClick={logOut}/>
+                        </Tab>
+                        <Tab isSelected={tab.selected === 'Appointments'}>
+                            <div>
+                                PPPPPPPPPPPPPPPPPPPPPPPPPP
+                            </div>
+                        </Tab>
                     </div>
-
+                    <div className="profileCenter">
+                        <div className="spacer"></div>
+                        <div className="profileCard">
+                            <div className="spacer"></div>
+                            <div className="cardTab">
+                                <TabNav tabs={['Profile', 'Appointments']} selected={tab.selected} setSelected={setSelected}>
+                                    <Tab isSelected={tab.selected === 'Profile'}>
+                                        <div className="cardInfo card">
+                                        <Profile initialName="D"></Profile>
+                                        
+                                        </div>
+                                    </Tab>
+                                    <Tab isSelected={tab.selected === 'Appointments'}>
+                                        <div className="cardInfo card">
+                                            <p>PPPPPPPPPPPPPPPPPPPPPPPPPP</p>
+                                        </div>
+                                    </Tab>
+                                </TabNav>
+                            </div>
+                        </div>
+    
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default User
