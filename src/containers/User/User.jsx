@@ -32,11 +32,7 @@ const User = () => {
         setUser({...user, profile: result.user})
     },[]);
 
-    useEffect(()=> {
-        
-        
-        console.log(user.profile)
-    });
+  
    
      // FUNCTIONS
      const setSelected = (tab) => {
