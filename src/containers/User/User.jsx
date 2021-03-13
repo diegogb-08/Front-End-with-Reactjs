@@ -50,13 +50,26 @@ const User = () => {
     const logOut = () => {
         
     }
+
+    const getFirstName = (fullName) => {
+        const firstName = fullName.split(' ')
+        const name = firstName[0]
+        console.log(name)
+        return name;
+    }
+
+    const getInitial = (fullName) => {
+        const initial = getFirstName(fullName).charAt(0);
+        console.log(initial)
+        return initial;
+    }
+
     if(!user.profile?.fullName){
         return(
             <div>CARGANDO</div>
             )
     }else {
             
-            console.log(user.profile)
         return (
             <div className="userContainer">
                 <Navbar/>
@@ -82,8 +95,17 @@ const User = () => {
                                 <TabNav tabs={['Profile', 'Appointments']} selected={tab.selected} setSelected={setSelected}>
                                     <Tab isSelected={tab.selected === 'Profile'}>
                                         <div className="cardInfo card">
-                                        <Profile initialName="D"></Profile>
-                                        
+                                        <Profile 
+                                            name={getFirstName(user.profile.fullName)}
+                                            initialName={getInitial(user.profile.fullName)}
+                                            fullName={user.profile.fullName}
+                                            userName={user.profile.userName}
+                                            birthDate={user.profile.birthDate}
+                                            email={user.profile.email}
+                                            phoneNumber={user.profile.phoneNumber}
+                                            clientSince={user.profile.createdAt}
+                                            updatedAt={user.profile.updatedAt}
+                                        ></Profile>
                                         </div>
                                     </Tab>
                                     <Tab isSelected={tab.selected === 'Appointments'}>
