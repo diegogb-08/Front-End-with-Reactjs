@@ -29,26 +29,21 @@ const Login = () => {
     const handleState = (event) => {
         setLogin({...dataLogin, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
     };
-/* 
-    useEffect(() => {
 
-    },[]); */
-
-    //-----------------INGLESAR-------------------------------
-
-    const logeame = async () => {
+    const loginme = async () => {
 
         try {
 
         let result = await axios.post(port+client+login, dataLogin)
             if(result) {
                 localStorage.setItem("loginUser", JSON.stringify(result.data));
-                return history.push(`/user`) //--------AÑADIR SET TIME OUT
+                return history.push(`/user`);
             }
+
         } catch(error) {
             setMessage('Email or password not found');
         }
-    }
+    };
 
     return(
         <div className='loginContainer'>
@@ -57,7 +52,7 @@ const Login = () => {
             <div className='cardLoginContainer'>
                 <div className='cardLogin'>
                     
-                        <img className="loginLogoImg" alt="logo" src={Logo}/> 
+                    <img className="loginLogoImg" alt="logo" src={Logo}/> 
                     
                     <Input type='email' name='email' title='Email' lenght='30' onChange={handleState}/>
                     <Input type='password' name='password' title='Password' lenght='16' onChange={handleState}/>
@@ -66,7 +61,7 @@ const Login = () => {
 
                 <div className="messageLogin">
                      <div className="messageErrorLogin">{message}</div>
-                     <Submit type='submit' name='submit' title='logeame' onClick={() => logeame()}/>
+                     <Submit type='submit' name='submit' title='login' onClick={() => loginme()}/>
                 </div>
 
             </div>

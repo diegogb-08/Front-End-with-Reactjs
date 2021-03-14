@@ -18,19 +18,18 @@
     height: 100%;
 }
 
-/* .textPhoto{
-    background-color: #41bbec3a;
-    position: absolute;
-    width: 10em;
-    height: 8em;
-    margin-top: 5em;
-    margin-left: 3em;
-    border-radius: 0.8em;
-    font-size: larger;
-} */
-
-
 .mainDescription{
     margin-top: 1em;
     align-self: center;
+}
+
+/* .navbar-light{
+    display: flex;
+    justify-content: center;
+
+} */
+
+.navbarContainer{
+    display: flex;
+    flex-direction: row;
 }
