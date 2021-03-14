@@ -30,6 +30,7 @@ const User = () => {
         
         const result = JSON.parse(localStorage.getItem('result'))
         setUser({...user, profile: result.user})
+        // eslint-disable-next-line
     },[]);
 
   
@@ -50,13 +51,11 @@ const User = () => {
     const getFirstName = (fullName) => {
         const firstName = fullName.split(' ')
         const name = firstName[0]
-        console.log(name)
         return name;
     }
 
     const getInitial = (fullName) => {
         const initial = getFirstName(fullName).charAt(0);
-        console.log(initial)
         return initial;
     }
 

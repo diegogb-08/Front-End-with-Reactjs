@@ -6,7 +6,7 @@ import './Home.css';
 
 import Geo from '../../img/geo.png'
 import Equipo from '../../img/equipoHumano.jpg'
-import Caries from '../../img/caries.png'
+// import Caries from '../../img/caries.png'
 
 
 const Home = (props) => {
@@ -18,33 +18,33 @@ const Home = (props) => {
             <Slideshow/>
             <div className="spaceHeader"></div>
             <div className='navbarContainer'>
-                  <nav id="navbar-example3" class="navbar-light">
-                      <nav class=" nav-pills flex-column">
-                        <a class="nav-link text-info" href="#item-1">Nuestros Tratamientos</a>
-                        <a class="nav-link text-info" href="#item-2">Nuestros Fundamentos</a>
-                        <a class="nav-link text-info" href="#item-3">Nuestro equipo Humano</a>
-                        <a class="nav-link text-info" href="#item-4">¿Dónde estamos?</a>
+                  <nav id="navbar-example3" className="navbar-light">
+                      <nav className=" nav-pills flex-column">
+                        <a className="nav-link text-info" href="#item-1">Nuestros Tratamientos</a>
+                        <a className="nav-link text-info" href="#item-2">Nuestros Fundamentos</a>
+                        <a className="nav-link text-info" href="#item-3">Nuestro equipo Humano</a>
+                        <a className="nav-link text-info" href="#item-4">¿Dónde estamos?</a>
                         
                       </nav>
                     </nav>
                     <div className="dataContainer">
-                    <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" tabindex="0">
+                    <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" tabIndex="0">
                       <h3 id="item-1">Nuestros Tratamientos</h3>
-                      <div class="container">
-                        <div class="row row-cols-2">
-                          <div class="col">
+                      <div className="container">
+                        <div className="row row-cols-2">
+                          <div className="col">
                             <h5>Implantología</h5>
                             <p>Realizamos la colocación de implantes mediante cirugía tradicional para que tú recuperes la belleza de tu sonrisa.</p>
                           </div>
-                          <div class="col">
+                          <div className="col">
                             <h5>Prótesis dentales</h5>
                             <p>Recuperamos las piezas perdidas y reparamos tus dientes dañados a través de tratamientos fijos o removibles.</p>
                           </div>
-                          <div class="col">
+                          <div className="col">
                             <h5>Ortodoncia</h5>
                             <p>Corregimos y realizamos tratamientos para pacientes de cualquier edad. Colocamos tus dientes.</p>
                           </div>
-                          <div class="col">
+                          <div className="col">
                             <h5>Caries{/* <img className="caries" alt="caries" src={Caries}/> */}</h5>
                             <p>Antes de que te duela, realiza una visita periódica al odontólogo y te ayudará a prevenir la caries.</p>
                           </div>
