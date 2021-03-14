@@ -31,10 +31,18 @@ const Home = (props) => {
                       <h4 id="item-1">Nuestros Tratamientos</h4>
                       <div class="container">
                         <div class="row row-cols-2">
-                          <div class="col">Implantología</div>
-                          <div class="col">Prótesis dentales</div>
-                          <div class="col">Ortodoncia</div>
-                          <div class="col">Caries</div>
+                          <div class="col">Implantología
+                            <p>Realizamos la colocación de implantes mediante cirugía tradicional para que tú recuperes la belleza de tu sonrisa.</p>
+                          </div>
+                          <div class="col">Prótesis dentales
+                            <p>Recuperamos las piezas perdidas y reparamos tus dientes dañados a través de tratamientos fijos o removibles.</p>
+                          </div>
+                          <div class="col">Ortodoncia
+                            <p>Corregimos y realizamos tratamientos para pacientes de cualquier edad. Colocamos tus dientes.</p>
+                          </div>
+                          <div class="col">Caries
+                            <p>Antes de que te duela, realiza una visita periódica al odontólogo y te ayudará a prevenir la caries.</p>
+                          </div>
                         </div>
                         </div>
                       
@@ -47,21 +55,8 @@ const Home = (props) => {
                       <h4 id="item-4">¿Dónde estamos?<img className="GeoImg" alt="localitation" src={Geo}/></h4>
                       <p>C/Almirante Cadarso,26<br/><br/>46021, Valencia.</p>
                      
-                    </div>
-
-                        {/* 
-                                    <div className="mainDescription">
-                                        <h2>Bienvenidos a la clínica dental JessDieg</h2>
-                                        <h3>¿Quiénes Somos?</h3>
-                                        <p>Somos un equipo de profesionales cuidando su salud bucal.<br/><br/>
-                                        JessDieg es tu sitio de confianza donde ofrecemos la más alta calidad en servicios integrales de odontología.<br/><br/>
-                                        Contamos con todas las especialidades en el ámbito dental, utilizando las últimas tecnologías.
-                                        </p>
-                                        <h3>¿Dónde estamos?<img className="GeoImg" alt="localitation" src={Geo}/></h3>
-                                        <p>C/Almirante Cadarso,26<br/><br/>46021, Valencia.</p>  
-                                    </div>
-                        */}
-                                </div>
+                    </div>       
+            </div>
         </div>
         
     )
