@@ -13,6 +13,7 @@ const Input = (props) => {
                 maxLength={props.lenght}
                 onChange={props.onChange}
             ></input>
+            <span className="iconInput" onClick={props.onClick}>{props.eye}</span>
         </div>
     )
 }

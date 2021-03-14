@@ -12,3 +12,11 @@
     border-radius: 0.5rem;
     box-shadow: inset 0px 0px 20px -5px rgba(187, 187, 187, 0.75);
 }
+
+.iconInput {
+    width: 2rem;
+    position: relative;
+    bottom: 1.6rem;
+    left: 13rem;
+    cursor: pointer;
+}

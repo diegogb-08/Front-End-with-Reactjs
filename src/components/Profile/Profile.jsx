@@ -20,7 +20,7 @@ const Profile = (props) => {
                 <p>Birth Date: {props.birthDate}</p>
                 <p>Email: {props.email}</p>
                 <p>Phone Number: {props.phoneNumber}</p>
-                <p>Client since: {props.createdAt}</p>
+                <p>Client since: {props.clientSince}</p>
                 <p>Profile last update: {props.updatedAt}</p>
                 </div>
                 <div className="detailsUser"></div>
