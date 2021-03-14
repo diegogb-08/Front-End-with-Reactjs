@@ -31,6 +31,8 @@ const Register = () => {
     
     const [message, setMessage] = useState('')
 
+
+    
     const [password, setPassword] = useState({
         hideShow: 'password',
         eye: eyeSlashElement
