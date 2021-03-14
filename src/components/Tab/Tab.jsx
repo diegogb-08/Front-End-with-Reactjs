@@ -6,7 +6,7 @@ const Tab = (props) => {
     if(props.isSelected){
          return (
             <div className="tabInfo">
-                {props.children}
+                { props.children }
             </div>
         )   
     }

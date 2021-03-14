@@ -1,5 +1,8 @@
 import React, {useState,useEffect} from 'react'
+import Btn from '../../components/Btn/Bton'
+import Config from '../../components/Config/Config'
 import Navbar from '../../components/Navbar/Navbar'
+import Profile from '../../components/Profile/Profile'
 import Tab from '../../components/Tab/Tab'
 import TabNav from '../../components/Tab/TabNav'
 
@@ -9,36 +12,66 @@ import './User.css'
 
 const User = () => {
 
+    // HOOKS
     
     const [tab, setTab] = useState({
         selected: 'Profile'
     })
 
-    const setSelected = (tab) => {
+    const [user, setUser] = useState({
+        profile: []
+    })
+
+
+   
+    useEffect(()=> {
+        
+        // componentDidMount() User info and Token will be mounted here 
+        
+        const result = JSON.parse(localStorage.getItem('result'))
+        setUser({...user, profile: result.user})
+    },[]);
+
+    useEffect(()=> {
+        
+        
+        console.log(user.profile)
+    });
+   
+     // FUNCTIONS
+     const setSelected = (tab) => {
         setTab({selected: tab});
     }
 
-    // useEffect(()=> {
-    //     console.log(index)
-    //     //Se ejecuta tras la primera actualización (montado), equivale a componentDidMount()
-    //     console.log("HOLA, COMPONENTE MONTADO POR PRIMERA VEZ");
-    //     // const user = localStorage.getItem('user')
+    const updateUser = () => {
+
+    }
+
+    const logOut = () => {
+
+    }
+    if(user.profile?.fullName){
+
+    }else {
         
-    // },[]);
-    
-    // const name = 'Diego'
-
-    // const changeZIndex = () => {
-    //     setIndex('1')
-    // }
-
-
-
+    }
     return (
         <div className="userContainer">
             <Navbar/>
             <div className="dataContainer">
-                <div className="profileLeft"></div>
+                <div className="profileLeft">
+                    <Tab isSelected={tab.selected === 'Profile'}>
+                        <div className='configSpacer'></div>
+                        <Btn name='Home' path=''/>
+                        <Config name="Update User" onClick={updateUser}/>
+                        <Config name="Log Out!" onClick={logOut}/>
+                    </Tab>
+                    <Tab isSelected={tab.selected === 'Appointments'}>
+                        <div>
+                            PPPPPPPPPPPPPPPPPPPPPPPPPP
+                        </div>
+                    </Tab>
+                </div>
                 <div className="profileCenter">
                     <div className="spacer"></div>
                     <div className="profileCard">
@@ -47,7 +80,7 @@ const User = () => {
                             <TabNav tabs={['Profile', 'Appointments']} selected={tab.selected} setSelected={setSelected}>
                                 <Tab isSelected={tab.selected === 'Profile'}>
                                     <div className="cardInfo card">
-
+                                    <Profile initialName="D"></Profile>
                                     
                                     </div>
                                 </Tab>
@@ -62,7 +95,6 @@ const User = () => {
 
                 </div>
             </div>
-
         </div>
     )
 }

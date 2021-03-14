@@ -10,6 +10,8 @@ import Slide1 from '../../img/smileClinic.png'
 import Slide2 from '../../img/dentalClinic.png'
 import Slide3 from '../../img/dentistGirl.png'
 import Slide4 from '../../img/clinicGirl.png'
+import Slide5 from '../../img/primeraConsulta.jpg'
+import Slide6 from '../../img/hazteCliente.jpg'
 
 const Slideshow = () => {
 
@@ -34,10 +36,16 @@ const Slideshow = () => {
                 <img className="slide1" alt="slide1" src={Slide1}/> 
             </div>
             <div className='slider'>
+                <img className="slide5" alt="slide5" src={Slide5}/> 
+            </div>
+            <div className='slider'>
                 <img className="slide2" alt="slide2" src={Slide2}/> 
             </div>
             <div className='slider'>
                 <img className="slide3" alt="slide3" src={Slide3}/> 
+            </div>
+            <div className='slider'>
+                <img className="slide6" alt="slide5" src={Slide6}/> 
             </div>
             <div className='slider'>
                 <img className="slide4" alt="slide4" src={Slide4}/> 
