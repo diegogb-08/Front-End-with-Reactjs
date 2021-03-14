@@ -14,7 +14,6 @@
 }
 
 .homePhoto{
-    /* width: 100%; */
     height: 100%;
 }
 
@@ -23,13 +22,26 @@
     align-self: center;
 }
 
-/* .navbar-light{
-    display: flex;
-    justify-content: center;
-
-} */
-
 .navbarContainer{
     display: flex;
     flex-direction: row;
+}
+
+.dataContainer{
+    margin-left: 4em;
+}
+
+.col {
+    margin-top: 0.5em;
+}
+
+.p{
+    margin-top: 1em;
+}
+
+.humanTeam{
+    width: 40em;
+    height: 20em;
+    overflow: hidden;
+    align-self: center;
 }
