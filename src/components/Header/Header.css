@@ -16,8 +16,13 @@
     width: 35em; 
 } 
 
+.headerLogo{
+    height: 5em;
+    width: 5em;
+
+}
 
 .headerLogoImg{
-    height: 4em;
-    width: 8em;
+    height: 100%;
+    width: 100%; 
 }

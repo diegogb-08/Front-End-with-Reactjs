@@ -9,28 +9,39 @@
 }
 
 .mainPhoto{
-    width: 100%;
-    height: 20em;  
+    width: 20em;
+    height: 20em; 
 }
 
 .homePhoto{
-    width: 100%;
     height: 100%;
 }
 
-/* .textPhoto{
-    background-color: #41bbec3a;
-    position: absolute;
-    width: 10em;
-    height: 8em;
-    margin-top: 5em;
-    margin-left: 3em;
-    border-radius: 0.8em;
-    font-size: larger;
-} */
-
-
 .mainDescription{
     margin-top: 1em;
+    align-self: center;
+}
+
+.navbarContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.dataContainer{
+    margin-left: 4em;
+}
+
+.col {
+    margin-top: 0.5em;
+}
+
+.p{
+    margin-top: 1em;
+}
+
+.humanTeam{
+    width: 40em;
+    height: 20em;
+    overflow: hidden;
     align-self: center;
 }

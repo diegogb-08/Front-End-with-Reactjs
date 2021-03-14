@@ -28,6 +28,7 @@ const Header = (props) => {
             <div>
                 <Btn name='Login' path='login'/>
             </div>
+            
         </div>
     )
 }

@@ -7,44 +7,53 @@ import "slick-carousel/slick/slick-theme.css";
 import './Slideshow.css'
 
 import Slide1 from '../../img/smileClinic.png'
+import Slide2 from '../../img/dentalClinic.png'
+import Slide3 from '../../img/dentistGirl.png'
+import Slide4 from '../../img/clinicGirl.png'
+import Slide5 from '../../img/primeraConsulta.jpg'
+import Slide6 from '../../img/hazteCliente.jpg'
 
-export default class AutoPlay extends Component {
+const Slideshow = () => {
 
-    render() {
-      const settings = {
-        dots: true,
+
+    const settings = {
+        dots: true, 
         infinite: true,
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
+        arrows: false,
         speed: 5000,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 1000,
         cssEase: "linear"
       };
-      
+
       return (
-        <div>
-          <h2>Auto Play</h2>
+            <div className='sliderContainer'>
+              <h2>Auto Play</h2>  
           <Slider {...settings}>
             <div className='slider'>
-            <img className="slide1" alt="slide1" src={Slide1}/> 
-              <h3>1</h3>
+                <img className="slide1" alt="slide1" src={Slide1}/> 
             </div>
             <div className='slider'>
-              <h3>2</h3>
+                <img className="slide5" alt="slide5" src={Slide5}/> 
             </div>
             <div className='slider'>
-              <h3>3</h3>
+                <img className="slide2" alt="slide2" src={Slide2}/> 
             </div>
             <div className='slider'>
-              <h3>4</h3>
+                <img className="slide3" alt="slide3" src={Slide3}/> 
             </div>
             <div className='slider'>
-              <h3>5</h3>
+                <img className="slide6" alt="slide5" src={Slide6}/> 
+            </div>
+            <div className='slider'>
+                <img className="slide4" alt="slide4" src={Slide4}/> 
             </div>
           </Slider>
         </div>
       );
-    }
-  }
+}
 
+
+  export default Slideshow;

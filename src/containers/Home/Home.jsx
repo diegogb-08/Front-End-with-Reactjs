@@ -4,36 +4,68 @@ import Header from '../../components/Header/Header';
 import Slideshow from '../../components/Slideshow/Slideshow'
 import './Home.css';
 
-import Photo from '../../img/smileClinic.png'
 import Geo from '../../img/geo.png'
-
+import Equipo from '../../img/equipoHumano.jpg'
+import Caries from '../../img/caries.png'
 
 
 const Home = (props) => {
 
    
-
     return (
         <div className="homeContainer">
             <Header/>
             <Slideshow/>
             <div className="spaceHeader"></div>
-            <div className="mainPhoto">
-                {/* <div className="textPhoto"><p>Clinica JessDieg,</p><p>Cuidamos de tu :)</p></div> */}
-                <img className="homePhoto" alt="working" src={Photo}/> 
+            <div className='navbarContainer'>
+                  <nav id="navbar-example3" class="navbar-light">
+                      <nav class=" nav-pills flex-column">
+                        <a class="nav-link text-info" href="#item-1">Nuestros Tratamientos</a>
+                        <a class="nav-link text-info" href="#item-2">Nuestros Fundamentos</a>
+                        <a class="nav-link text-info" href="#item-3">Nuestro equipo Humano</a>
+                        <a class="nav-link text-info" href="#item-4">¿Dónde estamos?</a>
+                        
+                      </nav>
+                    </nav>
+                    <div className="dataContainer">
+                    <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" tabindex="0">
+                      <h3 id="item-1">Nuestros Tratamientos</h3>
+                      <div class="container">
+                        <div class="row row-cols-2">
+                          <div class="col">
+                            <h5>Implantología</h5>
+                            <p>Realizamos la colocación de implantes mediante cirugía tradicional para que tú recuperes la belleza de tu sonrisa.</p>
+                          </div>
+                          <div class="col">
+                            <h5>Prótesis dentales</h5>
+                            <p>Recuperamos las piezas perdidas y reparamos tus dientes dañados a través de tratamientos fijos o removibles.</p>
+                          </div>
+                          <div class="col">
+                            <h5>Ortodoncia</h5>
+                            <p>Corregimos y realizamos tratamientos para pacientes de cualquier edad. Colocamos tus dientes.</p>
+                          </div>
+                          <div class="col">
+                            <h5>Caries{/* <img className="caries" alt="caries" src={Caries}/> */}</h5>
+                            <p>Antes de que te duela, realiza una visita periódica al odontólogo y te ayudará a prevenir la caries.</p>
+                          </div>
+                        </div>
+                        </div>
+                      
+                      <h3 id="item-2"><br/>Nuestro color favorito es el blanco</h3>
+                      <p>En los centros odontológicos JessDieg nos gusta el blanco de tus dientes.<br/>
+                      Por eso, te ofrecemos el mejor servicio en alta estética dental e implantología, utilizando las últimas tecnologías y manteniéndonos a la vanguardia desde el año 2004.<br/>
+                      Ofrecemos una atención personalizada, con facilidades de pago y revisiones completas.</p>
+                      <h3 id="item-3"><br/>Nuestro equipo Humano</h3>
+                      <p>La clínica JessDieg, cuenta con un equipo multidisplinar de profesionales que nos ha permitido consolidarnos como empresa en los útlimos años.<br/>
+                       Apostamos por personas</p>
+                      <img className="humanTeam" alt="humanTeam" src={Equipo}/>
+                      
+                      <h3 id="item-4"><br/>¿Dónde estamos?<img className="GeoImg" alt="localitation" src={Geo}/></h3>
+                      <p>C/Almirante Cadarso,26<br/>46021, Valencia.<br/>Teléfono de contacto: 96345555</p>
+                     
+                    </div>       
+                    </div>
             </div>
-
-            <div className="mainDescription">
-                <h2>Bienvenidos a la clínica dental JessDieg</h2>
-                <h3>¿Quiénes Somos?</h3>
-                <p>Somos un equipo de profesionales cuidando su salud bucal.<br/><br/>
-                JessDieg es tu sitio de confianza donde ofrecemos la más alta calidad en servicios integrales de odontología.<br/><br/>
-                Contamos con todas las especialidades en el ámbito dental, utilizando las últimas tecnologías.
-                </p>
-                <h3>¿Dónde estamos?<img className="GeoImg" alt="localitation" src={Geo}/></h3>
-                <p>C/Almirante Cadarso,26<br/><br/>46021, Valencia.</p>  
-            </div>
-
         </div>
         
     )
