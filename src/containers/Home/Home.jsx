@@ -27,7 +27,7 @@ const Home = (props) => {
                         
                       </nav>
                     </nav>
-                    <div className="dataContainer">
+                    <div className="infoContainer">
                     <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" tabIndex="0">
                       <h3 id="item-1">Nuestros Tratamientos</h3>
                       <div className="container">
