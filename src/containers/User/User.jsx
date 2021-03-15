@@ -30,7 +30,6 @@ const User = () => {
         
         const result = JSON.parse(localStorage.getItem('result'))
         setUser({...user, profile: result.user})
-        // eslint-disable-next-line
     },[]);
 
   
@@ -51,11 +50,13 @@ const User = () => {
     const getFirstName = (fullName) => {
         const firstName = fullName.split(' ')
         const name = firstName[0]
+        console.log(name)
         return name;
     }
 
     const getInitial = (fullName) => {
         const initial = getFirstName(fullName).charAt(0);
+        console.log(initial)
         return initial;
     }
 
@@ -70,7 +71,7 @@ const User = () => {
                 <Navbar/>
                 <div className="dataContainer">
                     <div className="profileLeft">
-                        {/* <Tab isSelected={tab.selected === 'Profile'}>
+                        <Tab isSelected={tab.selected === 'Profile'}>
                             <div className='configSpacer'></div>
                             <Btn name='Home' path=''/>
                             <Config name="Update User" onClick={updateUser}/>
@@ -80,10 +81,10 @@ const User = () => {
                             <div>
                                 PPPPPPPPPPPPPPPPPPPPPPPPPP
                             </div>
-                        </Tab> */}
+                        </Tab>
                     </div>
                     <div className="profileCenter">
-                        {/* <div className="spacer"></div>
+                        <div className="spacer"></div>
                         <div className="profileCard">
                             <div className="spacer"></div>
                             <div className="cardTab">
@@ -111,7 +112,7 @@ const User = () => {
                                 </TabNav>
                             </div>
                         </div>
-     */}
+    
                     </div>
                 </div>
             </div>
