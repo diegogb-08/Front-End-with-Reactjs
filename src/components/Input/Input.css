@@ -6,17 +6,17 @@
 }
 
 .input {
-    height: 2rem;
+    height: 2.5rem;
     width: 15rem;
     background-color: white;
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
     box-shadow: inset 0px 0px 20px -5px rgba(187, 187, 187, 0.75);
 }
 
 .iconInput {
     width: 2rem;
     position: relative;
-    bottom: 1.6rem;
+    bottom: 1.9rem;
     left: 13rem;
     cursor: pointer;
 }
