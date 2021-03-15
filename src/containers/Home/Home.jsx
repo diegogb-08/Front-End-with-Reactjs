@@ -16,8 +16,8 @@ const Home = (props) => {
         <div className="homeContainer">
             <Header/>
             <Slideshow/>
-            <div className="spaceHeader"></div>
-            <div className='navbarContainer'>
+             
+           {/*  <div className='navbarContainer'>
                   <nav id="navbar-example3" className="navbar-light">
                       <nav className=" nav-pills flex-column">
                         <a className="nav-link text-info" href="#item-1">Nuestros Tratamientos</a>
@@ -45,7 +45,7 @@ const Home = (props) => {
                             <p>Corregimos y realizamos tratamientos para pacientes de cualquier edad. Colocamos tus dientes.</p>
                           </div>
                           <div className="col">
-                            <h5>Caries{/* <img className="caries" alt="caries" src={Caries}/> */}</h5>
+                            <h5>Caries{/* <img className="caries" alt="caries" src={Caries}/> </h5>
                             <p>Antes de que te duela, realiza una visita periódica al odontólogo y te ayudará a prevenir la caries.</p>
                           </div>
                         </div>
@@ -65,7 +65,7 @@ const Home = (props) => {
                      
                     </div>       
                     </div>
-            </div>
+            </div>  */}
         </div>
         
     )
