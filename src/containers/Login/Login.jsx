@@ -20,7 +20,8 @@ const Login = () => {
     const [dataLogin, setLogin] = useState({
         
         email: '',
-        password: ''
+        password: '',
+        userType: ''
        
     });
 
@@ -32,12 +33,26 @@ const Login = () => {
 
     const loginme = async () => {
 
+        console.log('Estamos dentro de la función logeame');
+    
+
+        /* let role = dataLogin.userType === 'Client' ? 'client' : 'admin'; */
+
         try {
 
         let result = await axios.post(port+client+login, dataLogin)
             if(result) {
                 localStorage.setItem("result", JSON.stringify(result.data));
-                return history.push(`/user`);
+                return setTimeout(() => {
+                    if (dataLogin.userType === 'Client') {
+                        history.push('/user')
+                    } else if (dataLogin.userType === 'Admin') {
+                        history.push('/admin')
+                    } else {
+                        alert('Define your role!')
+                    }
+                }, 2000);
+                
             }
 
         } catch(error) {
@@ -56,6 +71,12 @@ const Login = () => {
                     
                     <Input type='email' name='email' title='Email' lenght='30' onChange={handleState}/>
                     <Input type='password' name='password' title='Password' lenght='16' onChange={handleState}/>
+                    <select type='select' name='userType' onChange={handleState}>
+                        <option></option>
+                        <option>Client</option>
+                        <option>Admin</option>
+                    </select>
+
 
                 </div>
 
