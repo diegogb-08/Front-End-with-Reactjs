@@ -70,7 +70,7 @@ const User = () => {
                 <Navbar/>
                 <div className="dataContainer">
                     <div className="profileLeft">
-                        <Tab isSelected={tab.selected === 'Profile'}>
+                        {/* <Tab isSelected={tab.selected === 'Profile'}>
                             <div className='configSpacer'></div>
                             <Btn name='Home' path=''/>
                             <Config name="Update User" onClick={updateUser}/>
@@ -80,10 +80,10 @@ const User = () => {
                             <div>
                                 PPPPPPPPPPPPPPPPPPPPPPPPPP
                             </div>
-                        </Tab>
+                        </Tab> */}
                     </div>
                     <div className="profileCenter">
-                        <div className="spacer"></div>
+                        {/* <div className="spacer"></div>
                         <div className="profileCard">
                             <div className="spacer"></div>
                             <div className="cardTab">
@@ -111,7 +111,7 @@ const User = () => {
                                 </TabNav>
                             </div>
                         </div>
-    
+     */}
                     </div>
                 </div>
             </div>
