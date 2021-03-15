@@ -1,0 +1,12 @@
+.formModal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.onHide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

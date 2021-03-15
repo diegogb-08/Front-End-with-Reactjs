@@ -27,12 +27,12 @@
 .line{
     width: 70%;
     height: 0.1rem;
-    background-color: gray;
+    background-color: #ccc;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 .columnCardRegister{
-    width: 50%;
+    width: 43%;
     height: 100%;
 }
 
@@ -42,8 +42,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 1rem;
-    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.75);
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
     background-color: white;
 }
 .cardRegister {
@@ -52,7 +52,7 @@
     justify-content: center;
     align-items: center;
     height: 25rem;
-    width: 35rem;
+    width: 30rem;
 }
 
 .messageSubmit {
@@ -60,14 +60,22 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .message {
     color: red;
     height: 5rem;
-    width: 17rem;
+    width: 60%;
     font-style: italic;
     font-size: 12px;
     display: flex;
-    justify-content: center;
+    justify-content:center;
+}
+
+.submitContainer{
+    display: flex;
+    justify-content: flex-end;
+    width: 40%;
+    padding-right: 3rem;
 }
