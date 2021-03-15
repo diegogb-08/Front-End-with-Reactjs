@@ -126,7 +126,9 @@ const Register = () => {
                     </div>
                     <div className="messageSubmit">
                         <div className="message">{message}</div>
-                        <Submit type='submit' name='submit' onClick={()=>submit()} title='Click to register' />
+                        <div className="submitContainer">
+                            <Submit type='submit' name='submit' onClick={()=>submit()} title='Click to register' />
+                        </div>
                     </div>
                 </div>
             </div>    

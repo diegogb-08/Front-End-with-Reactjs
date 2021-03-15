@@ -1,11 +1,11 @@
 .submitBtn {
     height: 2.5rem;
-    width: 15rem;
+    width: 8rem;
     border-radius: 0.5rem;
     background-color: #e94239;
     color: white;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 14px;
     border: none;
     cursor: pointer;
 }
