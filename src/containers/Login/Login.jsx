@@ -36,7 +36,7 @@ const Login = () => {
 
         let result = await axios.post(port+client+login, dataLogin)
             if(result) {
-                localStorage.setItem("loginUser", JSON.stringify(result.data));
+                localStorage.setItem("result", JSON.stringify(result.data));
                 return history.push(`/user`);
             }
 
