@@ -5,6 +5,9 @@ import Navbar from '../../components/Navbar/Navbar'
 import Profile from '../../components/Profile/Profile'
 import Tab from '../../components/Tab/Tab'
 import TabNav from '../../components/Tab/TabNav'
+import ModalForm from '../ModalForm/ModalForm'
+
+
 
 import './User.css'
 
@@ -39,9 +42,6 @@ const User = () => {
         setTab({selected: tab});
     }
 
-    const updateUser = () => {
-        
-    }
 
     const logOut = () => {
         
@@ -72,7 +72,8 @@ const User = () => {
                         <Tab isSelected={tab.selected === 'Profile'}>
                             <div className='configSpacer'></div>
                             <Btn name='Home' path=''/>
-                            <Config name="Update User" onClick={updateUser}/>
+                            {/*Update User - Open Modal form to update user*/}
+                            <ModalForm/> 
                             <Config name="Log Out!" onClick={logOut}/>
                         </Tab>
                         <Tab isSelected={tab.selected === 'Appointments'}>
