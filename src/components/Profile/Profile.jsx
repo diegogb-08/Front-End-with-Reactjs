@@ -1,5 +1,6 @@
 import React from 'react'
-import './Profile.css'
+import './Profile.css';
+import moment from 'moment';
 
 const Profile = (props) => {
 
@@ -17,11 +18,11 @@ const Profile = (props) => {
                 <div className="detailsUser">
                 <p>Full Name: {props.fullName}</p>
                 <p>User Name: {props.userName}</p>
-                <p>Birth Date: {props.birthDate}</p>
+                <p>Birth Date: {moment(props.birthDate).format('Do-MMMM-YYYY')}</p>
                 <p>Email: {props.email}</p>
                 <p>Phone Number: {props.phoneNumber}</p>
-                <p>Client since: {props.clientSince}</p>
-                <p>Profile last update: {props.updatedAt}</p>
+                <p>Client since: {moment(props.clientSince).format('Do-MMMM-YYYY')}</p>
+                <p>Profile last update: {moment(props.updatedAt).format('Do-MMMM-YYYY')}</p>
                 </div>
                 <div className="detailsUser"></div>
             </div>
