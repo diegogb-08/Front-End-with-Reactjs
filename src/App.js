@@ -1,6 +1,5 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Register from './containers/Register/Register';
 import Home from './containers/Home/Home';
@@ -11,6 +10,7 @@ import User from './containers/User/User';
 
 
 const App = () => {
+
   return (
     <div className="App">
       
