@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import Portal from '../../Portal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes} from '@fortawesome/free-solid-svg-icons'
 
 export default class Modal extends Component {
 
+    
     render() {
+        const x = <FontAwesomeIcon icon={faTimes} />
         const {children, toggle, active } = this.props
         
         return (
@@ -11,7 +15,7 @@ export default class Modal extends Component {
                 {active && (
                     <div style={styles.wrapper}>
                         <div style={styles.window}>
-                            <button style={styles.closeBtn} onClick={toggle}>x</button>
+                            <div style={styles.closeBtn} onClick={toggle}>{x}</div>
                             <div>{children}</div>
                         </div>
                         <div onClick={toggle} style={styles.background} />
@@ -27,10 +31,11 @@ const styles = {
         position: 'absolute',
         top: 0,
         left: 0,
-        widht: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        width: '100%',
+        height:'100vh',
     },
     window: {
         position: 'relative',
@@ -45,10 +50,15 @@ const styles = {
         position: 'absolute',
         top: 0,
         right: 0,
+        borderRadius: '4rem',
+        cursor: 'pointer',
+        marginRight: '0.5rem',
+        marginTop: '0.3rem',
+        color: 'grey'
     },
     background: {
         position: 'absolute',
-        widht: '100%',
+        width: '100%',
         height: '100%',
         top: 0,
         left: 0,
