@@ -39,7 +39,7 @@ const Login = (props) => {
 
         let result = await axios.post(port+client+login, dataLogin)
             if(result) {
-               let propiedades = props.dispatch({type: LOGIN, payload: result});
+                props.dispatch({type: LOGIN, payload: result});
                 history.push('/user')
            
                 // return setTimeout(() => {
