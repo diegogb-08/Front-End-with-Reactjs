@@ -12,7 +12,9 @@ import TabNav from '../../components/Tab/TabNav'
 import ModalRender from '../Modal/ModalRender'
 
 
+
 import './User.css'
+import Appointment from '../../components/Appointment/Appointment';
 
 
 
@@ -112,6 +114,7 @@ const User = (props) => {
                                     </Tab>
                                     <Tab isSelected={tab.selected === 'Appointments'}>
                                         <div className="cardInfo card">
+                                            <Appointment/>
                                             <p>PPPPPPPPPPPPPPPPPPPPPPPPPP</p>
                                         </div>
                                     </Tab>

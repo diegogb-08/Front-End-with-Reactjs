@@ -35,22 +35,25 @@ const Login = (props) => {
 
     const loginMe = async () => {
 
+        console.log('Estamos dentro de la función logeame');
+    
+
         try {
 
         let result = await axios.post(port+client+login, dataLogin)
             if(result) {
                let propiedades = props.dispatch({type: LOGIN, payload: result});
-                history.push('/user')
-           
-                // return setTimeout(() => {
-                //     if (dataLogin.userType === 'Client') {
-                //         history.push('/user')
-                //     } else if (dataLogin.userType === 'Admin') {
-                //         history.push('/admin')
-                //     } else {
-                //         alert('Define your role!')
-                //     }
-                // }, 2000);
+                console.log(propiedades);
+                /* localStorage.setItem("result", JSON.stringify(result.data)); */
+                return setTimeout(() => {
+                    if (dataLogin.userType === 'Client') {
+                        history.push('/user')
+                    } else if (dataLogin.userType === 'Admin') {
+                        history.push('/admin')
+                    } else {
+                        alert('Define your role!')
+                    }
+                }, 2000);
                 
             }
 
