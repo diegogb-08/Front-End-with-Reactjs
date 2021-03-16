@@ -49,6 +49,7 @@
 .cardRegister {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
     justify-content: center;
     align-items: center;
     height: 25rem;

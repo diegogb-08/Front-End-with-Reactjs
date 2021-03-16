@@ -43,7 +43,6 @@ const styles = {
         position: 'relative',
         background: '#fff',
         borderRadius: 5,
-        padding: 15,
         boxShadow: '2px 2px 10px rgba(0,0,0,0.2)',
         zIndex: 10,
         minWidth: 320,

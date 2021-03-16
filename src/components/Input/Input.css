@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    margin-left: 1rem;
 }
 
 .input {
