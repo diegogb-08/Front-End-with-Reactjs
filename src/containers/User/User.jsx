@@ -1,4 +1,8 @@
 import React, {useState,useEffect} from 'react'
+import {connect} from 'react-redux';
+import { LOGOUT } from '../../redux/types/usertype';
+import {useHistory} from 'react-router-dom';  
+
 import Btn from '../../components/Btn/Bton'
 import Config from '../../components/Config/Config'
 import Navbar from '../../components/Navbar/Navbar'
@@ -8,12 +12,13 @@ import TabNav from '../../components/Tab/TabNav'
 import ModalRender from '../Modal/ModalRender'
 
 
-
 import './User.css'
 
 
 
-const User = () => {
+const User = (props) => {
+
+    let history = useHistory();
 
     // HOOKS
     
@@ -28,11 +33,10 @@ const User = () => {
 
    
     useEffect(()=> {
-        
         // componentDidMount() User info and Token will be mounted here 
-        
-        const result = JSON.parse(localStorage.getItem('result'))
-        setUser({...user, profile: result.user})
+        const result = props.user  
+        // const token = result.data.token
+        setUser({...user, profile: result.data.user})
     },[]);
 
   
@@ -44,7 +48,11 @@ const User = () => {
 
 
     const logOut = () => {
-        
+        props.dispatch({ type: LOGOUT, payload : {}});
+
+        setTimeout(()=> {
+            history.push('/');
+        },500);
     }
 
     const getFirstName = (fullName) => {
@@ -72,10 +80,8 @@ const User = () => {
                         <Tab isSelected={tab.selected === 'Profile'}>
                             <div className='configSpacer'></div>
                             <Btn name='Home' path=''/>
-                            {/*Update User - Open Modal form to update user*/}
-                            {/* <ModalForm/>  */}
                             <ModalRender name="Update User" />
-                            <Config name="Log Out!" onClick={logOut}/>
+                            <Config name="Log Out!" onClick={()=>logOut()}/>
                         </Tab>
                         <Tab isSelected={tab.selected === 'Appointments'}>
                             <div>
@@ -120,5 +126,11 @@ const User = () => {
     }
 }
 
-export default User
+const mapStateToProps = state => {
+    return {
+        user : state.userReducer.user,
+    }
+}
+
+export default connect(mapStateToProps)(User);
 
