@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import Profile from '../../components/Profile/Profile'
 import Tab from '../../components/Tab/Tab'
 import TabNav from '../../components/Tab/TabNav'
-import ModalForm from '../ModalForm/ModalForm'
+import ModalRender from '../Modal/ModalRender'
 
 
 
@@ -73,7 +73,8 @@ const User = () => {
                             <div className='configSpacer'></div>
                             <Btn name='Home' path=''/>
                             {/*Update User - Open Modal form to update user*/}
-                            <ModalForm/> 
+                            {/* <ModalForm/>  */}
+                            <ModalRender name="Update User" />
                             <Config name="Log Out!" onClick={logOut}/>
                         </Tab>
                         <Tab isSelected={tab.selected === 'Appointments'}>
