@@ -4,8 +4,8 @@ import Header from '../../components/Header/Header';
 import Slideshow from '../../components/Slideshow/Slideshow'
 import './Home.css';
 
-import Geo from '../../img/geo.png'
-import Equipo from '../../img/equipoHumano.jpg'
+// import Geo from '../../img/geo.png'
+// import Equipo from '../../img/equipoHumano.jpg'
 // import Caries from '../../img/caries.png'
 
 
