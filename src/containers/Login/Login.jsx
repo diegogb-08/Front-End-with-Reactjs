@@ -7,12 +7,14 @@ import Header from '../../components/Header/Header';
 import './Login.css';
 import {useHistory} from 'react-router-dom';  
 import Logo from '../../img/logoclinic.png'
+import {connect} from 'react-redux';
+import {LOGIN} from '../../redux/types/usertype'
 
 
 
 
 
-const Login = () => {
+const Login = (props) => {
 
     let history = useHistory();
 
@@ -31,18 +33,18 @@ const Login = () => {
         setLogin({...dataLogin, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
     };
 
-    const loginme = async () => {
+    const loginMe = async () => {
 
         console.log('Estamos dentro de la función logeame');
     
-
-        /* let role = dataLogin.userType === 'Client' ? 'client' : 'admin'; */
 
         try {
 
         let result = await axios.post(port+client+login, dataLogin)
             if(result) {
-                localStorage.setItem("result", JSON.stringify(result.data));
+               let propiedades = props.dispatch({type: LOGIN, payload: result});
+                console.log(propiedades);
+                /* localStorage.setItem("result", JSON.stringify(result.data)); */
                 return setTimeout(() => {
                     if (dataLogin.userType === 'Client') {
                         history.push('/user')
@@ -82,7 +84,7 @@ const Login = () => {
 
                 <div className="messageLogin">
                      <div className="messageErrorLogin">{message}</div>
-                     <Submit type='submit' name='submit' title='login' onClick={() => loginme()}/>
+                     <Submit type='submit' name='submit' title='login' onClick={() => loginMe()}/>
                 </div>
 
             </div>
@@ -92,4 +94,4 @@ const Login = () => {
 }
 
 
-export default Login;
+export default connect()(Login);
