@@ -28,9 +28,11 @@ export default class Modal extends Component {
 
 const styles = {
     wrapper: {
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         left: 0,
+        right: 0,
+        bottom: 0,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -63,6 +65,7 @@ const styles = {
         top: 0,
         left: 0,
         backgroundColor: '#000',
-        opacity: 0.4
+        opacity: 0.4,
+        cursor: 'pointer',
     }
 }

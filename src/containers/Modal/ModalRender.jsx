@@ -1,6 +1,7 @@
 import React from 'react'
 import Modal from './Modal';
 import {useState} from 'react';
+import UpdateUser from '../../components/UpdateUser/UpdateUser';
 
 function ModalRender(props) {
 
@@ -13,7 +14,7 @@ function ModalRender(props) {
         <div>
             <div className="configComponent" onClick={toggle}>{props.name}</div>
             <Modal active={active} toggle={toggle}>
-                <h1>MODAL WORKS!</h1>
+                <UpdateUser></UpdateUser>
             </Modal>
         </div>
     )
