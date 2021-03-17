@@ -41,20 +41,22 @@ const Login = (props) => {
         try {
 
         let result = await axios.post(port+client+login, dataLogin)
+        // let appointment = await axios.get(port+appoint+login, dataLogin)
             if(result) {
-               let propiedades = props.dispatch({type: LOGIN, payload: result});
-                console.log(propiedades);
-                /* localStorage.setItem("result", JSON.stringify(result.data)); */
-                return setTimeout(() => {
-                    if (dataLogin.userType === 'Client') {
-                        history.push('/user')
-                    } else if (dataLogin.userType === 'Admin') {
-                        history.push('/admin')
-                    } else {
-                        alert('Define your role!')
-                    }
-                }, 2000);
-                
+
+                props.dispatch({type: LOGIN, payload: result.data});
+                // props.dispatch({type: FIND, payload: appointment.data});
+                history.push('/user')
+           
+                // return setTimeout(() => {
+                //     if (dataLogin.userType === 'Client') {
+                //         history.push('/user')
+                //     } else if (dataLogin.userType === 'Admin') {
+                //         history.push('/admin')
+                //     } else {
+                //         alert('Define your role!')
+                //     }
+                // }, 2000);
             }
 
         } catch(error) {

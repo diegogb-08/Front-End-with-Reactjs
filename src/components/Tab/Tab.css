@@ -2,7 +2,6 @@
     height: 95%;
     width: 100%;
     cursor: pointer;
-    /* box-shadow: 0 -19px 17px -5px rgba(0, 0, 0, 0.05); */
 }
 
 .tab {
@@ -12,9 +11,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    /* box-shadow: 0 -19px 17px -5px rgba(0, 0, 0, 0.05); */
-    /* margin-right: 0.5rem; */
 }
 
 .tabInfo{

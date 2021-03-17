@@ -12,12 +12,12 @@ const Profile = (props) => {
                 <h4>Welcome, {props.name}!</h4>
                 <div className="spacer"></div>
                 <div className="avatar">{props.initialName}</div>
+                <p>@{props.userName}</p>
             </div>
             <div className="profileDivisionRight">
                 <div className="detailsUser"></div>
                 <div className="detailsUser">
                 <p>Full Name: {props.fullName}</p>
-                <p>User Name: {props.userName}</p>
                 <p>Birth Date: {moment(props.birthDate).format('Do-MMMM-YYYY')}</p>
                 <p>Email: {props.email}</p>
                 <p>Phone Number: {props.phoneNumber}</p>

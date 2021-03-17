@@ -1,15 +1,20 @@
 import React, {useState} from 'react'
+import axios from 'axios';
+import {connect} from 'react-redux';
+
+
 import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
 import checkError from '../../components/Tools/Tools';
-import axios from 'axios';
 import {port, client} from '../../api/api';
-import './UpdateUser.css'
+import {UPDATE} from '../../redux/types/usertype'
+import './UpdateUser.css';
 
-function UpdateUser() {
+function UpdateUser(props) {
+
 
     //HOOKS
-    const [user, setUser] = useState({
+    const [userUpdate, setUser] = useState({
         fullName: '',
         userName: '',
         email: '',
@@ -20,15 +25,18 @@ function UpdateUser() {
 
     const [message, setMessage] = useState('')
 
-    const [active, setActive] = useState(false);
-    const toggle = () => {
-        setActive(!active)
-    } 
-
     // HANDLERS
-    const handleState = (event) => {
-        setUser({...user, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
+    const handleStateUpdate = (event) => {
+        setUser({...userUpdate, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
     };
+
+    //AUTHORIZATION
+
+    let token = props.token
+    let auth = {
+        headers: {
+          'Authorization': `Bearer ${token}` 
+        }};
 
     // FUNCTIONS
 
@@ -37,7 +45,7 @@ function UpdateUser() {
         //Error handling
         setMessage('');
 
-        let error = checkError(user)
+        let error = checkError(userUpdate)
         setMessage(error);
 
         if(error){
@@ -47,22 +55,25 @@ function UpdateUser() {
        
         let body = {
 
-            fullName: user.fullName,
-            userName: user.userName,
-            email: user.email,
-            birthDate: user.birthDate,
-            phoneNumber: user.phoneNumber,
-            address: user.address
+            fullName: userUpdate.fullName,
+            userName: userUpdate.userName,
+            email: userUpdate.email,
+            birthDate: userUpdate.birthDate,
+            phoneNumber: userUpdate.phoneNumber,
+            address: userUpdate.address
         }
-
 
         //REST API 
         try{
-            let data = await axios.post(port+client,body)
+            const id = props.user.id;
 
-            // Here we need to add Redux
-            
-            if(data) return toggle()
+            let updatedUser = await axios.put(port+client+'/'+id, body, auth)
+            const result = updatedUser.data
+            console.log(result)
+            // Updating Redux data
+            props.dispatch({ type: UPDATE, payload : result});
+            if(updatedUser?.data) 
+                return props.toggle()
         }catch(error){
             setMessage('The user name, email or phone number already exist!') 
         }
@@ -76,12 +87,12 @@ function UpdateUser() {
             </div>
             <div className="lineForm"></div>
             <div className="formModal">
-                <Input type='text' name='fullName' title='Full Name' lenght='30' onChange={handleState} />
-                <Input type='text' name='userName' title='User Name' lenght='30' onChange={handleState}/>
-                <Input type='email' name='email' title='Email' lenght='30' onChange={handleState}/>
-                <Input type='number' name='phoneNumber' title='Phone Number' lenght='12' onChange={handleState}/>
-                <Input type='date' name='birthDate' title='Date of Birth' lenght='30' onChange={handleState}/>
-                <Input type='text' name='address' title='Full Address' lenght='250' onChange={handleState}/>
+                <Input type='text' name='fullName' title='Full Name' lenght='30' onChange={handleStateUpdate} />
+                <Input type='text' name='userName' title='User Name' lenght='30' onChange={handleStateUpdate}/>
+                <Input type='email' name='email' title='Email' lenght='30' onChange={handleStateUpdate}/>
+                <Input type='number' name='phoneNumber' title='Phone Number' lenght='12' onChange={handleStateUpdate}/>
+                <Input type='date' name='birthDate' title='Date of Birth' lenght='30' onChange={handleStateUpdate}/>
+                <Input type='text' name='address' title='Full Address' lenght='250' onChange={handleStateUpdate}/>
             </div>
             <div className="messageUpdate">{message}</div>
             <div className="submitUpdate">
@@ -91,4 +102,10 @@ function UpdateUser() {
     )
 }
 
-export default UpdateUser
+const mapStateToProps = state => {
+    return {
+        user : state.userReducer.user,
+        token : state.userReducer.token,
+    }
+}
+export default connect(mapStateToProps)(UpdateUser);
