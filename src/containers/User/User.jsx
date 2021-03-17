@@ -12,7 +12,9 @@ import TabNav from '../../components/Tab/TabNav'
 import ModalRender from '../Modal/ModalRender'
 
 
+
 import './User.css'
+import Appointment from '../../components/Appointment/Appointment';
 
 
 
@@ -25,7 +27,7 @@ const User = (props) => {
     const [tab, setTab] = useState({
         selected: 'Profile'
     })
-   
+  
      // FUNCTIONS
      const setSelected = (tab) => {
         setTab({selected: tab});
@@ -97,7 +99,12 @@ const User = (props) => {
                                     </Tab>
                                     <Tab isSelected={tab.selected === 'Appointments'}>
                                         <div className="cardInfo card">
-                                            <p>PPPPPPPPPPPPPPPPPPPPPPPPPP</p>
+                                            <Appointment
+                                            userId={user.profile.id}
+                                            userToken={userToken.token}
+                    
+                                            ></Appointment>
+                                            
                                         </div>
                                     </Tab>
                                 </TabNav>

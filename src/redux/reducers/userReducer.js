@@ -3,6 +3,7 @@ import {LOGIN, LOGOUT, UPDATE} from '../types/usertype';
 const initialState = {
     user: {},
     token: ''
+
 };
 
 const userReducer = (state = initialState, action) => {

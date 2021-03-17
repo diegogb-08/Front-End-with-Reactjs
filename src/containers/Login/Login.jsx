@@ -35,11 +35,15 @@ const Login = (props) => {
 
     const loginMe = async () => {
 
+        console.log('Estamos dentro de la función logeame');
+    
+
         try {
 
         let result = await axios.post(port+client+login, dataLogin)
         // let appointment = await axios.get(port+appoint+login, dataLogin)
             if(result) {
+
                 props.dispatch({type: LOGIN, payload: result.data});
                 // props.dispatch({type: FIND, payload: appointment.data});
                 history.push('/user')
@@ -53,7 +57,6 @@ const Login = (props) => {
                 //         alert('Define your role!')
                 //     }
                 // }, 2000);
-                
             }
 
         } catch(error) {
