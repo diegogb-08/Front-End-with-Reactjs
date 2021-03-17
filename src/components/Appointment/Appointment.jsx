@@ -3,7 +3,7 @@ import axios from 'axios';
 /* import {useHistory} from 'react-router-dom';  */
 
 import './Appointment.css';
-import Input from '../Input/Input';
+
 
 
 
@@ -13,7 +13,7 @@ const Appointment = (props) => {
 
     const [userAppointment, setAppoint] = useState({
        
-        appoint: {},
+        appoint: {}
         
        
     });
@@ -44,8 +44,8 @@ const Appointment = (props) => {
     }
     return(
         <div>
-            <div onClick={() => findAppointment()}>FIND</div>
-            <Input type='email' name='email' title='Email' lenght='30' onChange={handleState}/>
+            <div /* onChange={handleState} */ onClick={() => findAppointment()}>FIND</div>
+            
         </div>
 
     )

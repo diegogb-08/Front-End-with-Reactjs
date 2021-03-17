@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
 import userReducer from './userReducer.js';
+import appointReducer from './appointReducer.js'
 
 const rootReducer = combineReducers({
-    userReducer
+    userReducer,
+    appointReducer
 });
 
 export default rootReducer;
