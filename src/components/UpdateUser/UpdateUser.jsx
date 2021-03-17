@@ -1,14 +1,17 @@
 import React, {useState} from 'react'
+import axios from 'axios';
+import {connect} from 'react-redux';
+
+
 import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
 import checkError from '../../components/Tools/Tools';
-import axios from 'axios';
 import {port, client} from '../../api/api';
-import './UpdateUser.css';
-import {connect} from 'react-redux';
 import {UPDATE} from '../../redux/types/usertype'
+import './UpdateUser.css';
 
 function UpdateUser(props) {
+
 
     //HOOKS
     const [userUpdate, setUser] = useState({
@@ -22,11 +25,6 @@ function UpdateUser(props) {
 
     const [message, setMessage] = useState('')
 
-    const [active, setActive] = useState(false);
-    const toggle = () => {
-        setActive(!active)
-    } 
-
     // HANDLERS
     const handleStateUpdate = (event) => {
         setUser({...userUpdate, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
@@ -34,7 +32,7 @@ function UpdateUser(props) {
 
     //AUTHORIZATION
 
-    let token = props.user.data.token
+    let token = props.token
     let auth = {
         headers: {
           'Authorization': `Bearer ${token}` 
@@ -67,13 +65,15 @@ function UpdateUser(props) {
 
         //REST API 
         try{
-            const id = props.user.data.user.id;
+            const id = props.user.id;
 
             let updatedUser = await axios.put(port+client+'/'+id, body, auth)
+            const result = updatedUser.data
+            console.log(result)
             // Updating Redux data
-            let dispatch = props.dispatch({ type: UPDATE, payload : {updatedUser}});
-            console.log(dispatch)
-            if(updatedUser) return toggle()
+            props.dispatch({ type: UPDATE, payload : {result}});
+            if(updatedUser?.data) 
+                return props.toggle()
         }catch(error){
             setMessage('The user name, email or phone number already exist!') 
         }
@@ -105,6 +105,7 @@ function UpdateUser(props) {
 const mapStateToProps = state => {
     return {
         user : state.userReducer.user,
+        token : state.userReducer.token,
     }
 }
 export default connect(mapStateToProps)(UpdateUser);

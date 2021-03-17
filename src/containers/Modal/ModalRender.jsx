@@ -14,7 +14,7 @@ function ModalRender(props) {
         <div>
             <div className="configComponent" onClick={toggle}>{props.name}</div>
             <Modal active={active} toggle={toggle}>
-                <UpdateUser></UpdateUser>
+                <UpdateUser toggle={toggle}></UpdateUser>
             </Modal>
         </div>
     )

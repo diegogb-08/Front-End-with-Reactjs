@@ -17,6 +17,13 @@
     align-items: center;
 }
 
+.profileDivisionLeft p {
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
 .profileDivisionRight {
     height: 100%;
     width: 67%;

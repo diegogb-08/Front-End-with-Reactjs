@@ -34,9 +34,9 @@ const User = (props) => {
    
     useEffect(()=> {
         // componentDidMount() User info and Token will be mounted here 
-        const result = props.user  
-        // const token = result.data.token
-        setUser({...user, profile: result.data.user})
+        console.log(props.user)
+        // const token = result.token
+        setUser({...user, profile: props.user})
     },[]);
 
   
