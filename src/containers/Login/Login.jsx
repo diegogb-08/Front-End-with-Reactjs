@@ -38,9 +38,10 @@ const Login = (props) => {
         try {
 
         let result = await axios.post(port+client+login, dataLogin)
-        console.log(result)
+        // let appointment = await axios.get(port+appoint+login, dataLogin)
             if(result) {
                 props.dispatch({type: LOGIN, payload: result.data});
+                // props.dispatch({type: FIND, payload: appointment.data});
                 history.push('/user')
            
                 // return setTimeout(() => {

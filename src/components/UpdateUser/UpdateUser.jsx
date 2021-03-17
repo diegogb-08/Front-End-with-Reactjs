@@ -71,7 +71,7 @@ function UpdateUser(props) {
             const result = updatedUser.data
             console.log(result)
             // Updating Redux data
-            props.dispatch({ type: UPDATE, payload : {result}});
+            props.dispatch({ type: UPDATE, payload : result});
             if(updatedUser?.data) 
                 return props.toggle()
         }catch(error){

@@ -25,21 +25,6 @@ const User = (props) => {
     const [tab, setTab] = useState({
         selected: 'Profile'
     })
-
-    const [user, setUser] = useState({
-        profile: []
-    })
-
-
-   
-    useEffect(()=> {
-        // componentDidMount() User info and Token will be mounted here 
-        console.log(props.user)
-        // const token = result.token
-        setUser({...user, profile: props.user})
-    },[]);
-
-  
    
      // FUNCTIONS
      const setSelected = (tab) => {
@@ -66,7 +51,7 @@ const User = (props) => {
         return initial;
     }
 
-    if(!user.profile?.fullName){
+    if(!props.user.fullName){
         return(
             <div>CARGANDO</div>
             )
@@ -98,15 +83,15 @@ const User = (props) => {
                                     <Tab isSelected={tab.selected === 'Profile'}>
                                         <div className="cardInfo card">
                                         <Profile 
-                                            name={getFirstName(user.profile.fullName)}
-                                            initialName={getInitial(user.profile.fullName)}
-                                            fullName={user.profile.fullName}
-                                            userName={user.profile.userName}
-                                            birthDate={user.profile.birthDate}
-                                            email={user.profile.email}
-                                            phoneNumber={user.profile.phoneNumber}
-                                            clientSince={user.profile.createdAt}
-                                            updatedAt={user.profile.updatedAt}
+                                            name={getFirstName(props.user.fullName)}
+                                            initialName={getInitial(props.user.fullName)}
+                                            fullName={props.user.fullName}
+                                            userName={props.user.userName}
+                                            birthDate={props.user.birthDate}
+                                            email={props.user.email}
+                                            phoneNumber={props.user.phoneNumber}
+                                            clientSince={props.user.createdAt}
+                                            updatedAt={props.user.updatedAt}
                                         ></Profile>
                                         </div>
                                     </Tab>
