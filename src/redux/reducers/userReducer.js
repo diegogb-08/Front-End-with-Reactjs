@@ -1,7 +1,7 @@
 import {LOGIN, LOGOUT} from '../types/usertype';
 
 const initialState = {
-    user: []
+    user: {}
 };
 
 const userReducer = (state = initialState, action) => {
