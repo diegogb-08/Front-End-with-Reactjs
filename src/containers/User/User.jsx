@@ -100,8 +100,8 @@ const User = (props) => {
                                     <Tab isSelected={tab.selected === 'Appointments'}>
                                         <div className="cardInfo card">
                                             <Appointment
-                                            userId={user.profile.id}
-                                            userToken={userToken.token}
+                                            userId={props.user.id}
+                                            token={props.token}
                     
                                             ></Appointment>
                                             
@@ -121,6 +121,7 @@ const User = (props) => {
 const mapStateToProps = state => {
     return {
         user : state.userReducer.user,
+        token : state.userReducer.token
     }
 }
 

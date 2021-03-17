@@ -9,6 +9,7 @@ import {useHistory} from 'react-router-dom';
 import Logo from '../../img/logoclinic.png'
 import {connect} from 'react-redux';
 import {LOGIN} from '../../redux/types/usertype'
+import { FIND } from '../../redux/types/appointtype';
 
 
 
@@ -27,37 +28,50 @@ const Login = (props) => {
        
     });
 
+    const [userAppointment, setAppoint] = useState({
+       
+        appoint: [] 
+    });
+
     const [message, setMessage] = useState('')
 
     const handleState = (event) => {
         setLogin({...dataLogin, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
-    };
+    }; 
 
     const loginMe = async () => {
 
-        console.log('Estamos dentro de la función logeame');
-    
-
         try {
 
-        let result = await axios.post(port+client+login, dataLogin)
-        // let appointment = await axios.get(port+appoint+login, dataLogin)
-            if(result) {
+        let result = await axios.post(port+client+login, dataLogin);
+        if(result) {
+            props.dispatch({type: LOGIN, payload: result.data});
 
-                props.dispatch({type: LOGIN, payload: result.data});
-                // props.dispatch({type: FIND, payload: appointment.data});
-                history.push('/user')
-           
-                // return setTimeout(() => {
-                //     if (dataLogin.userType === 'Client') {
-                //         history.push('/user')
-                //     } else if (dataLogin.userType === 'Admin') {
-                //         history.push('/admin')
-                //     } else {
-                //         alert('Define your role!')
-                //     }
-                // }, 2000);
-            }
+            const userId = props.user.id;
+            
+            const userToken = props.token;
+
+            let resultAppoint = await axios.get(`http://localhost:3001/appointment/user/${userId}`,{
+                headers: {
+                  'Authorization': `token ${userToken}`
+                }
+              });
+            props.dispatch({type: FIND, payload: resultAppoint.data});
+            
+            
+            
+            history.push('/user')
+       
+            // return setTimeout(() => {
+            //     if (dataLogin.userType === 'Client') {
+            //         history.push('/user')
+            //     } else if (dataLogin.userType === 'Admin') {
+            //         history.push('/admin')
+            //     } else {
+            //         alert('Define your role!')
+            //     }
+            // }, 2000);
+        }
 
         } catch(error) {
             setMessage('Email or password not found');
@@ -95,5 +109,11 @@ const Login = (props) => {
 
 }
 
+const mapStateToProps = state => {
+    return {
+        user : state.userReducer.user,
+        token : state.userReducer.token
+    }
+}
 
-export default connect()(Login);
+export default connect(mapStateToProps)(Login);
