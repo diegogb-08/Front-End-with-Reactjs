@@ -1,6 +1,7 @@
 import React from 'react'
 import './Profile.css';
 import moment from 'moment';
+import {connect} from 'react-redux'
 
 const Profile = (props) => {
 
@@ -9,25 +10,50 @@ const Profile = (props) => {
         <div className="profileComponent">
             <div className="profileDivisionLeft">
                 <div className="spacer"></div>
-                <h4>Welcome, {props.name}!</h4>
+                <h3>Welcome, {props.name}!</h3>
                 <div className="spacer"></div>
                 <div className="avatar">{props.initialName}</div>
                 <p>@{props.userName}</p>
             </div>
             <div className="profileDivisionRight">
-                <div className="detailsUser"></div>
                 <div className="detailsUser">
-                <p>Full Name: {props.fullName}</p>
-                <p>Birth Date: {moment(props.birthDate).format('Do-MMMM-YYYY')}</p>
-                <p>Email: {props.email}</p>
-                <p>Phone Number: {props.phoneNumber}</p>
-                <p>Client since: {moment(props.clientSince).format('Do-MMMM-YYYY')}</p>
-                <p>Profile last update: {moment(props.updatedAt).format('Do-MMMM-YYYY')}</p>
+                    <p><b>Full Name:</b> {props.fullName}</p>
+                    <p><b>Birth Date:</b> {moment(props.birthDate).format('Do-MMMM-YYYY')}</p>
+                    <p><b>Email:</b> {props.email}</p>
+                    <p><b>Phone Number:</b> {props.phoneNumber}</p>
+                    <p><b>Client since:</b> {moment(props.clientSince).format('Do-MMMM-YYYY')}</p>
+                    <p><b>Profile last update:</b> {moment(props.updatedAt).format('Do-MMMM-YYYY')}</p>
                 </div>
-                <div className="detailsUser"></div>
+                <div className="appointCounter">
+                    <div className="counter">
+                        <div className="pendinTitle">
+                            <h6>Pending <br/>
+                            Appointments</h6>
+                        </div>
+                        <div className="pendingAppoint">
+                        {/* {
+                            props.appointment.lengh
+                            ?
+                            <>
+                                <p>{props.appointment.lengh}</p>
+                            </>
+                            :
+                            <> */}
+                                <p>0</p>
+                            {/* </>
+                        } */}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
 }
 
-export default Profile
+const mapStateToProps = state => {
+    return {
+        appointment : state.userReducer.appointment,
+    }
+}
+
+export default connect(mapStateToProps)(Profile);

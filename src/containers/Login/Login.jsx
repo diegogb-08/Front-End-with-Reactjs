@@ -35,7 +35,7 @@ const Login = (props) => {
 
     const loginMe = async () => {
 
-        console.log('Estamos dentro de la función logeame');
+
     
 
         try {
