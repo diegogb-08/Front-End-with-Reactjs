@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState} from 'react'
 import {connect} from 'react-redux';
 import { LOGOUT } from '../../redux/types/usertype';
 import {useHistory} from 'react-router-dom';  
@@ -11,8 +11,7 @@ import Tab from '../../components/Tab/Tab'
 import TabNav from '../../components/Tab/TabNav'
 import ModalRender from '../Modal/ModalRender'
 
-
-
+import gif from '../../img/giphy.gif'
 import './User.css'
 import Appointment from '../../components/Appointment/Appointment';
 
@@ -55,7 +54,7 @@ const User = (props) => {
 
     if(!props.user.fullName){
         return(
-            <div>CARGANDO</div>
+            <div className="gif" alt="gif"><img src={gif}/></div>
             )
     }else {
             
@@ -67,7 +66,7 @@ const User = (props) => {
                         <Tab isSelected={tab.selected === 'Profile'}>
                             <div className='configSpacer'></div>
                             <Btn name='Home' path=''/>
-                            <ModalRender name="Update User" />
+                            <ModalRender name="Update profile" />
                             <Config name="Log Out!" onClick={()=>logOut()}/>
                         </Tab>
                         <Tab isSelected={tab.selected === 'Appointments'}>
@@ -94,15 +93,14 @@ const User = (props) => {
                                             phoneNumber={props.user.phoneNumber}
                                             clientSince={props.user.createdAt}
                                             updatedAt={props.user.updatedAt}
-                                        ></Profile>
+                                        />
                                         </div>
                                     </Tab>
                                     <Tab isSelected={tab.selected === 'Appointments'}>
                                         <div className="cardInfo card">
                                             <Appointment
-                                            userId={user.profile.id}
-                                            userToken={userToken.token}
-                    
+                                            userId={props.user.id}
+                                            token = {props.token}
                                             ></Appointment>
                                             
                                         </div>
@@ -121,6 +119,7 @@ const User = (props) => {
 const mapStateToProps = state => {
     return {
         user : state.userReducer.user,
+        token : state.userReducer.token
     }
 }
 

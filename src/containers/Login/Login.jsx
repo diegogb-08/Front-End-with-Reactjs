@@ -35,7 +35,7 @@ const Login = (props) => {
 
     const loginMe = async () => {
 
-        console.log('Estamos dentro de la función logeame');
+
     
 
         try {
@@ -86,7 +86,7 @@ const Login = (props) => {
 
                 <div className="messageLogin">
                      <div className="messageErrorLogin">{message}</div>
-                     <Submit type='submit' name='submit' title='login' onClick={() => loginMe()}/>
+                     <Submit type='submit' name='submit' title='Login' onClick={() => loginMe()}/>
                 </div>
 
             </div>
