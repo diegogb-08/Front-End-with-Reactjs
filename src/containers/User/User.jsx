@@ -32,6 +32,10 @@ const User = (props) => {
         profile: []
     })
 
+    const [userToken, setUserToken] = useState({
+        token: ''
+    })
+
 
    
     useEffect(()=> {
@@ -39,6 +43,7 @@ const User = (props) => {
         const result = props.user  
         // const token = result.data.token
         setUser({...user, profile: result.data.user})
+        setUserToken({...userToken, token: result.data.token})
     },[]);
 
   
@@ -114,8 +119,12 @@ const User = (props) => {
                                     </Tab>
                                     <Tab isSelected={tab.selected === 'Appointments'}>
                                         <div className="cardInfo card">
-                                            <Appointment/>
-                                            <p>PPPPPPPPPPPPPPPPPPPPPPPPPP</p>
+                                            <Appointment
+                                            userId={user.profile.id}
+                                            userToken={userToken.token}
+                    
+                                            ></Appointment>
+                                            
                                         </div>
                                     </Tab>
                                 </TabNav>

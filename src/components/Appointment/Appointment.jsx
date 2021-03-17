@@ -13,7 +13,8 @@ const Appointment = (props) => {
 
     const [userAppointment, setAppoint] = useState({
        
-        appoint: {}
+        appoint: {},
+        
        
     });
 
@@ -22,9 +23,23 @@ const Appointment = (props) => {
     };
 
     const findAppointment = async () => {
-        let res = await axios.get(`http://localhost:3001/appointment`);
-        console.log(res);
-        setAppoint({...userAppointment, appoint : res.data});
+        const userId = props.userId;
+        const userToken = props.userToken;
+         axios.get(`http://localhost:3001/appointment/user/${userId}`, {
+            headers: {
+              'Authorization': `token ${userToken}`
+            }
+          })
+          .then((res) => {
+            console.log(res.data)
+          })
+          .catch((error) => {
+            console.error(error)
+          })
+          
+       /*  console.log(props.userId)
+         setAppoint({...userAppointment, appoint : res.data}); 
+       */
 
     }
     return(
