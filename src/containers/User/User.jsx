@@ -66,7 +66,7 @@ const User = (props) => {
                         <Tab isSelected={tab.selected === 'Profile'}>
                             <div className='configSpacer'></div>
                             <Btn name='Home' path=''/>
-                            <ModalRender name="Update User" />
+                            <ModalRender name="Update profile" />
                             <Config name="Log Out!" onClick={()=>logOut()}/>
                         </Tab>
                         <Tab isSelected={tab.selected === 'Appointments'}>
