@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-regular-svg-icons'
 
 import Logo from '../../img/logoclinic.png'
 import Btn from '../Btn/Bton';
+import DropDownMenu from '../DropDownMenu/DropDownMenu';
+import NavBtn from '../NavBtn/NavBtn';
 import './Header.css';
 
 const Header = (props) => {
@@ -14,8 +14,7 @@ const Header = (props) => {
         const name = firstName[0]
         return name;
     }
-
-
+    
     return (
         <div className="headerComponent">
             <div className="headerLogo">
@@ -41,10 +40,9 @@ const Header = (props) => {
                 :
                 <>
                     <div>
-                        <div className="loggedUser">
-                            <FontAwesomeIcon className="logoUser" icon={faUser} />
-                            <p>{getFirstName(props.user.fullName)}</p>
-                        </div>
+                        <NavBtn name={getFirstName(props.user.fullName)}>
+                            <DropDownMenu/>
+                        </NavBtn>
                     </div>
                 </>
             }

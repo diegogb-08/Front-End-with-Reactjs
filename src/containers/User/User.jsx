@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState} from 'react'
 import {connect} from 'react-redux';
 import { LOGOUT } from '../../redux/types/usertype';
 import {useHistory} from 'react-router-dom';  
@@ -54,7 +54,7 @@ const User = (props) => {
 
     if(!props.user.fullName){
         return(
-            <div className="gif"><img src={gif}/></div>
+            <div className="gif" alt="gif"><img src={gif}/></div>
             )
     }else {
             

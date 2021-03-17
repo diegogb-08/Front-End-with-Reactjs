@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+
+.loggedUser {
+    height: 2rem;
+    width: 5rem;
+    background-color: #a4bbd1;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    font-family: 'Open Sans Condensed', sans-serif;
+} 
+
+.loggedUser:hover{
+    background-color: #809fbd;
+}
+
+.logoUser{
+    color: white;
+    position: relative;
+    left: 0.7rem;
+    top: 0.1rem;
+}
+
+.loggedUser p {
+    color: black;
+    position: relative;
+    left: 1.8rem;
+    bottom: 1.3rem;
+    font-weight: bold;
+    color: white;
+}
