@@ -60,27 +60,38 @@ const Profile = (props) => {
                     <p><b>Client since:</b> {moment(props.clientSince).format('Do-MMMM-YYYY')}</p>
                     <p><b>Profile last update:</b> {moment(props.updatedAt).format('Do-MMMM-YYYY')}</p>
                 </div>
-                <div className="appointCounter">
-                    <div className="counter">
-                        <div className="pendinTitle">
-                            <h6>Pending <br/>
-                            Appointments</h6>
+                {
+                    !props.admin.name
+                    ?
+                    <>
+                        <div className="appointCounter">
+                            <div className="counter">
+                                <div className="pendinTitle">
+                                    <h6>Pending <br/>
+                                    Appointments</h6>
+                                </div>
+                                <div className="pendingAppoint">
+                                {/* {
+                                    props.appointment.lengh
+                                    ?
+                                    <>
+                                        <p>{props.appointment.lengh}</p>
+                                    </>
+                                    :
+                                    <> */}
+                                        <p>0</p>
+                                    {/* </>
+                                } */}
+                                </div>
+                            </div>
                         </div>
-                        <div className="pendingAppoint">
-                        {/* {
-                            props.appointment.lengh
-                            ?
-                            <>
-                                <p>{props.appointment.lengh}</p>
-                            </>
-                            :
-                            <> */}
-                                <p>0</p>
-                            {/* </>
-                        } */}
-                        </div>
-                    </div>
-                </div>
+                    </>
+                    :
+                    <>
+
+                    </>
+                
+                }             
             </div>
         </div>
     )
@@ -89,6 +100,7 @@ const Profile = (props) => {
 const mapStateToProps = state => {
     return {
         appointment : state.userReducer.appointment,
+        admin : state.adminReducer.admin
     }
 }
 
