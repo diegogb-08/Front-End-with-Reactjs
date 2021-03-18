@@ -2,11 +2,9 @@ import React, {useState} from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux';
 
-
 import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
-
-
+// HOla
 import {CREATE} from '../../redux/types/appointType'
 import './CreateAppoint.css';
 
@@ -46,14 +44,12 @@ function CreateAppoint(props) {
             treatment: appointOn.treatment,
             covid: appointOn.covid,
             payMethod: appointOn.payMethod,
-            userId: props.user.id
-               
+            userId: props.user.id               
         }
 
         //REST API 
         try{
-            
-            
+                        
             let createAppointment = await axios.post(`http://localhost:3001/appointment`, body, auth)
             const result = createAppointment.data
             console.log(result)
