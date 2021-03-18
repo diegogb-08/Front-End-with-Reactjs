@@ -5,16 +5,15 @@ const Input = (props) => {
 
     return (
         <div className="inputComponent">
-            
             <p>{props.title}</p>
-            <input
+            <input 
                 className="input"
                 type={props.type}
                 name={props.name}
                 maxLength={props.lenght}
                 onChange={props.onChange}
             ></input>
-
+            <span className="iconInput" onClick={props.onClick}>{props.eye}</span>
         </div>
     )
 }

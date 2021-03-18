@@ -1,0 +1,13 @@
+.configComponent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 1rem;
+}
+
+.configComponent:hover{
+    color: white;
+    transition: 0.3s;
+}

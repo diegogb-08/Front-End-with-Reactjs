@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+
+.profileComponent {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.spacer {
+    height: 1rem;
+}
+
+.profileDivisionLeft {
+    width: 33%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    margin: 1rem;
+    border-radius: 0.3rem;
+    background-color: whitesmoke;
+}
+
+.profileDivisionLeft h3{
+    font-weight: bold;
+}
+
+.profileDivisionLeft p {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+.profileDivisionRight {
+    width: 67%;
+    flex-direction: row;
+    display: flex;
+    border: 1px solid #ccc;
+    margin: 1rem 1rem 1rem 0;
+    border-radius: 0.3rem;
+    background-color: whitesmoke;
+}
+
+.avatar {
+    width: 10rem;
+    height: 10rem;
+    background-color: rgb(164, 187, 209);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    color: white;
+    font-weight: bold;
+}
+
+.detailsUser{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+
+.detailsUser p {
+    margin-left: 20%;
+}
+
+.appointCounter {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.counter {
+    width: 6rem;
+    height: 7rem;
+    border: 1px solid #ccc;
+    background-color: white;
+    position: relative;
+    top: 2rem;
+    left: 4rem;
+    border-radius: 0.4rem;
+    font-weight: bold;
+}
+
+.pendinTitle {
+   background-color: rgb(164, 187, 209);
+   text-align: center;
+   height: 2rem;
+}
+
+.pendinTitle h6 {
+    font-size: 14px;
+    font-weight: bold;
+ }
+
+ .pendingAppoint{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+ }
+
+ .pendingAppoint p{
+    font-size: 45px;
+    font-weight: bold;
+ }

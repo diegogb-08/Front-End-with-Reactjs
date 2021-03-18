@@ -1,0 +1,47 @@
+.homeContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.spaceHeader{
+    height: 4em;
+}
+
+.mainPhoto{
+    width: 20em;
+    height: 20em; 
+}
+
+.homePhoto{
+    height: 100%;
+}
+
+.mainDescription{
+    margin-top: 1em;
+    align-self: center;
+}
+
+.navbarContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.infoContainer{
+    margin-left: 4em;
+}
+
+.col {
+    margin-top: 0.5em;
+}
+
+.p{
+    margin-top: 1em;
+}
+
+.humanTeam{
+    width: 40em;
+    height: 20em;
+    overflow: hidden;
+    align-self: center;
+}

@@ -1,0 +1,15 @@
+.buttonRedirect {
+    height: 3em;
+    width: 8em;
+    transition: 0.3s;
+    border-radius: 0.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.buttonRedirect:hover {
+    transition: 0.3s;
+    color: #41bbec;
+}

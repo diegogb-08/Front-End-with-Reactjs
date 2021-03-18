@@ -1,0 +1,17 @@
+.sliderContainer{
+    width: 100%;
+} 
+
+
+.slider{
+    margin-top: 1em;
+    height: 20em; 
+    width: 50em; 
+    overflow: hidden; 
+      
+}
+
+.slider img {
+    height: 100%;
+    width: 100%;         
+}
