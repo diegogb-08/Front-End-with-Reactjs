@@ -10,7 +10,7 @@ import Logo from '../../img/logoclinic.png'
 import {connect} from 'react-redux';
 
 import {LOGIN} from '../../redux/types/userType'
-import { FIND } from '../../redux/types/appointType';
+
 
 
 

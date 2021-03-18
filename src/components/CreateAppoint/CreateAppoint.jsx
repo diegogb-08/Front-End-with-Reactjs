@@ -7,7 +7,7 @@ import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
 
 
-import {CREATE} from '../../redux/types/appointtype'
+import {CREATE} from '../../redux/types/appointType'
 import './CreateAppoint.css';
 
 function CreateAppoint(props) {
