@@ -2,7 +2,7 @@ import React, {useState/* , useEffect */} from 'react';
 import Input from '../../components/Input/Input'
 import Submit from '../../components/Submit/Submit';
 import axios from 'axios';
-import {port, client, login} from '../../api/api'; 
+import {port, client, admin, login} from '../../api/api'; 
 import Header from '../../components/Header/Header';
 import './Login.css';
 import {useHistory} from 'react-router-dom';  
@@ -57,7 +57,7 @@ const Login = (props) => {
                     history.push('/user')
                 }
             } else {
-                let resultAdmin = await axios.post(`http://localhost:3001/admin`,dataLogin)
+                let resultAdmin = await axios.post(port+admin+login,dataLogin)
                 props.dispatch({type: LOGINADMIN, payload: resultAdmin.data});
                 history.push('/admin')
             }

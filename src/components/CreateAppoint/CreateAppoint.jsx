@@ -17,8 +17,6 @@ function CreateAppoint(props) {
         treatment: '',
         covid: false,
         payMethod: '',
-        
-        
     });
 
     const [message, setMessage] = useState('')
