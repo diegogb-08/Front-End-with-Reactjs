@@ -15,6 +15,7 @@ import ModalRender from '../Modal/ModalRender'
 
 // import gif from '../../img/giphy.gif'
 import './Admin.css'
+import AllAppoint from '../../components/AllAppoint/AllAppoint';
 
 
 
@@ -50,17 +51,14 @@ function Admin(props) {
 
 
     const logOut = () => {
-     
+        props.dispatch({ type: LOGOUT, payload : {}});
 
         setTimeout(()=> {
             history.push('/');
         },500);
     }
 
-    // const getInitial = (name) => {
-    //     return name.charAt(0)
-    // }
-
+ 
     // if(!admin.name){
     //     return(
     //         <div className="gif" alt="gif"><img src={gif}/></div>
@@ -95,10 +93,10 @@ function Admin(props) {
                                 <Tab isSelected={tab.selected === 'Profile'}>
                                     <div className="cardInfo card">
                                     <Profile
-                                        // initialName={getInitial(props.admin.name)}
                                         fullName={props.admin.name}
                                         email={props.admin.email}
                                         phoneNumber={props.admin.phoneNumber}
+                                        birthDate={props.admin.birthDate}
                                         clientSince={props.admin.createdAt}
                                         updatedAt={props.admin.updatedAt}
                                     />
@@ -106,7 +104,7 @@ function Admin(props) {
                                 </Tab>
                                 <Tab isSelected={tab.selected === 'Appointments'}>
                                     <div className="cardInfo card">
-          
+                                        <AllAppoint/>
                                     </div>
                                 </Tab>
                                 <Tab isSelected={tab.selected === 'Users'}>

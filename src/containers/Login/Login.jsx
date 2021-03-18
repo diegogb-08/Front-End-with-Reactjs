@@ -48,15 +48,15 @@ const Login = (props) => {
                 // props.dispatch({type: FIND, payload: appointment.data});
                 history.push('/user')
            
-                // return setTimeout(() => {
-                //     if (dataLogin.userType === 'Client') {
-                //         history.push('/user')
-                //     } else if (dataLogin.userType === 'Admin') {
-                //         history.push('/admin')
-                //     } else {
-                //         alert('Define your role!')
-                //     }
-                // }, 2000);
+                return setTimeout(() => {
+                    if (dataLogin.userType === 'Client') {
+                        history.push('/user')
+                    } else if (dataLogin.userType === 'Admin') {
+                        history.push('/admin')
+                    } else {
+                        alert('Define your role!')
+                    }
+                }, 2000);
             }
 
         } catch(error) {
