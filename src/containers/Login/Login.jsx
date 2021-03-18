@@ -21,12 +21,13 @@ const Login = (props) => {
 
 
     const [dataLogin, setLogin] = useState({
-        
+
+         
         email: '',
-        password: '',
-        userType: ''
+        password: '', 
+        userType: 'Client'
        
-    });
+    });  
 
     const [userAppointment, setAppoint] = useState({
        
@@ -41,45 +42,47 @@ const Login = (props) => {
     }; 
 
     const loginMe = async () => {
-
+       
         try {
 
-        let result = await axios.post(port+client+login, dataLogin);
-        if(result) {
-            props.dispatch({type: LOGIN, payload: result.data});
+            if (dataLogin.userType === 'Client') {
 
+            let result = await axios.post(port+client+login, dataLogin);
+            if(result) {
+
+            props.dispatch({type: LOGIN, payload: result.data});
+            
             const userId = props.user.id;
             console.log(userId)
             
-            const userToken = props.token;
+            /* const userToken = props.token;
 
             let resultAppoint = await axios.get(`http://localhost:3001/appointment/user/${userId}`,{
                 headers: {
                   'Authorization': `token ${userToken}`
                 }
-              });
-            let resultFind = props.dispatch({type: FIND, payload: resultAppoint.data});
-            console.log(resultFind)
-            
+              }); */
+
+            /* let resultFind = props.dispatch({type: FIND, payload: resultAppoint.data});
+            console.log(resultFind) */
             
             history.push('/user')
-       
-            // return setTimeout(() => {
-            //     if (dataLogin.userType === 'Client') {
-            //         history.push('/user')
-            //     } else if (dataLogin.userType === 'Admin') {
-            //         history.push('/admin')
-            //     } else {
-            //         alert('Define your role!')
-            //     }
-            // }, 2000);
+        }
+    } else {
+        
+            console.log('aaaaaaaaa')
+            let resultAdmin = await axios.post(`http://localhost:3001/admin`,dataLogin)
+            console.log(resultAdmin)
+            history.push('/admin')
+        
         }
 
         } catch(error) {
             setMessage('Email or password not found');
         }
+        
     };
-
+    console.log(dataLogin)
     return(
         <div className='loginContainer'>
             <Header/> 
@@ -92,7 +95,7 @@ const Login = (props) => {
                     <Input type='email' name='email' title='Email' lenght='30' onChange={handleState}/>
                     <Input type='password' name='password' title='Password' lenght='16' onChange={handleState}/>
                     <select type='select' name='userType' onChange={handleState}>
-                        <option></option>
+                        
                         <option>Client</option>
                         <option>Admin</option>
                     </select>
