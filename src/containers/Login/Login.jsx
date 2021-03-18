@@ -30,13 +30,14 @@ const Login = (props) => {
 
     const [userAppointment, setAppoint] = useState({
        
-        appoint: [] 
+        appointment: [] 
     });
 
     const [message, setMessage] = useState('')
 
     const handleState = (event) => {
         setLogin({...dataLogin, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
+        setAppoint({...userAppointment, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
     }; 
 
     const loginMe = async () => {
@@ -48,6 +49,7 @@ const Login = (props) => {
             props.dispatch({type: LOGIN, payload: result.data});
 
             const userId = props.user.id;
+            console.log(userId)
             
             const userToken = props.token;
 
@@ -56,8 +58,8 @@ const Login = (props) => {
                   'Authorization': `token ${userToken}`
                 }
               });
-            props.dispatch({type: FIND, payload: resultAppoint.data});
-            
+            let resultFind = props.dispatch({type: FIND, payload: resultAppoint.data});
+            console.log(resultFind)
             
             
             history.push('/user')
@@ -112,7 +114,8 @@ const Login = (props) => {
 const mapStateToProps = state => {
     return {
         user : state.userReducer.user,
-        token : state.userReducer.token
+        token : state.userReducer.token,
+        appointment: state.appointReducer.appointment
     }
 }
 

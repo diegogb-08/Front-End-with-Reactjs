@@ -14,7 +14,7 @@ import ModalRender from '../Modal/ModalRender'
 
 
 import './User.css'
-import Appointment from '../../components/Appointment/Appointment';
+import CreateAppoint from '../../components/CreateAppoint/CreateAppoint';
 
 
 
@@ -99,11 +99,11 @@ const User = (props) => {
                                     </Tab>
                                     <Tab isSelected={tab.selected === 'Appointments'}>
                                         <div className="cardInfo card">
-                                            <Appointment
+                                            <CreateAppoint
                                             userId={props.user.id}
                                             token={props.token}
                     
-                                            ></Appointment>
+                                            />
                                             
                                         </div>
                                     </Tab>
