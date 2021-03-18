@@ -1,5 +1,5 @@
+import {CREATE, FIND, DELETE} from '../types/appointType';
 
-import {CREATE, FIND, DELETE} from '../types/appointtype';
 
 
 

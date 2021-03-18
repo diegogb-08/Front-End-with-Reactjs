@@ -10,10 +10,46 @@ const Profile = (props) => {
         <div className="profileComponent">
             <div className="profileDivisionLeft">
                 <div className="spacer"></div>
-                <h3>Welcome, {props.name}!</h3>
+                {
+                    !props.name
+                        ?
+                        <>
+                            <h3>
+                                Welcome, Admin!
+                            </h3>
+                        </>
+                        :
+                        <>
+                            <h3>
+                                Welcome, {props.name}!
+                            </h3>
+                        </>
+
+                }
                 <div className="spacer"></div>
-                <div className="avatar">{props.initialName}</div>
-                <p>@{props.userName}</p>
+                {
+                    !props.initialName
+                        ?
+                        <>
+                            <div className="avatar">C</div>
+                        </>
+                        :
+                        <>
+                            <div className="avatar">{props.initialName}</div>
+                        </>
+                }
+                
+                {
+                    !props.userName
+                        ?
+                        <>
+                            <p>@admin01</p>
+                        </>
+                        :
+                        <>
+                            <p>@{props.userName}</p>
+                        </>
+                }
             </div>
             <div className="profileDivisionRight">
                 <div className="detailsUser">

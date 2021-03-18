@@ -8,8 +8,10 @@ import './Login.css';
 import {useHistory} from 'react-router-dom';  
 import Logo from '../../img/logoclinic.png'
 import {connect} from 'react-redux';
-import {LOGIN} from '../../redux/types/usertype'
-import { FIND } from '../../redux/types/appointtype';
+
+import {LOGIN} from '../../redux/types/userType'
+import { FIND } from '../../redux/types/appointType';
+
 
 
 
@@ -76,6 +78,7 @@ const Login = (props) => {
             history.push('/admin')
         
         }
+
 
         } catch(error) {
             setMessage('Email or password not found');
