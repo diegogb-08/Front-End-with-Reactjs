@@ -42,7 +42,7 @@ const Login = (props) => {
     }; 
 
     const loginMe = async () => {
-       
+
         try {
 
             if (dataLogin.userType === 'Client') {
@@ -105,7 +105,7 @@ const Login = (props) => {
 
                 <div className="messageLogin">
                      <div className="messageErrorLogin">{message}</div>
-                     <Submit type='submit' name='submit' title='login' onClick={() => loginMe()}/>
+                     <Submit type='submit' name='submit' title='Login' onClick={() => loginMe()}/>
                 </div>
 
             </div>

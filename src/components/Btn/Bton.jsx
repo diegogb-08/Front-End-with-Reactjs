@@ -7,12 +7,12 @@ const Btn = (props) => {
 
     let history = useHistory();
 
-    const direccioname = () => {
+    const bringMeTo = () => {
         history.push(`/${props.path}`)
     }
 
     return(
-        <div onClick={()=> direccioname()} className="buttonRedirect">
+        <div onClick={()=> bringMeTo()} className="buttonRedirect">
             {props.name}
         </div>
     )

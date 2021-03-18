@@ -8,7 +8,7 @@ import checkError from '../../components/Tools/Tools';
 import {port, client} from '../../api/api';
 import {useHistory} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons'
+import { faEyeSlash, faEye } from '@fortawesome/free-regular-svg-icons'
 
 const Register = () => {
 
@@ -110,7 +110,7 @@ const Register = () => {
             <div className="content">
                 <h1>Register</h1>
                 <div className="line"></div>
-                <p>Create your account.<br/>
+                <p>Create your account.
                 It's free and only takes a minute.</p>
             </div>
             <div className="columnCardRegister">

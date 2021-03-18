@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+
 .headerComponent{
     display: flex;
     flex-direction: row;
@@ -5,11 +7,13 @@
     align-items: center; 
     height: 4em;
     width: 100%; 
-    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
     position: fixed;
     top: 0;
     background-color: white;
     z-index: 1;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 17px;
 }
 
 .designDiv{
