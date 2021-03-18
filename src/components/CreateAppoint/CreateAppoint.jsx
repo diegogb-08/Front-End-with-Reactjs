@@ -12,12 +12,12 @@ import './CreateAppoint.css';
 
 function CreateAppoint(props) {
 
-    const [appointOn, setAppoint] = useState({
+        const [appointOn, setAppoint] = useState({
         appointDate: '',
         treatment: '',
         covid: false,
         payMethod: '',
-        userId: ''
+        
         
     });
 
@@ -40,11 +40,7 @@ function CreateAppoint(props) {
     // FUNCTION CREATE AN APPOINTMENT
 
     const create = async () => {
-    setAppoint({...appointOn, userId:props.userId})
-        //Error handling
         setMessage('');
-
-    
 
         let body = {
 
@@ -52,7 +48,7 @@ function CreateAppoint(props) {
             treatment: appointOn.treatment,
             covid: appointOn.covid,
             payMethod: appointOn.payMethod,
-            userId: appointOn.userId
+            userId: props.user.id
                
         }
 
@@ -65,8 +61,7 @@ function CreateAppoint(props) {
             console.log(result)
            
             props.dispatch({ type: CREATE, payload : result});
-            /* if(createAppointment?.data) 
-                return props.toggle() */
+            
         }catch(error){
             setMessage('rellena todos los campos') 
         }
@@ -101,7 +96,7 @@ function CreateAppoint(props) {
             </div>
             <div className="messageUpdate">{message}</div>
             <div className="submitUpdate">
-                <Submit type='submit' name='submit' onClick={()=>create()} title='Update Profile'/>
+                <Submit type='submit' name='submit' onClick={()=>create()} title='Create appoint'/>
             </div>
         </div>
     )
@@ -109,7 +104,9 @@ function CreateAppoint(props) {
 
 const mapStateToProps = state => {
     return {
-        appointment : state.appointReducer.appointment
+        appointment : state.appointReducer.appointment,
+        user: state.userReducer.user,
+        token: state.userReducer.token
         
     }
 }
