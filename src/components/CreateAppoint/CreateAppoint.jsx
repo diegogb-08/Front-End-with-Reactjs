@@ -44,7 +44,8 @@ function CreateAppoint(props) {
             treatment: appointOn.treatment,
             covid: appointOn.covid,
             payMethod: appointOn.payMethod,
-            userId: props.user.id               
+            userId: props.user.id,  
+            clinicId: 1            
         }
 
         //REST API 
@@ -78,8 +79,8 @@ function CreateAppoint(props) {
                 </select>
                 <select type='select' name='covid' onChange={handleState}>
                     <option></option>
-                    <option>false</option>
-                    <option>true</option>
+                    <option name='false'>false</option>
+                    <option name='true'>true</option>
                 </select>
                 <select type='select' name='payMethod' onChange={handleState}>
                     <option></option>
