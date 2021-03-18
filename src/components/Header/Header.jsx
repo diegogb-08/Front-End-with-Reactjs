@@ -22,7 +22,6 @@ const Header = (props) => {
             </div>
             <div className="designDiv"></div>
             <div className="freeCall"></div>
-
             {
                 !props.user.id
                 ?
