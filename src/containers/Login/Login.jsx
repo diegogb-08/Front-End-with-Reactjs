@@ -10,6 +10,7 @@ import Logo from '../../img/logoclinic.png'
 import {connect} from 'react-redux';
 
 import {LOGIN} from '../../redux/types/userType'
+import {LOGINADMIN} from '../../redux/types/adminType'
 
 
 
@@ -49,43 +50,23 @@ const Login = (props) => {
 
             if (dataLogin.userType === 'Client') {
 
-            let result = await axios.post(port+client+login, dataLogin);
-            if(result) {
+                let result = await axios.post(port+client+login, dataLogin);
+                if(result) {
 
-            props.dispatch({type: LOGIN, payload: result.data});
-            
-            const userId = props.user.id;
-            console.log(userId)
-            
-            /* const userToken = props.token;
-
-            let resultAppoint = await axios.get(`http://localhost:3001/appointment/user/${userId}`,{
-                headers: {
-                  'Authorization': `token ${userToken}`
+                    props.dispatch({type: LOGIN, payload: result.data});
+                    history.push('/user')
                 }
-              }); */
-
-            /* let resultFind = props.dispatch({type: FIND, payload: resultAppoint.data});
-            console.log(resultFind) */
-            
-            history.push('/user')
-        }
-    } else {
-        
-            console.log('aaaaaaaaa')
-            let resultAdmin = await axios.post(`http://localhost:3001/admin`,dataLogin)
-            console.log(resultAdmin)
-            history.push('/admin')
-        
-        }
-
-
+            } else {
+                let resultAdmin = await axios.post(`http://localhost:3001/admin`,dataLogin)
+                props.dispatch({type: LOGINADMIN, payload: resultAdmin.data});
+                history.push('/admin')
+            }
         } catch(error) {
             setMessage('Email or password not found');
         }
         
     };
-    console.log(dataLogin)
+
     return(
         <div className='loginContainer'>
             <Header/> 

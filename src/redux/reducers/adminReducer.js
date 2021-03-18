@@ -1,4 +1,4 @@
-import {LOGIN, LOGOUT} from '../types/adminType';
+import {LOGOUT, LOGINADMIN} from '../types/adminType';
 
 const initialState = {
     admin: {},
@@ -8,7 +8,7 @@ const initialState = {
 
 const adminReducer = (state = initialState, action) => {
     switch(action.type){
-        case LOGIN :
+        case LOGINADMIN :
             return {
                 ...state,
                 admin : action.payload,

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux';
 import {port, admin} from '../../api/api'; 
-import { LOGIN, LOGOUT } from '../../redux/types/adminType';
+import { LOGOUT } from '../../redux/types/adminType';
 import {useHistory} from 'react-router-dom';  
 
 import Btn from '../../components/Btn/Bton'
@@ -30,19 +30,19 @@ function Admin(props) {
 
     //HANDLER
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
-        getAdmin()
+    //     getAdmin()
 
-    },[])
+    // },[])
 
-    const getAdmin = async () => {
+    // const getAdmin = async () => {
 
-        let result = await axios.get(port+admin)
-        const adminData = result.data[0]
-        console.log(result.data[0])
-        props.dispatch({type: LOGIN, payload: adminData})
-    }
+    //     let result = await axios.get(port+admin)
+    //     const adminData = result.data[0]
+    //     console.log(result.data[0])
+
+    // }
 
      // FUNCTIONS
      const setSelected = (tab) => {

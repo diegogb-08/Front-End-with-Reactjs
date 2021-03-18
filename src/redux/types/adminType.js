@@ -1,2 +1,2 @@
-export const LOGIN = 'login';
+export const LOGINADMIN = 'loginAdmin';
 export const LOGOUT = 'logout';
