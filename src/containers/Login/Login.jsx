@@ -8,7 +8,7 @@ import './Login.css';
 import {useHistory} from 'react-router-dom';  
 import Logo from '../../img/logoclinic.png'
 import {connect} from 'react-redux';
-import {LOGIN} from '../../redux/types/usertype'
+import {LOGIN} from '../../redux/types/userType'
 
 
 

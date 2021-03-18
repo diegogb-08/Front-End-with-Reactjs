@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux';
-import { LOGOUT } from '../../redux/types/usertype';
+import { LOGOUT } from '../../redux/types/userType';
 import {useHistory} from 'react-router-dom';  
 
 import Btn from '../../components/Btn/Bton'
@@ -54,7 +54,7 @@ const User = (props) => {
 
     if(!props.user.fullName){
         return(
-            <div className="gif" alt="gif"><img src={gif}/></div>
+            <div className="gif"><img src={gif} alt="gif"/></div>
             )
     }else {
             

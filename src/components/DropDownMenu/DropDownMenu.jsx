@@ -1,7 +1,7 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
-import { LOGOUT } from '../../redux/types/usertype';
+import { LOGOUT } from '../../redux/types/userType';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'

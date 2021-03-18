@@ -7,7 +7,7 @@ import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
 import checkError from '../../components/Tools/Tools';
 import {port, client} from '../../api/api';
-import {UPDATE} from '../../redux/types/usertype'
+import {UPDATE} from '../../redux/types/userType'
 import './UpdateUser.css';
 
 function UpdateUser(props) {

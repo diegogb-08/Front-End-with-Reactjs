@@ -1,5 +1,6 @@
 export const port = 'http://localhost:3001';
 export const client = '/user';
+export const admin = '/admin';
 export const login = '/login';
 export const logout = '/logout';
 export const appoint = '/appointment';
