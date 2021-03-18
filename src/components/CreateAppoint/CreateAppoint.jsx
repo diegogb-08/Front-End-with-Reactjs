@@ -12,13 +12,12 @@ import './CreateAppoint.css';
 
 function CreateAppoint(props) {
 
-    
-
     const [appointOn, setAppoint] = useState({
         appointDate: '',
         treatment: '',
         covid: false,
-        payMethod: ''
+        payMethod: '',
+        userId: ''
         
     });
 
@@ -27,6 +26,7 @@ function CreateAppoint(props) {
     // HANDLERS
     const handleState = (event) => {
         setAppoint({...appointOn, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
+
     };
 
     //AUTHORIZATION
@@ -40,25 +40,26 @@ function CreateAppoint(props) {
     // FUNCTION CREATE AN APPOINTMENT
 
     const create = async () => {
-
+    setAppoint({...appointOn, userId:props.userId})
         //Error handling
         setMessage('');
 
-       
+    
+
         let body = {
 
             appointDate: appointOn.appointDate,
             treatment: appointOn.treatment,
             covid: appointOn.covid,
-            payMethod: appointOn.payMethod
-            
-            
+            payMethod: appointOn.payMethod,
+            userId: appointOn.userId
+               
         }
 
         //REST API 
         try{
             
-
+            
             let createAppointment = await axios.post(`http://localhost:3001/appointment`, body, auth)
             const result = createAppointment.data
             console.log(result)
@@ -80,6 +81,7 @@ function CreateAppoint(props) {
            
             <div className="createContainer">
                 <Input type='date' name='appointDate' title='appointDate' lenght='30' onChange={handleState}/>
+                
                 <select type='select' name='treatment' onChange={handleState}>
                         <option></option>
                         <option>Blanqueamiento dental</option>
