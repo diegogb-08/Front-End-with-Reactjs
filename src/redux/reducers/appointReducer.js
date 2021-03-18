@@ -1,8 +1,11 @@
 import {CREATE, FIND, DELETE} from '../types/appointType';
 
 
+
+
 const initialState = {
-    appointment: []
+    appointment: [],
+ 
 };
 
 const appointReducer = (state = initialState, action) => {
@@ -10,13 +13,16 @@ const appointReducer = (state = initialState, action) => {
         case FIND :
             return {
                 ...state,
-                appointment : action.payload
+                appointment : action.payload,
+                
             }
 
         case CREATE :
             return {
                 ...state,
-                appointment : action.payload
+                appointment : action.payload,
+                
+      
             }
 
         case DELETE :
