@@ -5,8 +5,6 @@ import {connect} from 'react-redux'
 
 const Profile = (props) => {
 
-    // let counter = props.appointment.lengh +1
-
     return (
         <div className="profileComponent">
             <div className="profileDivisionLeft">
@@ -75,7 +73,7 @@ const Profile = (props) => {
                                     Appointments</h6>
                                 </div>
                                 <div className="pendingAppoint">
-                                    <p>{0}</p>                             
+                                    <p>{props.appointment.length}</p>                             
                                 </div>
                             </div>
                         </div>
@@ -93,8 +91,8 @@ const Profile = (props) => {
 
 const mapStateToProps = state => {
     return {
-        appointment : state.userReducer.appointment,
-        admin : state.adminReducer.admin
+        admin : state.adminReducer.admin,
+        appointment: state.appointReducer.appointment
     }
 }
 

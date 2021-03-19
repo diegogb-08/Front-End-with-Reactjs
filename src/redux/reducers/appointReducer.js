@@ -1,8 +1,7 @@
 import {CREATE, FIND, DELETE} from '../types/appointType';
 
 const initialState = {
-    appointment: [],
-    totalAppoint: 0 
+    appointment: []
  
 };
 
@@ -18,7 +17,7 @@ const appointReducer = (state = initialState, action) => {
         case CREATE :
             return {
                 ...state,
-                appointment : action.payload,
+                appointment : action.payload
                 
       
             }
