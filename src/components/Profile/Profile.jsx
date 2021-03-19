@@ -5,10 +5,14 @@ import {connect} from 'react-redux'
 
 const Profile = (props) => {
 
+    // let counter = props.appointment.lengh +1
 
     return (
         <div className="profileComponent">
             <div className="profileDivisionLeft">
+                <div className="spacer"></div>
+                <div className="spacer"></div>
+                <div className="spacer"></div>
                 <div className="spacer"></div>
                 {
                     !props.name
@@ -71,17 +75,7 @@ const Profile = (props) => {
                                     Appointments</h6>
                                 </div>
                                 <div className="pendingAppoint">
-                                {/* {
-                                    props.appointment.lengh
-                                    ?
-                                    <>
-                                        <p>{props.appointment.lengh}</p>
-                                    </>
-                                    :
-                                    <> */}
-                                        <p>0</p>
-                                    {/* </>
-                                } */}
+                                    <p>{0}</p>                             
                                 </div>
                             </div>
                         </div>

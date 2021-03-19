@@ -116,7 +116,7 @@ function CreateAppoint(props) {
             </div>
            
             <div className="createContainer">
-                <Input type='date' name='appointDate' title='appointDate' lenght='30' onChange={handleState}/>
+                <Input type='datetime-local' name='appointDate' title='appointDate' lenght='30' onChange={handleState}/>
                 
                 <select type='select' name='treatment' onChange={handleState}>
                         <option></option>

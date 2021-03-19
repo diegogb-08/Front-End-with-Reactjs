@@ -70,9 +70,10 @@ const User = (props) => {
                             <Config name="Log Out!" onClick={()=>logOut()}/>
                         </Tab>
                         <Tab isSelected={tab.selected === 'Appointments'}>
-                            <div>
-                                PPPPPPPPPPPPPPPPPPPPPPPPPP
-                            </div>
+                            <div className='configSpacer'></div>
+                            <Btn name='Home' path=''/>
+                            <ModalRender name="Update profile" />
+                            <Config name="Log Out!" onClick={()=>logOut()}/>
                         </Tab>
                     </div>
                     <div className="profileCenter">
