@@ -25,7 +25,7 @@ const appointReducer = (state = initialState, action) => {
         case DELETE :
             return {
                 ...state,
-                appointment : action.payload
+                appointment : initialState
             }
 
         default : 

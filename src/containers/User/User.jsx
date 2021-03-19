@@ -102,6 +102,8 @@ const User = (props) => {
                                             <CreateAppoint
                                             userId={props.user.id}
                                             token={props.token}
+                                            appointmentId={props.appointment.id}
+                                            appointDate={props.appointment.appointDate}
                     
                                             />
 
@@ -122,7 +124,8 @@ const User = (props) => {
 const mapStateToProps = state => {
     return {
         user : state.userReducer.user,
-        token : state.userReducer.token
+        token : state.userReducer.token,
+        appointment: state.appointReducer.appointment
     }
 }
 
