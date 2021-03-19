@@ -2,6 +2,7 @@ import {CREATE, FIND, DELETE} from '../types/appointType';
 
 const initialState = {
     appointment: [],
+    totalAppoint: 0 
  
 };
 
