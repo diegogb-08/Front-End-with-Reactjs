@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
 // HOla
-import {CREATE} from '../../redux/types/appointType'
+import {CREATE,FIND} from '../../redux/types/appointType'
 import './CreateAppoint.css';
 
 function CreateAppoint(props) {
@@ -33,6 +33,24 @@ function CreateAppoint(props) {
           'Authorization': `Bearer ${token}` 
         }};
 
+    // FUNCTION FIND ALL APPOINTMENTS BY ID
+
+    const find = async () => {
+        try {
+            let id = props.user.id
+        let resultAppoint = await axios.get(`http://localhost:3001/appointment/user/${id}`, auth);
+            console.log(resultAppoint)
+               
+
+            let resultFind = props.dispatch({type: FIND, payload: resultAppoint.data});
+            console.log(resultFind)  
+        }   catch(error){
+            setMessage('rellena todos los campos') 
+        }
+    }
+    
+            
+
     // FUNCTION CREATE AN APPOINTMENT
 
     const create = async () => {
@@ -56,7 +74,7 @@ function CreateAppoint(props) {
             console.log(result)
            
             props.dispatch({ type: CREATE, payload : result});
-            
+            find()
         }catch(error){
             setMessage('rellena todos los campos') 
         }
