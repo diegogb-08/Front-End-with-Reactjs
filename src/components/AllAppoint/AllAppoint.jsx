@@ -23,6 +23,7 @@ function AllAppoint() {
     useEffect(()=>{
         getAllAppoint()
         getAllUsers()
+        // eslint-disable-next-line
     },[])
 
     // FUNCTIONS
@@ -47,10 +48,10 @@ function AllAppoint() {
                             <h6>Appointment #{item.id}</h6>
                             Treatment: {item.treatment}<br/>
                             Patient Name: {
+                                // eslint-disable-next-line
                                 users.arrayUsers.map(user => {
-                                    if (user.id === item.userId){
+                                    if (user.id === item.userId)
                                         return user.fullName
-                                    }
                                 })
                             }<br/>
                             Date: {moment(item.appointDate).format('Do MMMM YYYY')}<br/>

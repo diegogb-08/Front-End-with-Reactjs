@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {connect} from 'react-redux';
-import {port, admin} from '../../api/api'; 
 import { LOGOUT } from '../../redux/types/adminType';
 import {useHistory} from 'react-router-dom';  
 
@@ -44,6 +43,7 @@ function Admin(props) {
  
     if(!props.admin.name){
         return(
+            // eslint-disable-next-line
             <div className="gif" alt="gif"><img src={gif}/></div>
             )
     }else {
