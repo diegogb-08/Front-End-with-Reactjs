@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux';
 
@@ -19,7 +19,11 @@ function CreateAppoint(props) {
 
     const [message, setMessage] = useState('')
 
-    const [appointmentList, setAppointmentList] = useState([])
+    const [appointmentList, setAppointmentList] = useState({
+        appointCollection : []
+    })
+
+
     // HANDLERS
     const handleState = (event) => {
         setAppoint({...appointOn, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
@@ -34,71 +38,41 @@ function CreateAppoint(props) {
           'Authorization': `Bearer ${token}` 
         }};
 
+    useEffect(()=>{
+        find()
+  
+    },[])
     
     // FUNCTION FIND ALL APPOINTMENTS BY ID
 
     const find = async () => {
-        try {
             let id = props.user.id
             let resultAppoint = await axios.get(`http://localhost:3001/appointment/user/${id}`, auth);
               
-            let resultFind = props.dispatch({type: FIND, payload: resultAppoint.data});
-            console.log(resultFind)
-            /* 
-            const allResult = resultFind.payload
-            allResult.forEach(element =>  
-            setAppointmentList([...prevItems, {
-                id: element.id,
-                treatment: element.treatment
-              }]));
-            console.log(appointmentList) */
-           
-        }   catch(error){
-            setMessage('rellena todos los campos') 
-        }
+            setAppointmentList({...appointmentList, appointCollection: resultAppoint.data});
+            
     }
     // FUNCTION DELTE AN APPOINTMENT BY USER ID
 
-      const deleteAppoint = async () => {
-
+/*     const deleteAppoint = async (id) => {
         setMessage('');
-
-        let body = {
-
-            appointDate: appointOn.appointDate,
-            treatment: appointOn.treatment,
-            covid: appointOn.covid,
-            payMethod: appointOn.payMethod,
-            userId: props.user.id,  
-            clinicId: 1            
-        }
-
-        try{
-            console.log(body)
-            let resultDeleteAppoint = await axios.delete(`http://localhost:3001/appointment/user/${props.user.id}`, auth);
-            console.log(resultDeleteAppoint)
-    
-           
-           /*  props.dispatch({ type: DELETE, payload : }); */
-          
         
-            
+        const newItem = appointmentList.appointCollection.filter((item) => item.id !== id)
+        setAppointmentList(newItem)
+        //REST API 
+        try{
+                        
+            let createAppointment = await axios.delete(`http://localhost:3001/appointment/user/${props.user.id}`, body, auth)
+            const result = createAppointment.data
+            console.log(result)
+            props.dispatch({ type: DELETE, payload : result});  
+
         }catch(error){
             setMessage('rellena todos los campos') 
-        }
-       /*  try {
-            let id = props.user.id
-            let appointmentId = props.appointmentId;
-            let resultDeleteAppoint = await axios.delete(`http://localhost:3001/appointment/user/${id}`, auth, appointmentId);
-            console.log(resultDeleteAppoint)
-               
+        }   
+       
+    }   */
 
-            let resultDeleteFind = props.dispatch({type: DELETE, payload: resultDeleteAppoint.data});
-            console.log(resultDeleteFind)  
-        }   catch(error){
-            setMessage('rellena todos los campos') 
-        } */
-    }  
 
     // FUNCTION CREATE AN APPOINTMENT
 
@@ -132,20 +106,10 @@ function CreateAppoint(props) {
 
     }
 
-/*     const appointGrid  = () => {
-          return  <ul>
-            <li>{appointmentList.id}</li>    
-            <li>{appointmentList.treatment}</li> 
-            <li>{appointmentList.appointDate}</li> 
-            </ul>
-    } */
-
     return (
        
         <div className="findAppointmentComponent">
-             <div>
-      
-            </div> 
+             
             <div className="header">
                 <h2>CREATE APPOINTMENT</h2>
                 <h2>AppointDate:{props.appointDate}</h2>
@@ -174,9 +138,20 @@ function CreateAppoint(props) {
             <div className="messageUpdate">{message}</div>
             <div className="submitUpdate">
                 <Submit type='submit' name='submit' onClick={()=>create()} title='Create appoint'/>
-                <Submit type='submit' name='submit' onClick={()=>find()} title='Find appoint'/>
-                <Submit type='submit' name='submit' onClick={()=>deleteAppoint()} title='Delte appoint'/>
             </div>
+            <div>
+                
+        </div>
+        {appointmentList.appointCollection.map(item =>{
+            return(
+                <div key={item.id} >
+                    <h6>Order number #{item.id}</h6>
+                    Treatment: {item.treatment}<br/>  
+                    Date: {item.appointDate}
+                    {/* <button onClick={()=>deleteAppoint(item.id)}>x</button> */}  
+                </div>
+            )                
+        })}
         </div>
     )
 }
