@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux';
+import {port, client, appoint, key} from '../../api/api'; 
 
 import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
@@ -47,7 +48,7 @@ function CreateAppoint(props) {
 
     const find = async () => {
             let id = props.user.id
-            let resultAppoint = await axios.get(`http://localhost:3001/appointment/user/${id}`, auth);
+            let resultAppoint = await axios.get(`${port}${appoint}${client}/${id}`, auth);
               
             setAppointmentList({...appointmentList, appointCollection: resultAppoint.data});
             

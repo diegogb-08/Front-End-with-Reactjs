@@ -14,6 +14,7 @@ import ModalRender from '../Modal/ModalRender'
 import gif from '../../img/giphy.gif'
 import './Admin.css'
 import AllAppoint from '../../components/AllAppoint/AllAppoint';
+import AllUsers from '../../components/AllAppoint/AllUsers';
 
 
 
@@ -96,7 +97,7 @@ function Admin(props) {
                                     </Tab>
                                     <Tab isSelected={tab.selected === 'Users'}>
                                         <div className="cardInfo card">
-              
+                                            <AllUsers/>
                                         </div>
                                     </Tab>
                                 </TabNav>

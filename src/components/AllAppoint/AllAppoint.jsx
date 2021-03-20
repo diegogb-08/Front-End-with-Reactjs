@@ -17,7 +17,7 @@ function AllAppoint() {
     const [users, setUsers] = useState({
         arrayUsers : []
     })
-
+    
     // HANDLER
 
     useEffect(()=>{
@@ -39,6 +39,7 @@ function AllAppoint() {
         let result = await axios.get(port+client)
         setUsers({...users, arrayUsers: result.data})
     }
+
 
     return (
         <div className="allAppointComponent">

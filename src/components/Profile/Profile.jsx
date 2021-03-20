@@ -1,11 +1,32 @@
-import React from 'react'
-import './Profile.css';
-import moment from 'moment';
+import React, {useEffect} from 'react'
+import axios from 'axios';
 import {connect} from 'react-redux'
+import { CREATE } from '../../redux/types/appointType';
+import moment from 'moment';
+
+import {port, client, appoint, key} from '../../api/api'; 
+import './Profile.css';
 
 const Profile = (props) => {
 
-    // let counter = props.appointment.lengh +1
+    //AUTHORIZATION
+    
+    let token = props.token
+    let auth = {
+        headers: {
+          'Authorization': `Bearer ${token}` 
+        }};
+
+
+    useEffect(()=>{
+        getAppointments()
+    },[])
+
+    const getAppointments = async () => {
+        let result = await axios.get(`${port}${appoint}${client}/${props.user.id}`, auth)
+        props.dispatch({type: CREATE, payload: result.data})
+    }
+
 
     return (
         <div className="profileComponent">
@@ -61,7 +82,7 @@ const Profile = (props) => {
                     <p><b>Birth Date:</b> {moment(props.birthDate).format('Do-MMMM-YYYY')}</p>
                     <p><b>Email:</b> {props.email}</p>
                     <p><b>Phone Number:</b> {props.phoneNumber}</p>
-                    <p><b>Client since:</b> {moment(props.clientSince).format('Do-MMMM-YYYY')}</p>
+                    <p><b>Client since:</b> {moment(props.createdAt).format('Do-MMMM-YYYY')}</p>
                     <p><b>Profile last update:</b> {moment(props.updatedAt).format('Do-MMMM-YYYY')}</p>
                 </div>
                 {
@@ -75,7 +96,7 @@ const Profile = (props) => {
                                     Appointments</h6>
                                 </div>
                                 <div className="pendingAppoint">
-                                    <p>{0}</p>                             
+                                    <p>{props.appointment?.length}</p>                             
                                 </div>
                             </div>
                         </div>
@@ -93,8 +114,10 @@ const Profile = (props) => {
 
 const mapStateToProps = state => {
     return {
-        appointment : state.userReducer.appointment,
-        admin : state.adminReducer.admin
+        admin : state.adminReducer.admin,
+        user : state.userReducer.user,
+        token : state.userReducer.token,
+        appointment: state.appointReducer.appointment
     }
 }
 
