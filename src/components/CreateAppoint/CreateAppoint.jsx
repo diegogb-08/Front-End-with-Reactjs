@@ -96,12 +96,11 @@ function CreateAppoint(props) {
         // DATES 
         const now = moment().format('YYYY-MM-DD HH:mm:ss')
         let today = moment(body.appointDate).format('YYYY-MM-DD HH:mm:ss')
-        console.log(today)
-        console.log(now)
+    
         if (now >= today){
-            setMessage('LA FECHA INTRODUCIDA ES MENOR')
-        }else if (now > today){
-        //REST API 
+            setMessage('The date is wrong')
+        }else if (now < today){
+        
         try{
                         
             let createAppointment = await axios.post(`http://localhost:3001/appointment`, body, auth)
