@@ -1,9 +1,32 @@
-import React from 'react'
-import './Profile.css';
-import moment from 'moment';
+import React, {useEffect} from 'react'
+import axios from 'axios';
 import {connect} from 'react-redux'
+import { CREATE } from '../../redux/types/appointType';
+import moment from 'moment';
+
+import {port, client, appoint, key} from '../../api/api'; 
+import './Profile.css';
 
 const Profile = (props) => {
+
+    //AUTHORIZATION
+    
+    let token = props.token
+    let auth = {
+        headers: {
+          'Authorization': `Bearer ${token}` 
+        }};
+
+
+    useEffect(()=>{
+        getAppointments()
+    },[])
+
+    const getAppointments = async () => {
+        let result = await axios.get(`${port}${appoint}${client}/${props.user.id}`, auth)
+        props.dispatch({type: CREATE, payload: result.data})
+    }
+
 
     return (
         <div className="profileComponent">
@@ -73,7 +96,7 @@ const Profile = (props) => {
                                     Appointments</h6>
                                 </div>
                                 <div className="pendingAppoint">
-                                    <p>{props.appointment.length}</p>                             
+                                    <p>{props.appointment?.length}</p>                             
                                 </div>
                             </div>
                         </div>
@@ -92,6 +115,8 @@ const Profile = (props) => {
 const mapStateToProps = state => {
     return {
         admin : state.adminReducer.admin,
+        user : state.userReducer.user,
+        token : state.userReducer.token,
         appointment: state.appointReducer.appointment
     }
 }

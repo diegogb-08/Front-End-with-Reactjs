@@ -12,12 +12,6 @@ import {connect} from 'react-redux';
 import {LOGIN} from '../../redux/types/userType'
 import {LOGINADMIN} from '../../redux/types/adminType'
 
-
-
-
-
-
-
 const Login = (props) => {
 
     let history = useHistory();

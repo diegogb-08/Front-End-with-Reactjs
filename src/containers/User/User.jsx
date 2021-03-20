@@ -1,10 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {connect} from 'react-redux';
-import axios from 'axios';
 import { LOGOUT } from '../../redux/types/userType';
-import { CREATE } from '../../redux/types/appointType';
+import { DELETE } from '../../redux/types/appointType';
 import {useHistory} from 'react-router-dom';  
-import {port, client, appoint, key} from '../../api/api'; 
 
 import Btn from '../../components/Btn/Bton'
 import Config from '../../components/Config/Config'
@@ -18,17 +16,7 @@ import gif from '../../img/giphy.gif'
 import './User.css'
 import CreateAppoint from '../../components/CreateAppoint/CreateAppoint';
 
-
-
 const User = (props) => {
-
-     //AUTHORIZATION
-    
-     let token = props.token
-     let auth = {
-         headers: {
-           'Authorization': `Bearer ${token}` 
-         }};
 
     let history = useHistory();
 
@@ -38,24 +26,14 @@ const User = (props) => {
         selected: 'Profile'
     })
 
-    useEffect(()=>{
-        getAppointments()
-    },[])
-  
      // FUNCTIONS
      const setSelected = (tab) => {
         setTab({selected: tab});
     }
 
-    const getAppointments = async () => {
-        let result = await axios.get(`${port}${appoint}${client}/${props.user.id}`, auth)
-        props.dispatch({type: CREATE, payload: result.data})
-    }
-
-
     const logOut = () => {
         props.dispatch({ type: LOGOUT, payload : {}});
-
+        props.dispatch({ type: DELETE, payload : {}});
         setTimeout(()=> {
             history.push('/');
         },500);
@@ -71,8 +49,6 @@ const User = (props) => {
         const initial = getFirstName(fullName).charAt(0);
         return initial;
     }
-
-    console.log(props.appointment)
 
     if(!props.user.fullName){
         return(
@@ -121,7 +97,6 @@ const User = (props) => {
                                     </Tab>
                                     <Tab isSelected={tab.selected === 'Appointments'}>
                                         <div className="cardInfo card">
-
                                             <CreateAppoint
                                             userId={props.user.id}
                                             token={props.token}
@@ -129,8 +104,6 @@ const User = (props) => {
                                             appointDate={props.appointment.appointDate}
                     
                                             />
-
-                                            
                                         </div>
                                     </Tab>
                                 </TabNav>
