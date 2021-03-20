@@ -1,0 +1,10 @@
+.closeBtn {
+    position: 'absolute';
+    top: 0;
+    right: 0;
+    border-radius: '4rem';
+    cursor: 'pointer';
+    margin-right: '0.5rem';
+    margin-top: '0.3rem';
+    color: 'grey';
+}

@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {port, client, appoint, key} from '../../api/api'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes} from '@fortawesome/free-solid-svg-icons'
 
 import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
@@ -11,7 +13,9 @@ import './CreateAppoint.css';
 
 function CreateAppoint(props) {
 
-        const [appointOn, setAppoint] = useState({
+    const x = <FontAwesomeIcon icon={faTimes} />
+
+    const [appointOn, setAppoint] = useState({
         appointDate: '',
         treatment: '',
         covid: false,
@@ -55,16 +59,16 @@ function CreateAppoint(props) {
     }
     // FUNCTION DELTE AN APPOINTMENT BY USER ID
 
-/*     const deleteAppoint = async (id) => {
-        setMessage('');
+    const deleteAppoint = async (appointId) => {
+        // setMessage('');
         
-        const newItem = appointmentList.appointCollection.filter((item) => item.id !== id)
-        setAppointmentList(newItem)
+        // const newItem = appointmentList.appointCollection.filter((item) => item.id !== id)
+        // setAppointmentList(newItem)
         //REST API 
         try{
                         
-            let createAppointment = await axios.delete(`http://localhost:3001/appointment/user/${props.user.id}`, body, auth)
-            const result = createAppointment.data
+            let deleteAppointment = await axios.delete(`${port}${appoint}${client}/${props.user.id}${key}${appointId}`, auth)
+            const result = deleteAppointment.data
             console.log(result)
             props.dispatch({ type: DELETE, payload : result});  
 
@@ -72,7 +76,7 @@ function CreateAppoint(props) {
             setMessage('rellena todos los campos') 
         }   
        
-    }   */
+    }   
 
 
     // FUNCTION CREATE AN APPOINTMENT
@@ -146,16 +150,17 @@ function CreateAppoint(props) {
         {appointmentList.appointCollection.map(item =>{
             return(
                 <div key={item.id} >
+                    <div className="" onClick={()=>deleteAppoint(item.id)}>{x}</div>
                     <h6>Order number #{item.id}</h6>
                     Treatment: {item.treatment}<br/>  
                     Date: {item.appointDate}
-                    {/* <button onClick={()=>deleteAppoint(item.id)}>x</button> */}  
                 </div>
             )                
         })}
         </div>
     )
 }
+
 
 const mapStateToProps = state => {
     return {
