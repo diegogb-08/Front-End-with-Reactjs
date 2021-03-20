@@ -82,7 +82,7 @@ const Profile = (props) => {
                     <p><b>Birth Date:</b> {moment(props.birthDate).format('Do-MMMM-YYYY')}</p>
                     <p><b>Email:</b> {props.email}</p>
                     <p><b>Phone Number:</b> {props.phoneNumber}</p>
-                    <p><b>Client since:</b> {moment(props.clientSince).format('Do-MMMM-YYYY')}</p>
+                    <p><b>Client since:</b> {moment(props.createdAt).format('Do-MMMM-YYYY')}</p>
                     <p><b>Profile last update:</b> {moment(props.updatedAt).format('Do-MMMM-YYYY')}</p>
                 </div>
                 {
