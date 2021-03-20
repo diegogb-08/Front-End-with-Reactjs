@@ -18,27 +18,27 @@ You will also see any lint errors in the console.
 ### Technologies
 <div style="display: flex;">
     <img src="public/icons/reactjs.png"
-     style="height: 5rem;" />
+     style="height: 100px;" />
      <img src="public/icons/redux.png"
-     style="height: 5rem;" />
+      style="height: 100px;" />
      <img src="public/icons/node.jpg"
-     style="height: 5rem;" />
+      style="height: 100px;" />
      <img src="public/icons/js.png"
-     style="height: 5rem;" />
+      style="height: 100px;"/>
      <img src="public/icons/bootstrap.jpg"
-     style="height: 5rem;" />
+      style="height: 100px;" />
      <img src="public/icons/momentjs.png"
-     style="height: 4rem;" />
+      style="height: 100px;" />
      <img src="public/icons/react-router.png"
-     style="height: 5rem;" />
+      style="height: 100px;" />
 </div>
 <div style="display: flex;">
      <img src="public/icons/css.png"
-     style="height: 5rem;" />
+      style="height: 100px;" />
      <img src="public/icons/axios.png"
-     style="height: 4rem;" />
+      style="height: 100px;" />
       <img src="public/icons/fontAwesome.png"
-     style="height: 4rem;" />
+      style="height: 100px;" />
      <img src="public/icons/slich.png"
-     style="height: 4rem;" />
+      style="height: 100px;" />
 </div>
