@@ -2,12 +2,12 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {port, client, appoint, key} from '../../api/api'; 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes} from '@fortawesome/free-solid-svg-icons'
+/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes} from '@fortawesome/free-solid-svg-icons' */
 
 import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
-// HOla
+
 import {CREATE,DELETE} from '../../redux/types/appointType'
 import './CreateAppoint.css';
 
@@ -16,7 +16,7 @@ import moment from 'moment';
 function CreateAppoint(props) {
     const [showModal, setShowModal] =  useState(false)
 
-    const x = <FontAwesomeIcon icon={faTimes} />
+    
 
     const [appointOn, setAppoint] = useState({
         appointDate: '',
@@ -79,7 +79,7 @@ function CreateAppoint(props) {
        
     }   
     //FUNCTION TOOGLE MODAL
-    const toogleModal = () => {
+    const toggleModal = () => {
         setShowModal(!showModal)
     }
 
@@ -111,11 +111,11 @@ function CreateAppoint(props) {
             const result = createAppointment.data
             if (result){
                 alert('You has been created a new appointment. See you soon!')
-            }
+            } 
             console.log(result)
             props.dispatch({ type: CREATE, payload : result});
             find()
-            toogleModal()
+            toggleModal()
             setAppoint({appointDate:'',
             treatment: '',
             covid:false,
@@ -127,7 +127,68 @@ function CreateAppoint(props) {
         }
     }
     }
+    return (
+        <div className="findAppointmentComponent">
+            <Submit type='submit' name='submit' onClick={()=>toggleModal()} title='Create appoint'/>
+            <div className="header">
+               
+            </div> 
+            {showModal &&
+            <div className="modal">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h2>CREATE APPOINTMENT</h2>
+                    </div>
+                    <div className="modal-body">
+                    <Input className="calendar-input" type='datetime-local' name='appointDate' title='appointDate' lenght='30' onChange={handleState}/>
+                <select className="select-input" type='select' name='treatment' onChange={handleState}>
+                    <option></option>
+                    <option>Blanqueamiento dental</option>
+                    <option>Limpieza bucal</option>
+                </select>
+                <select type='select' name='covid' onChange={handleState}>
+                    <option></option>
+                    <option name='false'>false</option>
+                    <option name='true'>true</option>
+                </select>
+                <select type='select' name='payMethod' onChange={handleState}>
+                    <option></option>
+                    <option>Visa</option>
+                    <option>Paypal</option>
+                    </select> 
+                    </div>
+                    <div class="modal-footer">
+                    <div className="messageUpdate">{message}</div>
+                    <button onClick={() =>toggleModal()} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button onClick={() =>create()} type="button" className="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>}
+            
+            <div className="submitUpdate">
+                
+            </div>
+            <div>   
+        </div>
 
+        <div className="allAppointUserComponent">
+        {appointmentList.appointCollection.map(item =>{
+            return(
+                <div key={item.id} className="appointmentUserGrid">
+                    <div className="align-close-button">
+                    <h6>Order number #{item.id}</h6>
+                    <button className="close-button" onClick={()=>deleteAppoint(item.id)}>&#x2715;</button>
+                    </div>
+                    Treatment: {item.treatment}<br/>  
+                    Date: {item.appointDate}<br/>
+                    Price: {item.price}
+                    
+                </div>
+            )                
+        })}
+        </div>
+        </div>
+    )
     
 }
 

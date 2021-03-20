@@ -8,3 +8,68 @@
     margin-top: '0.3rem';
     color: 'grey';
 }
+
+.modal{
+    position: fixed;
+    left:0;
+    top:0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content{
+    width: 40%
+}
+
+.calendar-input{
+    margin: 300px
+}
+
+.select-input{
+    margin-top: 10px
+}
+
+.allAppointUserComponent{
+    height: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    margin: 1rem;
+}
+.appointmentUserGrid{
+    display: flex;
+    height: 100%;
+    max-height: 8em; 
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    background-color: whitesmoke;
+    padding: 0.5rem;
+    font-size: 14px;
+}
+
+
+.align-close-button{
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-button{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    align-self: flex-start
+}
+
+.appointmentUserGrid h6 {
+    font-weight: bold;
+}
+
