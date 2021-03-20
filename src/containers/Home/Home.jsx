@@ -4,6 +4,10 @@ import Header from '../../components/Header/Header';
 import Slideshow from '../../components/Slideshow/Slideshow'
 import './Home.css';
 
+import Ortodoncia from '../../img/ortodoncia.png'
+import Caries from '../../img/caries.png'
+import Implantologia from '../../img/implantologia.png'
+import Blanqueamiento from '../../img/blanqueamiento.png'
 // import Geo from '../../img/geo.png'
 // import Equipo from '../../img/equipoHumano.jpg'
 // import Caries from '../../img/caries.png'
@@ -18,12 +22,43 @@ const Home = (props) => {
             <Slideshow/>
             <div class="container">
               <div class="row row-cols-2">
-                <div class="col">Column
-              
+
+                <div class="col">
+                <div class="card">
+                  <img class="card-img-top" src={Ortodoncia} alt="Card image cap"/>
+                  <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
                 </div>
-                <div class="col">Column</div>
-                <div class="col">Column</div>
-                <div class="col">Column</div>
+                
+                </div>
+
+                <div class="col">
+                  <div class="card">
+                    <img class="card-img-top" src={Caries} alt="Card image cap"/>
+                    <div class="card-body">
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                  </div>
+
+                <div class="col">
+                    <div class="card">
+                      <img class="card-img-top" src={Blanqueamiento} alt="Card image cap"/>
+                      <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="card">
+                    <img class="card-img-top" src={Implantologia} alt="Card image cap"/>
+                    <div class="card-body">
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
              
