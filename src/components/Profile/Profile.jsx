@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import { CREATE } from '../../redux/types/appointType';
 import moment from 'moment';
 
-import {port, client, appoint, key} from '../../api/api'; 
+import {port, client, appoint} from '../../api/api'; 
 import './Profile.css';
 
 const Profile = (props) => {

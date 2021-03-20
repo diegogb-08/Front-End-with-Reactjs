@@ -8,7 +8,10 @@ import { faTimes} from '@fortawesome/free-solid-svg-icons' */
 import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
 
+
 import {CREATE,DELETE} from '../../redux/types/appointType'
+
+
 import './CreateAppoint.css';
 
 import moment from 'moment';
@@ -108,9 +111,10 @@ function CreateAppoint(props) {
         try{
                         
             let createAppointment = await axios.post(`http://localhost:3001/appointment`, body, auth)
+
             const result = createAppointment.data
             if (result){
-                alert('You has been created a new appointment. See you soon!')
+                alert('You have created a new appointment. See you soon!')
             } 
             console.log(result)
             props.dispatch({ type: CREATE, payload : result});
@@ -121,7 +125,7 @@ function CreateAppoint(props) {
             covid:false,
             payMethod: '',})
            
-            
+          
         }catch(error){
             setMessage('fill in all the fields') 
         }
