@@ -31,17 +31,12 @@
     margin-left: 4em;
 }
 
-.col {
-    margin-top: 0.5em;
-}
-
-.p{
-    margin-top: 1em;
-}
-
-.humanTeam{
-    width: 40em;
-    height: 20em;
+img {
     overflow: hidden;
-    align-self: center;
+    width: 100%;
+    height: 100%;
+}
+
+.designDiv{
+    height: 1em;
 }
