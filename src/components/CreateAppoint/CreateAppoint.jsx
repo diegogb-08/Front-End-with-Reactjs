@@ -7,7 +7,6 @@ import { faTimes} from '@fortawesome/free-solid-svg-icons'
 
 import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
-// HOla
 import {CREATE,FIND,DELETE} from '../../redux/types/appointType'
 import './CreateAppoint.css';
 
@@ -97,18 +96,12 @@ function CreateAppoint(props) {
         try{
                         
             let createAppointment = await axios.post(`http://localhost:3001/appointment`, body, auth)
-            const result = createAppointment.data
-            console.log(result)
-           
-           
+            const result = createAppointment.data          
             props.dispatch({ type: CREATE, payload : result});
           
-        
-            
         }catch(error){
             setMessage('rellena todos los campos') 
         }
-
     }
 
     return (
