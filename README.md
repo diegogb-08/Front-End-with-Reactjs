@@ -16,31 +16,3 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### Technologies
-<div style="display: flex;">
-    <img src="public/icons/reactjs.png"
-     style="height: 5rem;" />
-     <img src="public/icons/redux.png"
-     style="height: 5rem;" />
-     <img src="public/icons/node.jpg"
-     style="height: 5rem;" />
-     <img src="public/icons/js.png"
-     style="height: 5rem;" />
-     <img src="public/icons/bootstrap.jpg"
-     style="height: 5rem;" />
-     <img src="public/icons/momentjs.png"
-     style="height: 4rem;" />
-     <img src="public/icons/react-router.png"
-     style="height: 5rem;" />
-</div>
-<div style="display: flex;">
-     <img src="public/icons/css.png"
-     style="height: 5rem;" />
-     <img src="public/icons/html.png"
-     style="height: 5rem;" />
-     <img src="public/icons/axios.png"
-     style="height: 4rem;" />
-      <img src="public/icons/fontAwesome.png"
-     style="height: 4rem;" />
-     <img src="public/icons/slich.png"
-     style="height: 4rem;" />
-</div>
