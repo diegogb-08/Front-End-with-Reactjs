@@ -35,6 +35,8 @@ You will also see any lint errors in the console.
 <div style="display: flex;">
      <img src="public/icons/css.png"
      style="height: 5rem;" />
+     <img src="public/icons/html.png"
+     style="height: 5rem;" />
      <img src="public/icons/axios.png"
      style="height: 4rem;" />
       <img src="public/icons/fontAwesome.png"
