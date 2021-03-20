@@ -10,6 +10,7 @@ import Submit from '../Submit/Submit'
 // HOla
 import {CREATE,FIND,DELETE} from '../../redux/types/appointType'
 import './CreateAppoint.css';
+import { findRenderedComponentWithType } from 'react-dom/test-utils';
 
 function CreateAppoint(props) {
 
@@ -70,7 +71,8 @@ function CreateAppoint(props) {
             let deleteAppointment = await axios.delete(`${port}${appoint}${client}/${props.user.id}${key}${appointId}`, auth)
             const result = deleteAppointment.data
             console.log(result)
-            props.dispatch({ type: DELETE, payload : result});  
+            props.dispatch({ type: DELETE, payload : result}); 
+            find() 
 
         }catch(error){
             setMessage('rellena todos los campos') 
