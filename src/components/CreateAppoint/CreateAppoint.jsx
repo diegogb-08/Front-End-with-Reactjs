@@ -8,12 +8,13 @@ import { faTimes} from '@fortawesome/free-solid-svg-icons'
 import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
 // HOla
-import {CREATE,FIND,DELETE} from '../../redux/types/appointType'
+import {CREATE,DELETE} from '../../redux/types/appointType'
 import './CreateAppoint.css';
-import { findRenderedComponentWithType } from 'react-dom/test-utils';
+
 import moment from 'moment';
 
 function CreateAppoint(props) {
+    const [showModal, setShowModal] =  useState(false)
 
     const x = <FontAwesomeIcon icon={faTimes} />
 
@@ -77,7 +78,10 @@ function CreateAppoint(props) {
         }   
        
     }   
-
+    //FUNCTION TOOGLE MODAL
+    const toogleModal = () => {
+        setShowModal(!showModal)
+    }
 
     // FUNCTION CREATE AN APPOINTMENT
 
@@ -105,67 +109,26 @@ function CreateAppoint(props) {
                         
             let createAppointment = await axios.post(`http://localhost:3001/appointment`, body, auth)
             const result = createAppointment.data
+            if (result){
+                alert('You has been created a new appointment. See you soon!')
+            }
             console.log(result)
-           
-           
             props.dispatch({ type: CREATE, payload : result});
-          
-        
+            find()
+            toogleModal()
+            setAppoint({appointDate:'',
+            treatment: '',
+            covid:false,
+            payMethod: '',})
+           
             
         }catch(error){
-            setMessage('rellena todos los campos') 
+            setMessage('fill in all the fields') 
         }
     }
     }
 
-    return (
-       
-        <div className="findAppointmentComponent">
-             
-            <div className="header">
-                <h2>CREATE APPOINTMENT</h2>
-                <h2>AppointDate:{props.appointDate}</h2>
-            </div>
-           
-            <div className="createContainer">
-                <Input type='datetime-local' name='appointDate' title='appointDate' lenght='30' onChange={handleState}/>
-                
-                <select type='select' name='treatment' onChange={handleState}>
-                        <option></option>
-                        <option>Blanqueamiento dental</option>
-                        <option>Limpieza bucal</option>
-                </select>
-                <select type='select' name='covid' onChange={handleState}>
-                    <option></option>
-                    <option name='false'>false</option>
-                    <option name='true'>true</option>
-                </select>
-                <select type='select' name='payMethod' onChange={handleState}>
-                    <option></option>
-                    <option>Visa</option>
-                    <option>Paypal</option>
-                </select>
-               
-            </div>
-            <div className="messageUpdate">{message}</div>
-            <div className="submitUpdate">
-                <Submit type='submit' name='submit' onClick={()=>create()} title='Create appoint'/>
-            </div>
-            <div>
-                
-        </div>
-        {appointmentList.appointCollection.map(item =>{
-            return(
-                <div key={item.id} >
-                    <div className="" onClick={()=>deleteAppoint(item.id)}>{x}</div>
-                    <h6>Order number #{item.id}</h6>
-                    Treatment: {item.treatment}<br/>  
-                    Date: {item.appointDate}
-                </div>
-            )                
-        })}
-        </div>
-    )
+    
 }
 
 
