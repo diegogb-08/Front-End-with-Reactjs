@@ -53,7 +53,7 @@ const User = (props) => {
     if(!props.user.fullName){
         return(
             <div className="gif"><img src={gif} alt="gif"/></div>
-            )
+        )
     }else {
             
         return (
