@@ -2,17 +2,24 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {port, client, appoint, key} from '../../api/api'; 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes} from '@fortawesome/free-solid-svg-icons'
+/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes} from '@fortawesome/free-solid-svg-icons' */
 
 import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
-import {CREATE,FIND,DELETE} from '../../redux/types/appointType'
+
+
+import {CREATE,DELETE} from '../../redux/types/appointType'
+
+
 import './CreateAppoint.css';
 
-function CreateAppoint(props) {
+import moment from 'moment';
 
-    const x = <FontAwesomeIcon icon={faTimes} />
+function CreateAppoint(props) {
+    const [showModal, setShowModal] =  useState(false)
+
+    
 
     const [appointOn, setAppoint] = useState({
         appointDate: '',
@@ -60,23 +67,24 @@ function CreateAppoint(props) {
 
     const deleteAppoint = async (appointId) => {
         // setMessage('');
-        
-        // const newItem = appointmentList.appointCollection.filter((item) => item.id !== id)
-        // setAppointmentList(newItem)
-        //REST API 
+      
         try{
                         
             let deleteAppointment = await axios.delete(`${port}${appoint}${client}/${props.user.id}${key}${appointId}`, auth)
             const result = deleteAppointment.data
             console.log(result)
-            props.dispatch({ type: DELETE, payload : result});  
+            props.dispatch({ type: DELETE, payload : result}); 
+            find() 
 
         }catch(error){
             setMessage('rellena todos los campos') 
         }   
        
     }   
-
+    //FUNCTION TOOGLE MODAL
+    const toggleModal = () => {
+        setShowModal(!showModal)
+    }
 
     // FUNCTION CREATE AN APPOINTMENT
 
@@ -92,34 +100,55 @@ function CreateAppoint(props) {
             userId: props.user.id,  
             clinicId: 1            
         }
-        //REST API 
+        // DATES 
+        const now = moment().format('YYYY-MM-DD HH:mm:ss')
+        let today = moment(body.appointDate).format('YYYY-MM-DD HH:mm:ss')
+    
+        if (now >= today){
+            setMessage('The date is wrong')
+        }else if (now < today){
+        
         try{
                         
             let createAppointment = await axios.post(`http://localhost:3001/appointment`, body, auth)
-            const result = createAppointment.data          
+
+            const result = createAppointment.data
+            if (result){
+                alert('You have created a new appointment. See you soon!')
+            } 
+            console.log(result)
             props.dispatch({ type: CREATE, payload : result});
+            find()
+            toggleModal()
+            setAppoint({appointDate:'',
+            treatment: '',
+            covid:false,
+            payMethod: '',})
+           
           
         }catch(error){
-            setMessage('rellena todos los campos') 
+            setMessage('fill in all the fields') 
         }
     }
-
+    }
     return (
-       
         <div className="findAppointmentComponent">
-             
+            <Submit type='submit' name='submit' onClick={()=>toggleModal()} title='Create appoint'/>
             <div className="header">
-                <h2>CREATE APPOINTMENT</h2>
-                <h2>AppointDate:{props.appointDate}</h2>
-            </div>
-           
-            <div className="createContainer">
-                <Input type='datetime-local' name='appointDate' title='appointDate' lenght='30' onChange={handleState}/>
-                
-                <select type='select' name='treatment' onChange={handleState}>
-                        <option></option>
-                        <option>Blanqueamiento dental</option>
-                        <option>Limpieza bucal</option>
+               
+            </div> 
+            {showModal &&
+            <div className="modal">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h2>CREATE APPOINTMENT</h2>
+                    </div>
+                    <div className="modal-body">
+                    <Input className="calendar-input" type='datetime-local' name='appointDate' title='appointDate' lenght='30' onChange={handleState}/>
+                <select className="select-input" type='select' name='treatment' onChange={handleState}>
+                    <option></option>
+                    <option>Blanqueamiento dental</option>
+                    <option>Limpieza bucal</option>
                 </select>
                 <select type='select' name='covid' onChange={handleState}>
                     <option></option>
@@ -130,28 +159,41 @@ function CreateAppoint(props) {
                     <option></option>
                     <option>Visa</option>
                     <option>Paypal</option>
-                </select>
-               
-            </div>
-            <div className="messageUpdate">{message}</div>
+                    </select> 
+                    </div>
+                    <div class="modal-footer">
+                    <div className="messageUpdate">{message}</div>
+                    <button onClick={() =>toggleModal()} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button onClick={() =>create()} type="button" className="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>}
+            
             <div className="submitUpdate">
-                <Submit type='submit' name='submit' onClick={()=>create()} title='Create appoint'/>
-            </div>
-            <div>
                 
+            </div>
+            <div>   
         </div>
+
+        <div className="allAppointUserComponent">
         {appointmentList.appointCollection.map(item =>{
             return(
-                <div key={item.id} >
-                    <div className="" onClick={()=>deleteAppoint(item.id)}>{x}</div>
+                <div key={item.id} className="appointmentUserGrid">
+                    <div className="align-close-button">
                     <h6>Order number #{item.id}</h6>
+                    <button className="close-button" onClick={()=>deleteAppoint(item.id)}>&#x2715;</button>
+                    </div>
                     Treatment: {item.treatment}<br/>  
-                    Date: {item.appointDate}
+                    Date: {item.appointDate}<br/>
+                    Price: {item.price}
+                    
                 </div>
             )                
         })}
         </div>
+        </div>
     )
+    
 }
 
 
