@@ -11,6 +11,7 @@ import Submit from '../Submit/Submit'
 import {CREATE,FIND,DELETE} from '../../redux/types/appointType'
 import './CreateAppoint.css';
 import { findRenderedComponentWithType } from 'react-dom/test-utils';
+import moment from 'moment';
 
 function CreateAppoint(props) {
 
@@ -62,10 +63,7 @@ function CreateAppoint(props) {
 
     const deleteAppoint = async (appointId) => {
         // setMessage('');
-        
-        // const newItem = appointmentList.appointCollection.filter((item) => item.id !== id)
-        // setAppointmentList(newItem)
-        //REST API 
+      
         try{
                         
             let deleteAppointment = await axios.delete(`${port}${appoint}${client}/${props.user.id}${key}${appointId}`, auth)
@@ -95,6 +93,14 @@ function CreateAppoint(props) {
             userId: props.user.id,  
             clinicId: 1            
         }
+        // DATES 
+        const now = moment().format('YYYY-MM-DD HH:mm:ss')
+        let today = moment(body.appointDate).format('YYYY-MM-DD HH:mm:ss')
+        console.log(today)
+        console.log(now)
+        if (now >= today){
+            setMessage('LA FECHA INTRODUCIDA ES MENOR')
+        }else if (now > today){
         //REST API 
         try{
                         
@@ -110,7 +116,7 @@ function CreateAppoint(props) {
         }catch(error){
             setMessage('rellena todos los campos') 
         }
-
+    }
     }
 
     return (

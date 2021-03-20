@@ -16,6 +16,16 @@ const Home = (props) => {
         <div className="homeContainer">
             <Header/>
             <Slideshow/>
+            <div class="container">
+              <div class="row row-cols-2">
+                <div class="col">Column
+              
+                </div>
+                <div class="col">Column</div>
+                <div class="col">Column</div>
+                <div class="col">Column</div>
+              </div>
+            </div>
              
            {/*  <div className='navbarContainer'>
                   <nav id="navbar-example3" className="navbar-light">
