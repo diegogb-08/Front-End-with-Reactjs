@@ -8,28 +8,34 @@ import './Login.css';
 import {useHistory} from 'react-router-dom';  
 import Logo from '../../img/logoclinic.png'
 import {connect} from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEyeSlash, faEye } from '@fortawesome/free-regular-svg-icons'
 
 import {LOGIN} from '../../redux/types/userType'
 import {LOGINADMIN} from '../../redux/types/adminType'
 
 const Login = (props) => {
 
+    const eyeElement = <FontAwesomeIcon icon={faEye} />
+    const eyeSlashElement = <FontAwesomeIcon icon={faEyeSlash} />
+
     let history = useHistory();
 
 
     const [dataLogin, setLogin] = useState({
-
-         
         email: '',
         password: '', 
-        userType: 'Client'
-       
+        userType: 'Client'     
     });  
 
-    const [userAppointment, setAppoint] = useState({
-       
+    const [userAppointment, setAppoint] = useState({      
         appointment: [] 
     });
+
+    const [password, setPassword] = useState({
+        hideShow: 'password',
+        eye: eyeSlashElement
+    })
 
     const [message, setMessage] = useState('')
 
@@ -37,6 +43,15 @@ const Login = (props) => {
         setLogin({...dataLogin, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
         setAppoint({...userAppointment, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
     }; 
+
+    const showPassord = () => {
+
+        if(password.hideShow === "password"){
+            return setPassword({...password, hideShow: 'text', eye: eyeElement});
+        }else{
+            return setPassword({...password, hideShow: 'password', eye: eyeSlashElement});
+        }
+    }
 
     const loginMe = async () => {
 
@@ -66,26 +81,19 @@ const Login = (props) => {
             <Header/> 
             <h1>Log In!</h1>
             <div className='cardLoginContainer'>
-                <div className='cardLogin'>
-                    
-                    <img className="loginLogoImg" alt="logo" src={Logo}/> 
-                    
+                <div className='cardLogin'>   
+                    <img className="loginLogoImg" alt="logo" src={Logo}/>                  
                     <Input type='email' name='email' title='Email' lenght='30' onChange={handleState}/>
-                    <Input type='password' name='password' title='Password' lenght='16' onChange={handleState}/>
-                    <select type='select' name='userType' onChange={handleState}>
-                        
+                    <Input type={password.hideShow.toString()} eye={password.eye} onClick={() => showPassord()} name='password' title='Password' lenght='16' onChange={handleState}/>
+                    <select type='select' name='userType' onChange={handleState}>                 
                         <option>Client</option>
                         <option>Admin</option>
                     </select>
-
-
                 </div>
-
                 <div className="messageLogin">
                      <div className="messageErrorLogin">{message}</div>
                      <Submit type='submit' name='submit' title='Login' onClick={() => loginMe()}/>
                 </div>
-
             </div>
         </div>
     )
