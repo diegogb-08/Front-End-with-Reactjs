@@ -1,25 +1,20 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux';
-import {port, client, appoint, key} from '../../api/api'; 
-/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes} from '@fortawesome/free-solid-svg-icons' */
+import moment from 'moment';
 
 import Input from '../Input/Input'
 import Submit from '../Submit/Submit'
 
-
+import {port, client, appoint, key} from '../../api/api';
 import {CREATE,DELETE} from '../../redux/types/appointType'
-
-
 import './CreateAppoint.css';
 
-import moment from 'moment';
+
 
 function CreateAppoint(props) {
-    const [showModal, setShowModal] =  useState(false)
 
-    
+    const [showModal, setShowModal] =  useState(false)
 
     const [appointOn, setAppoint] = useState({
         appointDate: '',
@@ -77,7 +72,7 @@ function CreateAppoint(props) {
             find() 
 
         }catch(error){
-            setMessage('rellena todos los campos') 
+            setMessage("Can't delete this appointment") 
         }   
        
     }   
@@ -100,6 +95,7 @@ function CreateAppoint(props) {
             userId: props.user.id,  
             clinicId: 1            
         }
+
         // DATES 
         const now = moment().format('YYYY-MM-DD HH:mm:ss')
         let today = moment(body.appointDate).format('YYYY-MM-DD HH:mm:ss')
@@ -116,8 +112,8 @@ function CreateAppoint(props) {
             if (result){
                 alert('You have created a new appointment. See you soon!')
             } 
-            console.log(result)
             props.dispatch({ type: CREATE, payload : result});
+
             find()
             toggleModal()
             setAppoint({appointDate:'',
@@ -145,7 +141,7 @@ function CreateAppoint(props) {
                     </div>
                     <div className="modal-body">
                     <Input className="calendar-input" type='datetime-local' name='appointDate' title='appointDate' lenght='30' onChange={handleState}/>
-                <select className="select-input" type='select' name='treatment' onChange={handleState}>
+                    <select className="select-input" type='select' name='treatment' onChange={handleState}>
                     <option></option>
                     <option>Blanqueamiento dental</option>
                     <option>Limpieza bucal</option>

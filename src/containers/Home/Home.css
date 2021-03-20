@@ -22,20 +22,26 @@
     align-self: center;
 }
 
-.navbarContainer{
-    display: flex;
-    flex-direction: row;
-}
-
 .infoContainer{
     margin-left: 4em;
 }
+ 
+/* .card{
+    width: 25em;
+    height: 20em;
+} */
 
-/* img {
-    overflow: hidden;
+.imgContainer{
+    width: 12em;
+    height: 12em;
+    align-self: center;   
+}
+
+.card-img-top{
     width: 100%;
     height: 100%;
-} */
+    overflow: hidden;
+}  
 
 .designDiv{
     height: 1em;
