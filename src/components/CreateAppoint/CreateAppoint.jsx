@@ -18,6 +18,8 @@ function CreateAppoint(props) {
     
     const [showDeleteModal, setShowDeleteModal] =  useState(false)
 
+    const [itemId, setItemId] = useState('')
+
     const [appointOn, setAppoint] = useState({
         appointDate: '',
         treatment: '',
@@ -64,14 +66,15 @@ function CreateAppoint(props) {
 
     const deleteAppoint = async (appointId) => {
         // setMessage('');
-        alert('Are you sure you want to delete this appointment?')
         try{
                         
             let deleteAppointment = await axios.delete(`${port}${appoint}${client}/${props.user.id}${key}${appointId}`, auth)
             const result = deleteAppointment.data
-            console.log(result)
+            
             props.dispatch({ type: DELETE, payload : result}); 
             find() 
+            toggleDeleteModal()
+            setItemId('')
 
         }catch(error){
             setMessage("Can't delete this appointment") 
@@ -83,7 +86,8 @@ function CreateAppoint(props) {
         setShowModal(!showModal)
     }
 
-    const toggleDeleteModal = () => {
+    const toggleDeleteModal = id => {
+        setItemId(id)
         setShowDeleteModal(!showDeleteModal)
         
     }
@@ -116,11 +120,8 @@ function CreateAppoint(props) {
             let createAppointment = await axios.post(`http://localhost:3001/appointment`, body, auth)
 
             const result = createAppointment.data
-            if (result){
-                alert('You have created a new appointment. See you soon!')
-            } 
-            props.dispatch({ type: CREATE, payload : result});
 
+            props.dispatch({ type: CREATE, payload : result});
             find()
             toggleModal()
             setAppoint({appointDate:'',
@@ -137,7 +138,7 @@ function CreateAppoint(props) {
     return (
         <div className="findAppointmentComponent">
             
-            <button type="button" className="btn btn-primary" title='Create appoint' onClick={()=>toggleModal()}>New Appointment</button>
+            <button type="button" className="btn btn-primary" id="new--apoint-button" title='Create appoint' onClick={()=>toggleModal()}>New Appointment</button>
             <div className="header">
                
             </div> 
@@ -191,29 +192,13 @@ function CreateAppoint(props) {
             {showDeleteModal && <div className="modal">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h2>CREATE APPOINTMENT</h2>
-                    </div>
-                    <div className="modal-body">
-                <div className="createOptions">
-                <label name='covid'>Covid</label>
-                <select type='select' name='covid' onChange={handleState}>
-                    <option></option>
-                    <option name='false'>false</option>
-                    <option name='true'>true</option>
-                </select>
-                </div>
-
-                <div className="createOptions">
-                <label name='payMethod'>PayMethod</label>
-                    </div>
+                        <h2>ARE YOU SURE YOU WANT TO DELETE IT?</h2>
                     </div>
                     <div class="modal-footer">
                     <div className="messageUpdate">{message}</div>
-                        <button onClick={() =>toggleDeleteModal()} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                        {/* {appointmentList.appointCollection.map(item =>{
-                        <button onClick={()=>deleteAppoint(item.id)} type="button" className="btn btn-primary">Save changes</button>
-                        } */}
+                        <button onClick={() =>toggleDeleteModal()} type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button onClick={()=>deleteAppoint(itemId)} type="button" className="btn btn-primary">Delete appoint</button>
+                       
                     </div>
                 </div>
             </div>}
@@ -230,12 +215,12 @@ function CreateAppoint(props) {
                 <div key={item.id} className="appointmentUserGrid">
                     <div className="align-close-button">
                     <h6>Order number #{item.id}</h6>
-                    <button className="close-button" onClick={()=>toggleDeleteModal()}>&#x2715;</button>
+                    <button className="close-button" onClick={()=>toggleDeleteModal(item.id)}>&#x2715;</button>
                     </div>
                     Treatment: {item.treatment}<br/>  
                     Date: {item.appointDate}<br/>
                     Price: {item.pritoggleModalce}
-                    
+
                 </div>
             )                
         })}

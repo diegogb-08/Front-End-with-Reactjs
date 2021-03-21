@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+
 .homeContainer{
     display: flex;
     flex-direction: column;
@@ -41,4 +43,14 @@
 
 .designDiv{
     height: 1em;
+}
+
+.div-contact-column{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container{
+    font-family: 'Open Sans Condensed', sans-serif;
 }
