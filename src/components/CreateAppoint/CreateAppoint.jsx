@@ -51,7 +51,7 @@ function CreateAppoint(props) {
     useEffect(()=>{
         find()
   
-    },[])
+    })
     
     // FUNCTION FIND ALL APPOINTMENTS BY ID
 
@@ -70,7 +70,6 @@ function CreateAppoint(props) {
                         
             let deleteAppointment = await axios.delete(`${port}${appoint}${client}/${props.user.id}${key}${appointId}`, auth)
             const result = deleteAppointment.data
-            
             props.dispatch({ type: DELETE, payload : result}); 
             find() 
             toggleDeleteModal()
@@ -114,6 +113,10 @@ function CreateAppoint(props) {
         if (now >= today){
             setMessage('The date is wrong')
         }else if (now < today){
+            if(!body.treatment || !body.covid || !body.payMethod){
+                setMessage('fill in all the fields')
+                return;
+            }
         
         try{
                         
@@ -131,7 +134,7 @@ function CreateAppoint(props) {
            
           
         }catch(error){
-            setMessage('fill in all the fields') 
+            setMessage(error) 
         }
     }
     }
@@ -157,7 +160,7 @@ function CreateAppoint(props) {
                     <select className="select-input" type='select' name='treatment' onChange={handleState}>
                     <option></option>
                     <option>Dental Implantology</option>
-                    <option>Teeth Whiteningl</option>
+                    <option>Teeth Whitening</option>
                     <option>Orthodontics</option>
                     <option>Cavities</option>
                     </select>
@@ -182,7 +185,7 @@ function CreateAppoint(props) {
                     </select> 
                     </div>
                     </div>
-                    <div class="modal-footer">
+                    <div className="modal-footer">
                     <div className="messageUpdate">{message}</div>
                     <button onClick={() =>toggleModal()} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button onClick={() =>create()} type="button" className="btn btn-primary">Save changes</button>
@@ -194,7 +197,7 @@ function CreateAppoint(props) {
                     <div className="modal-header">
                         <h2>ARE YOU SURE YOU WANT TO DELETE IT?</h2>
                     </div>
-                    <div class="modal-footer">
+                    <div className="modal-footer">
                     <div className="messageUpdate">{message}</div>
                         <button onClick={() =>toggleDeleteModal()} type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button onClick={()=>deleteAppoint(itemId)} type="button" className="btn btn-primary">Delete appoint</button>
@@ -219,7 +222,7 @@ function CreateAppoint(props) {
                     </div>
                     Treatment: {item.treatment}<br/>  
                     Date: {item.appointDate}<br/>
-                    Price: {item.pritoggleModalce}
+                    Price: {item.price + '€'}
 
                 </div>
             )                
