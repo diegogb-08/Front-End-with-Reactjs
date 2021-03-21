@@ -1,22 +1,22 @@
-import {applyMiddleware, createStore} from 'redux';
+import {applyMiddleware, compose, createStore} from 'redux';
 import { save, load } from "redux-localstorage-simple";
-import reducer from './reducers/rootReducer';
+import rootReducer from './reducers/rootReducer';
 
 const createStoreWithMiddleware = applyMiddleware(
-	save({ state: ["dataUser"] })
+	save({state: ['dataUser']})
 )(createStore);
 
 const store = createStoreWithMiddleware(
-    reducer,
+    rootReducer,
     load({
         preloadState : {
-            dataUser : ''
+            user : {},
         },
-        states: ["dataUser"]
+        state: ['dataUser']
     }),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({
         trace: true,
-    }) 
+    }) || compose
 );
 
 export default store;

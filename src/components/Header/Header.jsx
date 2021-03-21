@@ -52,6 +52,7 @@ const Header = (props) => {
 const mapStateToProps = state => {
     return {
         user : state.userReducer.user,
+        admin : state.adminReducer.admin
     }
 }
 export default connect(mapStateToProps)(Header);

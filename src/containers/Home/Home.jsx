@@ -4,6 +4,10 @@ import Header from '../../components/Header/Header';
 import Slideshow from '../../components/Slideshow/Slideshow'
 import './Home.css';
 
+import Ortodoncia from '../../img/ortodoncia.png'
+import Caries from '../../img/caries.png'
+import Implantologia from '../../img/implantologia.png'
+import Blanqueamiento from '../../img/blanqueamiento.png'
 // import Geo from '../../img/geo.png'
 // import Equipo from '../../img/equipoHumano.jpg'
 // import Caries from '../../img/caries.png'
@@ -16,6 +20,56 @@ const Home = (props) => {
         <div className="homeContainer">
             <Header/>
             <Slideshow/>
+            <div className='designDiv'></div>
+            <div className='designDiv'></div>
+            <div className='designDiv'></div>
+
+            <div className="container">OUR TREATMENTS
+
+            <div className="row row-cols-2">
+
+                <div className="col w-25 h-50">
+                <div className="card w-75">
+                  <img className="card-img-top w-100 h-100" src={Ortodoncia} alt="Card image cap"/>
+                  <div className="card-body">
+                    <h4>Orthodontics</h4>
+                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+                
+                </div>
+
+                <div className="col w-25 h-100">
+                  <div className="card w-75">
+                    <img className="card-img-top w-75" src={Caries} alt="Card image cap"/>
+                    <div className="card-body">
+                      <h4>Cavities</h4>
+                      <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                  </div>
+
+                <div className="col w-25 h-50">
+                    <div className="card w-75">
+                      <img className="card-img-top w-50" src={Blanqueamiento} alt="Card image cap"/>
+                      <div className="card-body">
+                        <h4>Teeth Whitening</h4>
+                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col w-25 h-50">
+                  <div class="card w-75">
+                    <img class="card-img-top w-50" src={Implantologia} alt="Card image cap"/>
+                    <div class="card-body">
+                      <h4>Dental Implantology</h4>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
              
            {/*  <div className='navbarContainer'>
                   <nav id="navbar-example3" className="navbar-light">
