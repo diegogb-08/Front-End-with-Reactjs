@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import moment from 'moment';
 
 import Input from '../Input/Input'
-import Submit from '../Submit/Submit'
+
 
 import {port, client, appoint, key} from '../../api/api';
 import {CREATE,DELETE} from '../../redux/types/appointType'
@@ -62,7 +62,7 @@ function CreateAppoint(props) {
 
     const deleteAppoint = async (appointId) => {
         // setMessage('');
-      
+        alert('Are you sure you want to delete this appointment?')
         try{
                         
             let deleteAppointment = await axios.delete(`${port}${appoint}${client}/${props.user.id}${key}${appointId}`, auth)
@@ -129,7 +129,8 @@ function CreateAppoint(props) {
     }
     return (
         <div className="findAppointmentComponent">
-            <Submit type='submit' name='submit' onClick={()=>toggleModal()} title='Create appoint'/>
+            
+            <button type="button" className="btn btn-primary" title='Create appoint' onClick={()=>toggleModal()}>New Appointment</button>
             <div className="header">
                
             </div> 
@@ -140,22 +141,38 @@ function CreateAppoint(props) {
                         <h2>CREATE APPOINTMENT</h2>
                     </div>
                     <div className="modal-body">
-                    <Input className="calendar-input" type='datetime-local' name='appointDate' title='appointDate' lenght='30' onChange={handleState}/>
+                    <label name='appointDate'>Date</label>
+                    <Input className="calendar-input" type='datetime-local' name='appointDate' title='' lenght='30' onChange={handleState}/>
+                    
+                    <div className="createOptions">
+                    <label name='treatment'>Treatment</label>
                     <select className="select-input" type='select' name='treatment' onChange={handleState}>
                     <option></option>
-                    <option>Blanqueamiento dental</option>
-                    <option>Limpieza bucal</option>
-                </select>
+                    <option>Dental Implantology</option>
+                    <option>Teeth Whiteningl</option>
+                    <option>Orthodontics</option>
+                    <option>Cavities</option>
+                    </select>
+                    </div>
+                <div className="createOptions">
+                <label name='covid'>Covid</label>
                 <select type='select' name='covid' onChange={handleState}>
                     <option></option>
                     <option name='false'>false</option>
                     <option name='true'>true</option>
                 </select>
+                </div>
+
+                <div className="createOptions">
+                <label name='payMethod'>PayMethod</label>
                 <select type='select' name='payMethod' onChange={handleState}>
                     <option></option>
                     <option>Visa</option>
+                    <option>Mastercard</option>
                     <option>Paypal</option>
+                    <option>I will pay on dental Clinic</option>
                     </select> 
+                    </div>
                     </div>
                     <div class="modal-footer">
                     <div className="messageUpdate">{message}</div>
