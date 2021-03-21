@@ -5,9 +5,9 @@ import Slideshow from '../../components/Slideshow/Slideshow'
 import './Home.css';
 
 import Ortodoncia from '../../img/ortodoncia.png'
-import Caries from '../../img/caries.png'
-import Implantologia from '../../img/implantologia.png'
-import Blanqueamiento from '../../img/blanqueamiento.png'
+import Caries from '../../img/cavities.png'
+import Implantologia from '../../img/implantology.png'
+import Blanqueamiento from '../../img/whitening.png'
 // import Geo from '../../img/geo.png'
 // import Equipo from '../../img/equipoHumano.jpg'
 // import Caries from '../../img/caries.png'
@@ -30,7 +30,7 @@ const Home = (props) => {
             <div className="row row-cols-2">
 
                 <div className="col">
-                <div className="card">
+                <div className="card bg-light text-dark">
                   <div className="imgContainer">
                   <img className="card-img-top" src={Ortodoncia} alt="Card image cap"/>
                   </div>
@@ -43,7 +43,7 @@ const Home = (props) => {
                 </div>
 
                 <div className="col">
-                  <div className="card bg-info mb-3">
+                  <div className="card">
                     <div className="imgContainer">
                     <img className="card-img-top" src={Caries} alt="Card image cap"/>
                     </div>
@@ -55,7 +55,7 @@ const Home = (props) => {
                   </div>
 
                 <div className="col">
-                    <div className="card bg-info mb-3">
+                    <div className="card">
                       <div className="imgContainer">
                       <img className="card-img-top" src={Blanqueamiento} alt="Card image cap"/>
                       </div>
@@ -67,7 +67,7 @@ const Home = (props) => {
                 </div>
 
                 <div className="col">
-                  <div className="card">
+                  <div className="card bg-light text-dark">
                     <div className="imgContainer">
                     <img className="card-img-top w-50" src={Implantologia} alt="Card image cap"/>
                     </div>

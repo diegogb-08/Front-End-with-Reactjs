@@ -25,16 +25,12 @@
 .infoContainer{
     margin-left: 4em;
 }
- 
-/* .card{
-    width: 25em;
-    height: 20em;
-} */
 
 .imgContainer{
     width: 12em;
     height: 12em;
-    align-self: center;   
+    align-self: center;  
+    margin-top: 0.5em;
 }
 
 .card-img-top{
