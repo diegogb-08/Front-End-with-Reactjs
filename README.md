@@ -56,7 +56,7 @@ On the other side, you will need to run the back end from our project called [ba
      <img src="public/icons/axios.png"
       height= "50px"/>
       <img src="public/icons/fontAwesome.png"
-      sheight= "50px" />
+      height= "50px" />
      <img src="public/icons/slich.png"
       height= "50px" />
 </div>
