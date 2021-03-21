@@ -5,9 +5,9 @@ import Slideshow from '../../components/Slideshow/Slideshow'
 import './Home.css';
 
 import Ortodoncia from '../../img/ortodoncia.png'
-import Caries from '../../img/caries.png'
-import Implantologia from '../../img/implantologia.png'
-import Blanqueamiento from '../../img/blanqueamiento.png'
+import Caries from '../../img/cavities.png'
+import Implantologia from '../../img/implantology.png'
+import Blanqueamiento from '../../img/whitening.png'
 // import Geo from '../../img/geo.png'
 // import Equipo from '../../img/equipoHumano.jpg'
 // import Caries from '../../img/caries.png'
@@ -22,49 +22,58 @@ const Home = (props) => {
             <Slideshow/>
             <div className='designDiv'></div>
             <div className='designDiv'></div>
-            <div className='designDiv'></div>
 
-            <div className="container">OUR TREATMENTS
+            <div className="container">
+              <h3>OUR TREATMENTS</h3>
+            <hr/>
 
             <div className="row row-cols-2">
 
-                <div className="col w-25 h-50">
-                <div className="card w-75">
-                  <img className="card-img-top w-100 h-100" src={Ortodoncia} alt="Card image cap"/>
+                <div className="col">
+                <div className="card bg-light text-dark">
+                  <div className="imgContainer">
+                  <img className="card-img-top" src={Ortodoncia} alt="Card image cap"/>
+                  </div>
                   <div className="card-body">
-                    <h4>Orthodontics</h4>
+                    <h5>Orthodontics</h5>
                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                   </div>
                 </div>
                 
                 </div>
 
-                <div className="col w-25 h-100">
-                  <div className="card w-75">
-                    <img className="card-img-top w-75" src={Caries} alt="Card image cap"/>
+                <div className="col">
+                  <div className="card">
+                    <div className="imgContainer">
+                    <img className="card-img-top" src={Caries} alt="Card image cap"/>
+                    </div>
                     <div className="card-body">
-                      <h4>Cavities</h4>
+                      <h5>Cavities</h5>
                       <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
                   </div>
                   </div>
 
-                <div className="col w-25 h-50">
-                    <div className="card w-75">
-                      <img className="card-img-top w-50" src={Blanqueamiento} alt="Card image cap"/>
+                <div className="col">
+                    <div className="card">
+                      <div className="imgContainer">
+                      <img className="card-img-top" src={Blanqueamiento} alt="Card image cap"/>
+                      </div>
                       <div className="card-body">
-                        <h4>Teeth Whitening</h4>
+                        <h5>Teeth Whitening</h5>
                         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       </div>
                   </div>
                 </div>
 
-                <div class="col w-25 h-50">
-                  <div class="card w-75">
-                    <img class="card-img-top w-50" src={Implantologia} alt="Card image cap"/>
-                    <div class="card-body">
-                      <h4>Dental Implantology</h4>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div className="col">
+                  <div className="card bg-light text-dark">
+                    <div className="imgContainer">
+                    <img className="card-img-top w-50" src={Implantologia} alt="Card image cap"/>
+                    </div>
+                    <div className="card-body">
+                      <h5>Dental Implantology</h5>
+                      <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
                   </div>
                 </div>
