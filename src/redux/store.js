@@ -14,8 +14,10 @@ const store = createStoreWithMiddleware(
         },
         state: ['dataUser']
     }),
+    // eslint-disable-next-line
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({
         trace: true,
+    // eslint-disable-next-line
     }) || compose
 );
 

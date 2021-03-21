@@ -20,6 +20,7 @@ const Profile = (props) => {
 
     useEffect(()=>{
         getAppointments()
+    // eslint-disable-next-line
     },[])
 
     const getAppointments = async () => {
