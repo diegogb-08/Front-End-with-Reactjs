@@ -1,25 +1,22 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux';
-import {port, client, appoint, key} from '../../api/api'; 
-/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes} from '@fortawesome/free-solid-svg-icons' */
-
-import Input from '../Input/Input'
-import Submit from '../Submit/Submit'
-
-
-import {CREATE,DELETE} from '../../redux/types/appointType'
-
-
-import './CreateAppoint.css';
-
 import moment from 'moment';
 
-function CreateAppoint(props) {
-    const [showModal, setShowModal] =  useState(false)
+import Input from '../Input/Input'
 
+
+import {port, client, appoint, key} from '../../api/api';
+import {CREATE,DELETE} from '../../redux/types/appointType'
+import './CreateAppoint.css';
+
+
+
+function CreateAppoint(props) {
+
+    const [showModal, setShowModal] =  useState(false)
     
+    const [showDeleteModal, setShowDeleteModal] =  useState(false)
 
     const [appointOn, setAppoint] = useState({
         appointDate: '',
@@ -67,7 +64,7 @@ function CreateAppoint(props) {
 
     const deleteAppoint = async (appointId) => {
         // setMessage('');
-      
+        alert('Are you sure you want to delete this appointment?')
         try{
                         
             let deleteAppointment = await axios.delete(`${port}${appoint}${client}/${props.user.id}${key}${appointId}`, auth)
@@ -77,13 +74,18 @@ function CreateAppoint(props) {
             find() 
 
         }catch(error){
-            setMessage('rellena todos los campos') 
+            setMessage("Can't delete this appointment") 
         }   
        
     }   
     //FUNCTION TOOGLE MODAL
     const toggleModal = () => {
         setShowModal(!showModal)
+    }
+
+    const toggleDeleteModal = () => {
+        setShowDeleteModal(!showDeleteModal)
+        
     }
 
     // FUNCTION CREATE AN APPOINTMENT
@@ -100,6 +102,7 @@ function CreateAppoint(props) {
             userId: props.user.id,  
             clinicId: 1            
         }
+
         // DATES 
         const now = moment().format('YYYY-MM-DD HH:mm:ss')
         let today = moment(body.appointDate).format('YYYY-MM-DD HH:mm:ss')
@@ -116,8 +119,8 @@ function CreateAppoint(props) {
             if (result){
                 alert('You have created a new appointment. See you soon!')
             } 
-            console.log(result)
             props.dispatch({ type: CREATE, payload : result});
+
             find()
             toggleModal()
             setAppoint({appointDate:'',
@@ -133,7 +136,8 @@ function CreateAppoint(props) {
     }
     return (
         <div className="findAppointmentComponent">
-            <Submit type='submit' name='submit' onClick={()=>toggleModal()} title='Create appoint'/>
+            
+            <button type="button" className="btn btn-primary" title='Create appoint' onClick={()=>toggleModal()}>New Appointment</button>
             <div className="header">
                
             </div> 
@@ -144,27 +148,72 @@ function CreateAppoint(props) {
                         <h2>CREATE APPOINTMENT</h2>
                     </div>
                     <div className="modal-body">
-                    <Input className="calendar-input" type='datetime-local' name='appointDate' title='appointDate' lenght='30' onChange={handleState}/>
-                <select className="select-input" type='select' name='treatment' onChange={handleState}>
+                    <label name='appointDate'>Date</label>
+                    <Input className="calendar-input" type='datetime-local' name='appointDate' title='' lenght='30' onChange={handleState}/>
+
+                    <div className="createOptions">
+                    <label name='treatment'>Treatment</label>
+                    <select className="select-input" type='select' name='treatment' onChange={handleState}>
                     <option></option>
-                    <option>Blanqueamiento dental</option>
-                    <option>Limpieza bucal</option>
-                </select>
+                    <option>Dental Implantology</option>
+                    <option>Teeth Whiteningl</option>
+                    <option>Orthodontics</option>
+                    <option>Cavities</option>
+                    </select>
+                    </div>
+                <div className="createOptions">
+                <label name='covid'>Covid</label>
                 <select type='select' name='covid' onChange={handleState}>
                     <option></option>
                     <option name='false'>false</option>
                     <option name='true'>true</option>
                 </select>
+                </div>
+
+                <div className="createOptions">
+                <label name='payMethod'>PayMethod</label>
                 <select type='select' name='payMethod' onChange={handleState}>
                     <option></option>
                     <option>Visa</option>
+                    <option>Mastercard</option>
                     <option>Paypal</option>
+                    <option>I will pay on dental Clinic</option>
                     </select> 
+                    </div>
                     </div>
                     <div class="modal-footer">
                     <div className="messageUpdate">{message}</div>
                     <button onClick={() =>toggleModal()} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button onClick={() =>create()} type="button" className="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>}
+            {showDeleteModal && <div className="modal">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h2>CREATE APPOINTMENT</h2>
+                    </div>
+                    <div className="modal-body">
+                <div className="createOptions">
+                <label name='covid'>Covid</label>
+                <select type='select' name='covid' onChange={handleState}>
+                    <option></option>
+                    <option name='false'>false</option>
+                    <option name='true'>true</option>
+                </select>
+                </div>
+
+                <div className="createOptions">
+                <label name='payMethod'>PayMethod</label>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                    <div className="messageUpdate">{message}</div>
+                        <button onClick={() =>toggleDeleteModal()} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                        {/* {appointmentList.appointCollection.map(item =>{
+                        <button onClick={()=>deleteAppoint(item.id)} type="button" className="btn btn-primary">Save changes</button>
+                        } */}
                     </div>
                 </div>
             </div>}
@@ -181,11 +230,11 @@ function CreateAppoint(props) {
                 <div key={item.id} className="appointmentUserGrid">
                     <div className="align-close-button">
                     <h6>Order number #{item.id}</h6>
-                    <button className="close-button" onClick={()=>deleteAppoint(item.id)}>&#x2715;</button>
+                    <button className="close-button" onClick={()=>toggleDeleteModal()}>&#x2715;</button>
                     </div>
                     Treatment: {item.treatment}<br/>  
                     Date: {item.appointDate}<br/>
-                    Price: {item.price}
+                    Price: {item.pritoggleModalce}
                     
                 </div>
             )                
