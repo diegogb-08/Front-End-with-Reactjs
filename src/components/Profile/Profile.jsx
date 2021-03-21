@@ -86,7 +86,7 @@ const Profile = (props) => {
                     <p><b>Profile last update:</b> {moment(props.updatedAt).format('Do-MMMM-YYYY')}</p>
                 </div>
                 {
-                    !props.admin.name
+                    props.user.id
                     ?
                     <>
                         <div className="appointCounter">
