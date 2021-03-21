@@ -33,31 +33,32 @@ On the other side, you will need to run the back end from our project called [ba
 <br/>
 
 ## Technologies
+
 <div style="display: flex; height: 50px">
     <img src="public/icons/reactjs.jpg"
-     style="height: 50px;" />
+     height= "50px" />
      <img src="public/icons/redux.png"
-      style="height: 50px;" />
+      height= "50px" />
      <img src="public/icons/node.jpg"
-      style="height: 50px;" />
+      height= "50px" />
      <img src="public/icons/js.png"
-      style="height: 50px;"/>
+      height= "50px"/>
      <img src="public/icons/bootstrap.jpg"
-      style="height: 50px;" />
+      height= "50px" />
      <img src="public/icons/momentjs.png"
-      style="height: 50px;"/>
+      height= "50px"/>
      <img src="public/icons/react-router.png"
-      style="height: 50px;" />
+      height= "50px" />
       <img src="public/icons/html.png"
-      style="height: 50px;" />
+      height= "50px" />
      <img src="public/icons/css.png"
-      style="height: 50px;" />
+      height= "50px" />
      <img src="public/icons/axios.png"
-      style="height: 50px;" />
+      height= "50px"/>
       <img src="public/icons/fontAwesome.png"
-      style="height: 50px;" />
+      sheight= "50px" />
      <img src="public/icons/slich.png"
-      style="height: 50px;" />
+      height= "50px" />
 </div>
 
 <br/>
