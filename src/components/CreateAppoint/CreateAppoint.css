@@ -58,6 +58,10 @@
     justify-content: space-between;
 }
 
+#new--apoint-button{
+    margin-top: 0.8em;
+}
+
 .close-button{
     background: none;
     color: inherit;
@@ -74,7 +78,6 @@
 }
 
 .btn-primary{
-    margin-top: 0.8em;
     margin-left: 1em;
 }
 

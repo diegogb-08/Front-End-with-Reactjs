@@ -6,11 +6,11 @@ import './Home.css';
 
 import Ortodoncia from '../../img/ortodoncia.png'
 import Caries from '../../img/cavities.png'
-import Implantologia from '../../img/implantology.png'
+import Implantologia from '../../img/implantology.jpg'
 import Blanqueamiento from '../../img/whitening.png'
-// import Geo from '../../img/geo.png'
-// import Equipo from '../../img/equipoHumano.jpg'
-// import Caries from '../../img/caries.png'
+import Geo from '../../img/geo.png'
+import Mail from '../../img/mail.png'
+import Call from '../../img/call.png'
 
 
 const Home = (props) => {
@@ -36,7 +36,7 @@ const Home = (props) => {
                   </div>
                   <div className="card-body">
                     <h5>Orthodontics</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p className="card-text">we are specialists in the placement of Invisalign orthodontics in Valencia.</p>
                   </div>
                 </div>
                 
@@ -49,86 +49,58 @@ const Home = (props) => {
                     </div>
                     <div className="card-body">
                       <h5>Cavities</h5>
-                      <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <p className="card-text">The best defense against cavities is good oral hygiene, including brushing, flossing and rinsing.</p>
                     </div>
                   </div>
                   </div>
 
                 <div className="col">
-                    <div className="card">
+                    <div className="card mt-3">
                       <div className="imgContainer">
                       <img className="card-img-top" src={Blanqueamiento} alt="Card image cap"/>
                       </div>
                       <div className="card-body">
                         <h5>Teeth Whitening</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p className="card-text">Tooth whitening is an aesthetic procedure to lighten the tone of the teeth and give more luminosity to the smile.</p>
                       </div>
                   </div>
                 </div>
 
                 <div className="col">
-                  <div className="card bg-light text-dark">
+                  <div className="card bg-light text-dark mt-3">
                     <div className="imgContainer">
-                    <img className="card-img-top w-50" src={Implantologia} alt="Card image cap"/>
+                    <img className="card-img-top" src={Implantologia} alt="Card image cap"/>
                     </div>
                     <div className="card-body">
                       <h5>Dental Implantology</h5>
-                      <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <p className="card-text">Therefore, it is not the implant itself that is visible in the mouth, but rather the prosthesis or crown.</p>
                     </div>
                   </div>
                 </div>
               </div>
+              <div className='designDiv'></div>
+            <div className="contactContainer">
+              <h3>CONTACT</h3>
+              <hr/>
+              <div className='div-contact-column'>
+              <div className='address'>
+              <h6>Where we are?<img className="GeoImg" alt="localitation" src={Geo}/></h6>
+              <p>C/Almirante Cadarso,26<br/>46021, Valencia.</p>
+              </div>  
+              <div className='email'>
+                <h6>Email:&nbsp;&nbsp;<img className="email" alt="localitation" src={Mail}/></h6>
+                <p>jessDiegDental@clinic.com<br/>hi@clinic.com</p>
+              </div>
+              <div className='telephone'>
+                <h6>Phone &amp; whatsApp:&nbsp;&nbsp;<img className="telephone" alt="localitation" src={Call}/></h6>
+                <p>612312312<br/>612312313</p>
+              </div>    
+              </div>
             </div>
-             
-           {/*  <div className='navbarContainer'>
-                  <nav id="navbar-example3" className="navbar-light">
-                      <nav className=" nav-pills flex-column">
-                        <a className="nav-link text-info" href="#item-1">Nuestros Tratamientos</a>
-                        <a className="nav-link text-info" href="#item-2">Nuestros Fundamentos</a>
-                        <a className="nav-link text-info" href="#item-3">Nuestro equipo Humano</a>
-                        <a className="nav-link text-info" href="#item-4">¿Dónde estamos?</a>
-                        
-                      </nav>
-                    </nav>
-                    <div className="infoContainer">
-                    <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" tabIndex="0">
-                      <h3 id="item-1">Nuestros Tratamientos</h3>
-                      <div className="container">
-                        <div className="row row-cols-2">
-                          <div className="col">
-                            <h5>Implantología</h5>
-                            <p>Realizamos la colocación de implantes mediante cirugía tradicional para que tú recuperes la belleza de tu sonrisa.</p>
-                          </div>
-                          <div className="col">
-                            <h5>Prótesis dentales</h5>
-                            <p>Recuperamos las piezas perdidas y reparamos tus dientes dañados a través de tratamientos fijos o removibles.</p>
-                          </div>
-                          <div className="col">
-                            <h5>Ortodoncia</h5>
-                            <p>Corregimos y realizamos tratamientos para pacientes de cualquier edad. Colocamos tus dientes.</p>
-                          </div>
-                          <div className="col">
-                            <h5>Caries{/* <img className="caries" alt="caries" src={Caries}/> </h5>
-                            <p>Antes de que te duela, realiza una visita periódica al odontólogo y te ayudará a prevenir la caries.</p>
-                          </div>
-                        </div>
-                        </div>
-                      
-                      <h3 id="item-2"><br/>Nuestro color favorito es el blanco</h3>
-                      <p>En los centros odontológicos JessDieg nos gusta el blanco de tus dientes.<br/>
-                      Por eso, te ofrecemos el mejor servicio en alta estética dental e implantología, utilizando las últimas tecnologías y manteniéndonos a la vanguardia desde el año 2004.<br/>
-                      Ofrecemos una atención personalizada, con facilidades de pago y revisiones completas.</p>
-                      <h3 id="item-3"><br/>Nuestro equipo Humano</h3>
-                      <p>La clínica JessDieg, cuenta con un equipo multidisplinar de profesionales que nos ha permitido consolidarnos como empresa en los útlimos años.<br/>
-                       Apostamos por personas</p>
-                      <img className="humanTeam" alt="humanTeam" src={Equipo}/>
-                      
-                      <h3 id="item-4"><br/>¿Dónde estamos?<img className="GeoImg" alt="localitation" src={Geo}/></h3>
-                      <p>C/Almirante Cadarso,26<br/>46021, Valencia.<br/>Teléfono de contacto: 96345555</p>
-                     
-                    </div>       
-                    </div>
-            </div>  */}
+            </div>
+           
+
+           
         </div>
         
     )
